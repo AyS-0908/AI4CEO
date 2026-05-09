@@ -1,0 +1,174 @@
+
+## TON ROLE :
+
+Website designer.
+Expertise forte en UI/UX pour sites de "Consulting" (B2B).
+
+---
+
+## TA TACHE : 
+
+Définir le cahier des charges du site décrit ci-dessous.
+
+--- 
+
+## MINI SPEC DU SITE:
+
+### AUDIENCE :
+
+- Des PDG d'entreprises de +100 employés 
+- Francophones (limiter les buzzwords marketing et les anglicismes)
+- Intérêt pour l'IA mais non technophiles (0 jargon technique).
+- Sujets d'intérêts : comment l'IA impacte mon business ? Que peut-elle pour moi en tant que PDG (objectif du site) ?
+- Réponses à obtenir sur ce site : 
+  - Pourquoi écouter ce PDG ?
+  - Qu’a-t-il fait ?
+  - Qu’a-t-il gagné ?
+  - Comment m'y mettre ?
+
+### VERSION DU SITE : 
+
+- Prototype avancé pour démonstration
+- Ne vise pas une mise en production.
+
+### POSITIONNEMENT DU SITE :
+
+Un PDG parle à des PDG : ce qu'il retire de l'IA
+- dans son quotidien de PDG (entreprises de 800 personnes)
+- pour la conduite du changement de l'entreprise.
+
+-> Inspirer confiance, crédibilité, professionnalisme (pas de promesse excessive)
+-> Témoigner - Ne pas essayer de vendre
+
+### PAGES DU SITE :
+
+#### PAGE 1 (accueil) : IA POUR PDG
+
+*(messages clés par écran)*
+
+**Ecran 1.** [Qui] Un PDG s'adresse à ses pairs pour expliquer comment l'IA l'aide dans son rôle de PDG
+- Hook : J'ai longtemps utilisé en surface > après avoir plongé, je ne reviendrai pas en arrière.
+- Je partage cette expérience de manière concrète : - Mon parcours de découverte - Mes cas d'utilisation - Mes outils - Mon ROI professionnel et personnel.
+
+**Ecran 2.** [Pourquoi] Retour sur investissement en 2 semaines : « Plus de leadership, plus de sérénité » 
+- L'IA s'occupe des tâches urgentes peu importantes -> Je me recentre sur : les équipes, les clients, les partenaires; Et la stratégie, le pilotage, et les arbitrages.
+- Quand un PDG adopte l'IA pour lui-même (et le fait savoir) -> toutes les équipes se lancent et avancent rapidement (mieux que n'importe quelle théorie sur la conduite du changement).
+
+**Ecran 3.** VIDÉO DE TÉMOIGNAGE
+
+Utiliser https://www.youtube.com/watch?v=stcfbhiuoHo
+
+-> CTA "Workshop mensuel entre CEOs" (visible mais pas trop -> ouvre un formulaire)
+
+**Ecran 4.** Mes cas d'usage
+- Morning briefing : rv et to-do du jour ; news (dont secteur et concurrents) ; revue des KPI (analysés) du jour ; validation des réponses pré-rédigées (email, messagerie)
+- Pour chaque rv : revue du brief (profil interlocuteur, agenda & objectif, options de réflexion, messages clés, documents) ; revue du CR (faits mémorables, décision, allocation des tâches, invitation prochain rv)
+- Pour analyser des documents : questions que je me pose à l'IA > revue des analyses > focus sur les parties clés.
+- Pour produire des documents : rédaction papier > photo à l'IA > revue du document produit.
+- Pour ma visibilité sociale (donc celle de ma société) : thématiques à aborder (+ sources à utiliser) > rédaction par l'IA > revue par moi > planification et publication par l'IA
+- [etc]
+
+**Ecran 5.** Comment je m'y (re)prendrai si je démarrais :
+- Semaine 1 : configuration et apprentissage -> Liste de mes cas d'usage; priorisation et quick-wins (ex. prompts réutilisables); choix de mes outils et budget (ex. Claude Cowork, Whisper...)
+- Semaine 2 : configurer, tester, affiner, apprendre, s'habituer
+- Semaine 3 : obtenir les premiers bénéfices
+- Semaine x : 
+  - Continuer à apprendre et obtenir des bénéfices pour mon propre rôle
+  - Prendre du recul sur l'impact stratégique pour ma société.
+"Ce n’est pas magique, mais ce n’est pas difficile : c'est juste décider entre surfer la vague, ou la prendre dans la figure"
+
+-> CTA "Workshop mensuel entre CEOs" (visible mais pas trop -> ouvre un formulaire)
+
+**Ecran 6.** Témoignages d'autres CEOs
+[plusieurs vignettes de vidéo]
+
+#### PAGE 4 : CEO STARTER KIT
+
+[le code de ces outils sera fourni à part]
+- Outil de diagnostic de stratégie IA
+- Outil de diagnostic de cas d'usage
+- Outil générateur de prompts 
+
+#### PAGE 3 : REFLEXIONS
+
+Notes de réflexion
+- Ceinture jaune de la tech: le minimum technique à connaître par tout CEO
+- Directeur de cabinet : chaque CEO peut en avoir un
+- Stratégie IA : enjeu stratégique (business model) ou opérationnel (productivité)
+- Transformation IA : conduire le changement en public
+- Gouvernance IA : charte, sécurité...
+
+#### PAGE 2 : ENTRE PDGs
+
+Formulaire d'inscription au workshop (pas d'envoi réel) :
+- Nom complet (texte)
+- Société (texte)
+- Pays, Ville (texte)
+- Revenus (sélecteur : [0-10 M€] - [10-50 M€] - [50-100 M€] - [100-500 M€] - [>500 M€]
+- Maturité personnelle sur l'IA : (sélecteur : Aucune utilisation; Chatbots (ChatGpt, Gemini, Copilot, Claude); Automatisation & Agents)
+- Intérêt : (sélecteur : M'initier ; Partage d'expérience ; Stratégie & Transformation IA ; Cas d'usages ; Autre)
+Message de validation : "Prototype > 0 donnée envoyée ou stockée"
+
+### CTA :
+
+- Objectif de conversion : obtenir l'inscription au workshop mensuel entre PDG (le site ne vend pas une prestation).
+- 1 seul CTA en page d'accueil : "Rejoindre le prochain atelier "Entre PDG"
+
+### HORS SCOPE V1 : 
+
+Plateforme SaaS complète
+Espace membre
+Automatisation
+Personnalisation
+Marketplace
+Contenu technique profond
+Communauté privée
+
+---
+
+## INSTRUCTIONS :
+
+1. Définit la meilleure architecture de code -> si 1 seul possible n'est pas possible/raisonnable tu peux en prévoir plusieurs
+2. Définit ton plan de codage minimisant le risque de bug -> chaque phase du plan doit être testable avant de poursuivre
+3. Produit la 1ère phase -> arrête et demande ma validation (en m'indiquant comment tester) -> produit la 2ème phase etc.
+
+### FORMAT DU SITE : 
+
+- Style: professionnel, moderne. Design system: https://fr.ippon.tech
+- Structure: 1 écran = 1 message clé. 
+- Règles éditoriales :
+  - Réduire les textes longs en phrases courtes.
+  - Ton : PDG à PDG, sobre, direct, crédible.
+  - Préférer : concret, usage, recul, responsabilité, arbitrage, sérénité, leadership. -- Ne pas utiliser : "révolutionnaire", "disruptif", "game changer".
+  - Chaque écran doit avoir :
+    - 1 titre fort
+    - 1 phrase d’explication
+    - éventuellement 3 points maximum (densité faible)
+  - Contenu: très clair à comprendre (pas de jargon technique)
+- Responsive.
+
+---
+
+### TECHNOLOGIE :
+
+- Contraintes de code : 1 seul fichier HTML.
+  - CSS dans une balise <style>.
+  - JavaScript dans une balise <script>.
+  - Aucune base de données.
+  - Aucun framework.
+  - Aucun CDN.
+  - Aucun asset externe obligatoire.
+  - Code commenté uniquement quand utile.
+  - Noms de classes lisibles et cohérents.
+  - JS limité aux interactions nécessaires : menu mobile, formulaire, navigation, affichage page/section, éventuel modal vidéo.
+- Application stricte des bonnes pratiques de coding (architecture, DRY, YAGNI...).
+- Hébergement : Repo GitHub > Coolify > VPS Hostinger.
+
+---
+
+
+## FORMAT DE TA REPONSE : 
+
+Le cahier des charges est à destination d'une IA qui va le coder ("IA-Coder") :
+- Structure : adopte la logique d'une IA-Coder, même si différente d'un humain
+- Syntaxe : adaptée et parfaitement compréhensible pour une IA-Coder, même si moins clair pour un humain.
