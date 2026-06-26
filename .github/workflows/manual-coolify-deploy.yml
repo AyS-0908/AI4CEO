@@ -1,0 +1,20 @@
+name: Manual Coolify Deploy
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: coolify-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Trigger Coolify deploy webhook
+        env:
+          COOLIFY_DEPLOY_WEBHOOK: ${{ secrets.COOLIFY_DEPLOY_WEBHOOK }}
+        run: |
+          test -n "$COOLIFY_DEPLOY_WEBHOOK"
+          curl --fail --silent --show-error --request GET "$COOLIFY_DEPLOY_WEBHOOK" >/dev/null
