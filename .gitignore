@@ -3,8 +3,7 @@ desktop.ini
 
 # Prototype exports holding real people's data — NEVER commit (repo is public).
 # Real third-party emails, phone numbers and live access passwords.
-docs/glideapps_prototype_sources/_users- INDIVIDUALS.csv
-docs/glideapps_prototype_sources/_users- COMPANIES.csv
-docs/glideapps_prototype_sources/kmPeers 4- CIRCLES.csv
-docs/glideapps_prototype_sources/usecase 1- PROCESS.csv
-docs/glideapps_prototype_sources/prompting 1- 👉 USC ENTRY.csv
+docs/glideapps_prototype_sources/_users-*
+docs/glideapps_prototype_sources/kmPeers 4- CIRCLES*
+docs/glideapps_prototype_sources/usecase 1- PROCESS*
+docs/glideapps_prototype_sources/prompting 1- 👉 USC ENTRY*
