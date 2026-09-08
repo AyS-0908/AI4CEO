@@ -1,0 +1,199 @@
+bckoff/ 🔒 id source _txt,bckoff/ id skill _txt,bckoff/ id user _txt,bckoff/ timestamp _date,source/ type source _txt,source/ (LK) label type source,source/ www source _url,source/ (IF) display title,source/ new information _txt,source/ (TRUNCATE) new information,source/ (IF) label hide,skill/ (LK) label title,skill/ (LK) concrete achievements,skill/ (LK) initial or updated core lesson,skill/ (LK) label language,skill/ (LK) label style,prompt/ length _txt,prompt/ (LK) label length,prompt/ (TP) prompt1- new information summary,prompt/ (TP) ⚡prompt2- new core lesson,ai/ what's new _txt,ai/ updated core lesson _txt,source/ title source _txt,source/ hide new information _boolean
+SjRGwolcQfK9FRFvKashTA,O7F6YVIOQP-g5WtJ9XIPPw,p8CmevxyTA6dOuNnm-CDuQ,08/08/2023 20:51:45,1,One time,https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/growing-a-global-tech-unicorn-five-key-insights-from-infobip,https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/growing-a-global-tech-unicorn-five-key-insights-from-infobip,https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/growing-a-global-tech-unicorn-five-key-insights-from-infobip,https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/growing-a-global-tech-unicorn-five-key-insights-from-infobip,🔎 Integrated in core lesson,Corporate Venture Building ('cvB') ,"- Core principles,
+- Use cases,
+- When use 'cvB' and when not,
+- Methodology ","%Start-CoreLesson%
+Lesson 1: Introduction to Corporate Venture Building ('cvB')
+
+Core Principles:
+Corporate Venture Building ('cvB') is a strategic approach where a company creates and nurtures startups within its own ecosystem. The core principles of 'cvB' include fostering innovation, driving growth, unlocking new business opportunities, and leveraging external partnerships. It involves building internal teams, setting up dedicated funds, and providing resources and expertise to these startups.
+
+Use Cases:
+'cvB' has been successfully implemented by various companies across industries. Developing new products or services, exploring new markets, entering adjacent industries, accelerating digital transformation, and leveraging external expertise are common use cases. By leveraging the entrepreneurial spirit of startups, companies can stay ahead in the competitive landscape, discover disruptive ideas, and create a culture of innovation.
+
+When to Use 'cvB' and When Not:
+'cvB' is recommended when companies seek to capitalize on emerging technologies, drive global expansion, access external expertise, and generate long-term growth. It is especially useful when traditional innovation methods are not providing desired results or when a company wants to enter unfamiliar markets. However, 'cvB' may not be suitable for organizations with limited resources, risk-averse cultures, or those not willing to embrace uncertainty and experimentation.
+
+Methodology:
+Implementing 'cvB' involves several key steps. First, companies need to identify areas of potential disruption and define their strategic objectives. Next, they must establish partnerships, invest in startups, or create their own ventures to address these areas. Then, dedicated teams are formed, comprising both internal and external talent, to collaborate on ideas, build prototypes, and test market viability. Continuous learning and adaptation are crucial. Finally, successful ventures are scaled up, integrated back into the parent company, or spun off, depending on the desired outcomes.
+
+Conclusion:
+Corporate Venture Building ('cvB') is an innovative approach that enables companies to proactively shape their future by nurturing startups within their ecosystem. By understanding its core principles, exploring relevant use cases, identifying appropriate situations for implementation, and following a structured methodology, companies can harness the potential of 'cvB' to drive growth, expand globally, and stay ahead of the competition.
+%End-CoreLesson%
+
+%Start-NewInfo%
+New Information: According to McKinsey, one key insight to successfully grow a global tech unicorn is to focus on talent retention. By building a supportive culture, providing opportunities for growth, offering competitive compensation, and aligning incentives between the corporate venture and the parent company, companies can attract and retain top entrepreneurial talent. This reinforces the importance of fostering a culture of innovation and entrepreneurialism within the corporate environment when implementing 'cvB'. Additionally, strategic partnerships and collaborations with other industry players can accelerate the growth of corporate ventures and provide access to new markets and customer bases.
+%End-NewInfo%",English,Business,1,< 100 mots (~10 lignes),"# Your role: you are a pedagogical expert in ""Corporate Venture Building ('cvB') "".
+
+# Instruction: summarize key takes-away in the text below between %%start%% and %%end%%:
+
+# Constraints: your answer's outline must comply with:
+[*achievements*].
+
+# Format of answer: 
+- Length: < 100 mots (~10 lignes),
+- Bold markdown for sections' headings,
+- Language: English,
+- Style: Business.
+
+%%start%%
+https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/growing-a-global-tech-unicorn-five-key-insights-from-infobip.
+%%end%%","# Role: you are a pedagogical expert specializing in ""Corporate Venture Building ('cvB') "".
+
+# Context: 
+- The text below between %Start-CoreLesson% and %End-CoreLesson% is a 'core lesson' about Corporate Venture Building ('cvB') ,
+- The text below between %Start-NewInfo% and %End-NewInfo% is some 'new information' about Corporate Venture Building ('cvB') .
+
+# Instructions: write an UPDATED 'core lesson' COMPLETED with the 'new information'.
+
+# Constraints: your answer's outline must comply with:
+- Core principles,
+- Use cases,
+- When use 'cvB' and when not,
+- Methodology .
+
+# Format of your answer: 
+- Bold markdown for sections' headings,
+- Language: English,
+- Style: Business,
+- Length: updated lesson should be < 100 mots (~10 lignes).
+
+%Start-CoreLesson%
+%Start-CoreLesson%
+Lesson 1: Introduction to Corporate Venture Building ('cvB')
+
+Core Principles:
+Corporate Venture Building ('cvB') is a strategic approach where a company creates and nurtures startups within its own ecosystem. The core principles of 'cvB' include fostering innovation, driving growth, unlocking new business opportunities, and leveraging external partnerships. It involves building internal teams, setting up dedicated funds, and providing resources and expertise to these startups.
+
+Use Cases:
+'cvB' has been successfully implemented by various companies across industries. Developing new products or services, exploring new markets, entering adjacent industries, accelerating digital transformation, and leveraging external expertise are common use cases. By leveraging the entrepreneurial spirit of startups, companies can stay ahead in the competitive landscape, discover disruptive ideas, and create a culture of innovation.
+
+When to Use 'cvB' and When Not:
+'cvB' is recommended when companies seek to capitalize on emerging technologies, drive global expansion, access external expertise, and generate long-term growth. It is especially useful when traditional innovation methods are not providing desired results or when a company wants to enter unfamiliar markets. However, 'cvB' may not be suitable for organizations with limited resources, risk-averse cultures, or those not willing to embrace uncertainty and experimentation.
+
+Methodology:
+Implementing 'cvB' involves several key steps. First, companies need to identify areas of potential disruption and define their strategic objectives. Next, they must establish partnerships, invest in startups, or create their own ventures to address these areas. Then, dedicated teams are formed, comprising both internal and external talent, to collaborate on ideas, build prototypes, and test market viability. Continuous learning and adaptation are crucial. Finally, successful ventures are scaled up, integrated back into the parent company, or spun off, depending on the desired outcomes.
+
+Conclusion:
+Corporate Venture Building ('cvB') is an innovative approach that enables companies to proactively shape their future by nurturing startups within their ecosystem. By understanding its core principles, exploring relevant use cases, identifying appropriate situations for implementation, and following a structured methodology, companies can harness the potential of 'cvB' to drive growth, expand globally, and stay ahead of the competition.
+%End-CoreLesson%
+
+%Start-NewInfo%
+New Information: According to McKinsey, one key insight to successfully grow a global tech unicorn is to focus on talent retention. By building a supportive culture, providing opportunities for growth, offering competitive compensation, and aligning incentives between the corporate venture and the parent company, companies can attract and retain top entrepreneurial talent. This reinforces the importance of fostering a culture of innovation and entrepreneurialism within the corporate environment when implementing 'cvB'. Additionally, strategic partnerships and collaborations with other industry players can accelerate the growth of corporate ventures and provide access to new markets and customer bases.
+%End-NewInfo%
+%End-CoreLesson%
+
+%Start-NewInfo%
+https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/growing-a-global-tech-unicorn-five-key-insights-from-infobip
+%End-NewInfo%","**Key Takeaways:**
+- The article discusses insights from Infobip, a global tech unicorn, on growing successful corporate ventures.
+- Infobip emphasizes the importance of maintaining a startup mindset, even as the company grows.
+- The company believes in empowering its employees with autonomy and experimentation, allowing them to take risks and learn from failures.
+- Collaboration and cross-functional teams are key to driving innovation and breaking down silos within the organization.
+- Infobip stresses the importance of continuous learning and adapting to market dynamics.
+- The company also highlights the significance of a customer-centric approach and delivering value to customers.
+- Finally, Infobip emphasizes the need for leaders to set a vision and create an environment that fosters entrepreneurship and innovation.","%Start-CoreLesson%
+Lesson 1: Introduction to Corporate Venture Building ('cvB')
+
+Core Principles:
+Corporate Venture Building ('cvB') is a strategic approach where a company creates and nurtures startups within its own ecosystem. The core principles of 'cvB' include fostering innovation, driving growth, unlocking new business opportunities, and leveraging external partnerships. It involves building internal teams, setting up dedicated funds, and providing resources and expertise to these startups.
+
+Use Cases:
+'cvB' has been successfully implemented by various companies across industries. Developing new products or services, exploring new markets, entering adjacent industries, accelerating digital transformation, and leveraging external expertise are common use cases. By leveraging the entrepreneurial spirit of startups, companies can stay ahead in the competitive landscape, discover disruptive ideas, and create a culture of innovation.
+
+When to Use 'cvB' and When Not:
+'cvB' is recommended when companies seek to capitalize on emerging technologies, drive global expansion, access external expertise, and generate long-term growth. It is especially useful when traditional innovation methods are not providing desired results or when a company wants to enter unfamiliar markets. However, 'cvB' may not be suitable for organizations with limited resources, risk-averse cultures, or those not willing to embrace uncertainty and experimentation.
+
+Methodology:
+Implementing 'cvB' involves several key steps. First, companies need to identify areas of potential disruption and define their strategic objectives. Next, they must establish partnerships, invest in startups, or create their own ventures to address these areas. Then, dedicated teams are formed, comprising both internal and external talent, to collaborate on ideas, build prototypes, and test market viability. Continuous learning and adaptation are crucial. Finally, successful ventures are scaled up, integrated back into the parent company, or spun off, depending on the desired outcomes.
+
+Conclusion:
+Corporate Venture Building ('cvB') is an innovative approach that enables companies to proactively shape their future by nurturing startups within their ecosystem. By understanding its core principles, exploring relevant use cases, identifying appropriate situations for implementation, and following a structured methodology, companies can harness the potential of 'cvB' to drive growth, expand globally, and stay ahead of the competition.
+%End-CoreLesson%
+
+%Start-NewInfo%
+New Information: According to McKinsey, one key insight to successfully grow a global tech unicorn is to focus on talent retention. By building a supportive culture, providing opportunities for growth, offering competitive compensation, and aligning incentives between the corporate venture and the parent company, companies can attract and retain top entrepreneurial talent. This reinforces the importance of fostering a culture of innovation and entrepreneurialism within the corporate environment when implementing 'cvB'. Additionally, strategic partnerships and collaborations with other industry players can accelerate the growth of corporate ventures and provide access to new markets and customer bases.
+%End-NewInfo%",,
+YvR.nbCfQAC.RWa.fg2lIg,3ZrerOKsTVKQsGb3XwUxaQ,p8CmevxyTA6dOuNnm-CDuQ,08/08/2023 20:56:30,1,One time,https://email.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier?stcr=C9A75624B81C4A47AB66FFA090CEB42B&__hScId__=v700000188c1456386a1b053f4bbe5be50&__hRlId__=adf0b84c70f34eb70000021ef3a0bce5&__hDId__=adf0b84c-70f3-4eb7-985b-6540ee649c74&__hSD__=d3d3Lm1ja2luc2V5LmNvbQ==&cid=other-eml-dre-mip-mck&hlkid=13ae1fd5d4c84f24885bc303be5e0efc&hctky=9707270&hdpid=adf0b84c-70f3-4eb7-985b-6540ee649c74,Mc Kinsey,https://email.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier?stcr=C9A75624B81C4A47AB66FFA090CEB42B&__hScId__=v700000188c1456386a1b053f4bbe5be50&__hRlId__=adf0b84c70f34eb70000021ef3a0bce5&__hDId__=adf0b84c-70f3-4eb7-985b-6540ee649c74&__hSD__=d3d3Lm1ja2luc2V5LmNvbQ==&cid=other-eml-dre-mip-mck&hlkid=13ae1fd5d4c84f24885bc303be5e0efc&hctky=9707270&hdpid=adf0b84c-70f3-4eb7-985b-6540ee649c74,https://email.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier?stcr=C9A75624B81C4A47AB66FFA090CEB42B&__hScId__=v700000188c1456386a1b053f4bbe5be50&__hRlId__=adf0b84c70f34eb70000021ef3a0bce5&__hDId__=adf0b84c-70f3-4eb7-985b-6540ee649c74&__hSD__=d3d3Lm1ja2luc2V5LmNvbQ==&cid=other-eml-dre-mip-mck&hlkid=13ae1fd5d4c84f24885bc303be5e0efc&hctky=9707270&hdpid=adf0b84c-70f3-4eb7-985b-6540ee649c74,🧹 Hidden,Artificial Intelligence,"- Core concepts of AI,
+- Use cases","**Artificial Intelligence**
+
+Artificial Intelligence (AI) is a branch of computer science that focuses on the development of intelligent machines that can perform tasks that typically require human intelligence. AI involves the study and simulation of human intelligence processes, such as learning, problem-solving, perception, and decision-making.
+
+One area where AI is making significant breakthroughs is in the field of physics research. Researchers are leveraging AI algorithms to analyze vast amounts of data and extract useful insights. For example, AI is being used to help analyze particle collisions in particle physics experiments like the Large Hadron Collider (LHC). By using machine learning techniques, scientists can identify and classify patterns in the data, potentially leading to new discoveries in high-energy physics.
+
+AI is also helping automate the process of designing new materials. By training machine learning models on massive databases of known materials and their properties, researchers can predict the characteristics of novel materials without the need for expensive and time-consuming physical experiments.
+
+Furthermore, AI-powered robots are being developed to assist scientists in conducting complex experiments and simulations. These robots can perform repetitive tasks with precision and accuracy, freeing up researchers' time to focus on more advanced scientific inquiries.
+
+In addition to these applications, AI is also finding significant use cases in B2B services. McKinsey & Company states that AI has the potential to unlock substantial economic value in the B2B sector. With AI, businesses can automate various processes, improve decision-making, enhance customer experience, and optimize operations. AI-powered chatbots and virtual assistants are being used by businesses to provide personalized support and streamline customer interactions.
+
+Moreover, AI can help in predicting market trends and detecting anomalies, enabling businesses to make data-driven decisions and identify potential risks or opportunities. AI algorithms can analyze vast amounts of data from multiple sources, providing valuable insights for companies to optimize their supply chains, pricing strategies, and resource allocation.
+
+In conclusion, AI is revolutionizing not only the field of physics research but also B2B services. It enables faster data analysis, predictive modeling, automation, and improved decision-making. The integration of AI in various domains holds great promise for accelerating scientific progress and driving economic growth through enhanced productivity and efficiency. The rapid advancement of AI technology continues to unlock new possibilities and transform industries across the globe.",English,Pédagogique,1,< 100 mots (~10 lignes),"# Your role: you are a pedagogical expert in ""Artificial Intelligence"".
+
+# Instruction: summarize key takes-away in the text below between %%start%% and %%end%%:
+
+# Constraints: your answer's outline must comply with:
+[*achievements*].
+
+# Format of answer: 
+- Length: < 100 mots (~10 lignes),
+- Bold markdown for sections' headings,
+- Language: English,
+- Style: Pédagogique.
+
+%%start%%
+https://email.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier?stcr=C9A75624B81C4A47AB66FFA090CEB42B&__hScId__=v700000188c1456386a1b053f4bbe5be50&__hRlId__=adf0b84c70f34eb70000021ef3a0bce5&__hDId__=adf0b84c-70f3-4eb7-985b-6540ee649c74&__hSD__=d3d3Lm1ja2luc2V5LmNvbQ==&cid=other-eml-dre-mip-mck&hlkid=13ae1fd5d4c84f24885bc303be5e0efc&hctky=9707270&hdpid=adf0b84c-70f3-4eb7-985b-6540ee649c74.
+%%end%%","# Role: you are a pedagogical expert specializing in ""Artificial Intelligence"".
+
+# Context: 
+- The text below between %Start-CoreLesson% and %End-CoreLesson% is a 'core lesson' about Artificial Intelligence,
+- The text below between %Start-NewInfo% and %End-NewInfo% is some 'new information' about Artificial Intelligence.
+
+# Instructions: write an UPDATED 'core lesson' COMPLETED with the 'new information'.
+
+# Constraints: your answer's outline must comply with:
+- Core concepts of AI,
+- Use cases.
+
+# Format of your answer: 
+- Bold markdown for sections' headings,
+- Language: English,
+- Style: Pédagogique,
+- Length: updated lesson should be < 100 mots (~10 lignes).
+
+%Start-CoreLesson%
+**Artificial Intelligence**
+
+Artificial Intelligence (AI) is a branch of computer science that focuses on the development of intelligent machines that can perform tasks that typically require human intelligence. AI involves the study and simulation of human intelligence processes, such as learning, problem-solving, perception, and decision-making.
+
+One area where AI is making significant breakthroughs is in the field of physics research. Researchers are leveraging AI algorithms to analyze vast amounts of data and extract useful insights. For example, AI is being used to help analyze particle collisions in particle physics experiments like the Large Hadron Collider (LHC). By using machine learning techniques, scientists can identify and classify patterns in the data, potentially leading to new discoveries in high-energy physics.
+
+AI is also helping automate the process of designing new materials. By training machine learning models on massive databases of known materials and their properties, researchers can predict the characteristics of novel materials without the need for expensive and time-consuming physical experiments.
+
+Furthermore, AI-powered robots are being developed to assist scientists in conducting complex experiments and simulations. These robots can perform repetitive tasks with precision and accuracy, freeing up researchers' time to focus on more advanced scientific inquiries.
+
+In addition to these applications, AI is also finding significant use cases in B2B services. McKinsey & Company states that AI has the potential to unlock substantial economic value in the B2B sector. With AI, businesses can automate various processes, improve decision-making, enhance customer experience, and optimize operations. AI-powered chatbots and virtual assistants are being used by businesses to provide personalized support and streamline customer interactions.
+
+Moreover, AI can help in predicting market trends and detecting anomalies, enabling businesses to make data-driven decisions and identify potential risks or opportunities. AI algorithms can analyze vast amounts of data from multiple sources, providing valuable insights for companies to optimize their supply chains, pricing strategies, and resource allocation.
+
+In conclusion, AI is revolutionizing not only the field of physics research but also B2B services. It enables faster data analysis, predictive modeling, automation, and improved decision-making. The integration of AI in various domains holds great promise for accelerating scientific progress and driving economic growth through enhanced productivity and efficiency. The rapid advancement of AI technology continues to unlock new possibilities and transform industries across the globe.
+%End-CoreLesson%
+
+%Start-NewInfo%
+https://email.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier?stcr=C9A75624B81C4A47AB66FFA090CEB42B&__hScId__=v700000188c1456386a1b053f4bbe5be50&__hRlId__=adf0b84c70f34eb70000021ef3a0bce5&__hDId__=adf0b84c-70f3-4eb7-985b-6540ee649c74&__hSD__=d3d3Lm1ja2luc2V5LmNvbQ==&cid=other-eml-dre-mip-mck&hlkid=13ae1fd5d4c84f24885bc303be5e0efc&hctky=9707270&hdpid=adf0b84c-70f3-4eb7-985b-6540ee649c74
+%End-NewInfo%","Generative AI has the potential to transform industries and drive economic growth. This technology uses machine learning to create new content, such as images, videos, and text, that is indistinguishable from human-generated content. Generative AI can improve productivity by automating tasks and enabling customization at scale. It can also enhance decision-making through data analysis and simulations. However, there are challenges to consider, such as ethical concerns, bias, and the impact on employment. Organizations need to understand and harness the potential of generative AI to stay competitive in the evolving digital landscape.","**Artificial Intelligence**
+
+Artificial Intelligence (AI) is a branch of computer science that focuses on the development of intelligent machines that can perform tasks that typically require human intelligence. AI involves the study and simulation of human intelligence processes, such as learning, problem-solving, perception, and decision-making.
+
+One area where AI is making significant breakthroughs is in the field of physics research. Researchers are leveraging AI algorithms to analyze vast amounts of data and extract useful insights. For example, AI is being used to help analyze particle collisions in particle physics experiments like the Large Hadron Collider (LHC). By using machine learning techniques, scientists can identify and classify patterns in the data, potentially leading to new discoveries in high-energy physics.
+
+AI is also helping automate the process of designing new materials. By training machine learning models on massive databases of known materials and their properties, researchers can predict the characteristics of novel materials without the need for expensive and time-consuming physical experiments.
+
+Furthermore, AI-powered robots are being developed to assist scientists in conducting complex experiments and simulations. These robots can perform repetitive tasks with precision and accuracy, freeing up researchers' time to focus on more advanced scientific inquiries.
+
+In addition to these applications, AI is also finding significant use cases in B2B services. McKinsey & Company states that AI has the potential to unlock substantial economic value in the B2B sector. With AI, businesses can automate various processes, improve decision-making, enhance customer experience, and optimize operations. AI-powered chatbots and virtual assistants are being used by businesses to provide personalized support and streamline customer interactions.
+
+Moreover, AI can help in predicting market trends and detecting anomalies, enabling businesses to make data-driven decisions and identify potential risks or opportunities. AI algorithms can analyze vast amounts of data from multiple sources, providing valuable insights for companies to optimize their supply chains, pricing strategies, and resource allocation.
+
+In conclusion, AI is revolutionizing not only the field of physics research but also B2B services. It enables faster data analysis, predictive modeling, automation, and improved decision-making. The integration of AI in various domains holds great promise for accelerating scientific progress and driving economic growth through enhanced productivity and efficiency. The rapid advancement of AI technology continues to unlock new possibilities and transform industries across the globe.",Mc Kinsey,true

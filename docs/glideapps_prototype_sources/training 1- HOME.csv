@@ -1,0 +1,199 @@
+(IF) title,(IF) title testimonies,(IF) testimonies,(IF) subtitle,(IF) value added,(IF) takes away title,(IF) takes away detail,old_ Takes Away,(IF) warning,FR témoignages _Rtxt
+"#### Comprendre les enjeux, la pratique et la mise en oeuvre","<h3 style = ""color: #7550dd;"">ILS NOUS FONT CONFIANCE",https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/4P7hyxb4SawKuAEkyr2d/pub/keO6hFTYjoFoIIuW0d0X.png,"<div style=""text-align: center; line-height: 1.5;"">
+<span style = ""font-size: 18px;"">À la fin de cette formation
+<br>
+<span style=""font-size: 22px; font-weight: bold;"">VOUS MAÎTRISEREZ","<style>
+  @media (max-width: 768px) {
+    .responsive-table {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+  .table-cell-top {
+    vertical-align: top;
+  }
+</style>
+
+<div class=""responsive-table"">
+<table border=""1"" style=""width: 100%; border-collapse: collapse;"">
+<thead>
+
+<tr>
+<th style=""text-align: left;"">POURQUOI<br><span style="" color: #724ddd; font-weight: bold;"">- Enjeux</th>
+<th style=""text-align: left;"">QUOI<br><span style="" color: #724ddd; font-weight: bold;"">- Cas d'Usages</th>
+<th style=""text-align: left;"">COMMENT<br><span style="" color: #724ddd; font-weight: bold;"">- Déploiement</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class=""table-cell-top"" style=""vertical-align: top;"">
+<ul>
+<li>Vitesse d'évolution</li><li>Champ d'application</li>
+<li>Société</li>
+</ul>
+</td>
+
+<td class=""table-cell-top"" style=""vertical-align: top;"">
+<ul>            
+<li>Ce que c'est, et n'est pas</li>
+<li>Termes clés techniques</li>
+<li>""Prompter"" VOTRE cas d'usage</li>
+</ul>
+</td>
+
+<td class=""table-cell-top"" style=""vertical-align: top;"">
+<ul>
+<li>Plan d'action niveau 1</li>
+<li>Anticipation du niveau 2</li><li>Points d'attention</li>
+</ul>
+</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+
+<div style=""font-size: 12px; color: grey;"">  
+NB : à visée de simplification, le mot ""IA"" se réfère aux""Grands Modèles de Language"" (LLM, ex. ChatGpt)
+<br>
+</div>","<div style=""text-align: center; font-size: 22px; font-weight: bold;"">À EMPORTER</div>","<!DOCTYPE html>
+<html lang=""en"">
+<head>
+<meta charset=""UTF-8"">
+<meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+<title>List Style Example</title>
+<!-- No custom CSS for list-style needed -->
+<style>
+  /* Style adjustments for demonstration purposes only */
+  .table-cell-top {
+    vertical-align: top;
+  }
+</style>
+</head>
+<body>
+
+<div class=""responsive-table"">
+  <table border=""1"" style=""width: 100%; border-collapse: collapse;"">
+    <tbody>
+      <tr>
+        <td class=""table-cell-top"">
+          <ul>
+            <li>Compréhension <span style=""color: #724ddd; font-weight: bold;"">Théorique </span> et <span style=""color: #724ddd; font-weight: bold;"">Pratique</span></li>
+            <li>Modèle de <span style=""color: #724ddd; font-weight: bold;"">Prompt Simple</span></li>
+            <li>Modèle de <span style=""color: #724ddd; font-weight: bold;"">Prompt Avancé</span></li>
+          </ul>
+        </td>
+        <td class=""table-cell-top"">
+          <ul>
+            <li><span style=""color: #724ddd; font-weight: bold;"">Plan d'action </span> pour déployer l'IA niveau 1</li>
+            <li>Personnalisation de <span style=""color: #724ddd; font-weight: bold;""> VOS GPTs</span></li>
+ <li>Accès à des<span style=""color: #724ddd; font-weight: bold;""> GPTs </span> clés (voir l'onglet ""ia.PROMPT"")</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>","FRENCH ----
+
+        <td class=""table-cell-top"">
+          <ul>
+          <li><span style=""color:grey;"">(bientôt) Générateur de ""Prompt"" pour <span style=""color: #724ddd; font-weight: bold;"">VOS cas d'usage</span></li>
+            <li><span style=""color:grey;"">(bientôt) <span style=""color: #724ddd; font-weight: bold;"">Base de connaissance</span></li>
+            <li><span style=""color:grey;"">(bientôt) Échange 24/7 avec vos </span><span style=""color: #724ddd; font-weight: bold;"">Pairs</span></li>
+             <li><span style=""color:grey;"">(bientôt) </span><span style=""color: #724ddd; font-weight: bold;"">+2000 outils d'IA</span><span style=""color: grey;""> priorisés par vos pairs</li>
+          </ul>
+        </td>
+
+
+ENGLISH ----
+
+<td class=""table-cell-top"">
+          <ul>
+          <li><span style=""color:grey;"">(soon) Prompt generator per <span style=""color: #724ddd; font-weight: bold;"">YOUR use case</span></li>
+            <li><span style=""color:grey;"">(soon) AI <span style=""color: #724ddd; font-weight: bold;"">Knowledge Base</span></li>
+            <li><span style=""color:grey;"">(soon) 24/7 exchange with your </span><span style=""color: #724ddd; font-weight: bold;"">Peers</span></li>
+             <li><span style=""color:grey;"">(soon) </span><span style=""color: #724ddd; font-weight: bold;"">+2000 AI tools</span><span style=""color: grey;""> ranked by your Peers</li>
+          </ul>
+        </td>","<div style=""text-align: center;"">
+  <div style=""border: 1px solid #a993eb; border-radius: 2px; font-size: 10px; padding: 10px; display: inline-block; text-align: left;"">
+      <ul style=""list-style-type: disc; padding-left: 20px; margin: 0;"">
+          <li>Les commentaires audio, instructions d'exercices et résumés sont disponibles en Français et Anglais</li>
+          <li>Les slides et prompts sont en Anglais (bientôt en Français).</li>
+          <li>Il est préférable (mais non obligatoire) pour les exercices d'avoir l'abonnement <a href=""https://openai.com/chatgpt/pricing"" style=""background-color: #e3dbf8; color: #7550dd; padding: 2px 5px; border-radius: 3px;"">OpenAI GPT+</a> ou <a href=""https://www.microsoft.com/en-us/store/b/copilotpro"" style=""background-color: #e3dbf8; color: #7550dd; padding: 2px 5px; border-radius: 3px;"">Microsoft Copilot Pro</a></li>
+      </ul>
+  </div>
+</div>","<!DOCTYPE html>
+<html lang=""fr"">
+<head>
+<meta charset=""UTF-8"">
+<meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+<title>Carrousel de Témoignages</title>
+<style>
+  .carousel {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+  }
+  .slides {
+    display: none;
+    padding: 20px;
+    text-align: center;
+  }
+  .carousel input[type=""radio""] {
+    display: none;
+  }
+  .carousel-controls {
+    text-align: center;
+  }
+  .carousel-controls label {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 4px;
+    background-color: #ddd;
+    padding: 4px 12px;
+    border-radius: 50%;
+  }
+  #slide1:checked ~ .slides-container .slide1,
+  #slide2:checked ~ .slides-container .slide2,
+  #slide3:checked ~ .slides-container .slide3 {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class=""carousel"">
+  <input type=""radio"" name=""slides"" id=""slide1"" checked>
+  <input type=""radio"" name=""slides"" id=""slide2"">
+  <input type=""radio"" name=""slides"" id=""slide3"">
+
+  <div class=""slides-container"">
+    <div class=""slides slide1"">
+      <p>""Avant ce cours, je me doutais de l'importance de l'IA ; mais après, j'ai eu un vrai déclic, renforcé par une vraie compréhension tant théorique que pratique : je vais mobiliser sans délai l'entreprise sur le sujet"".</p>
+      <cite>— Dirigeant de PME</cite>
+    </div>
+    <div class=""slides slide2"">
+      <p>""Un cours très efficace : pédagogique, combinant les concepts et le concret, personnalisant les démonstrations et exercices par fonction. Adapté à toutes les audiences qui savent ce qu'est un ordinateur ... Merci !"".</p>
+      <cite>— Directeur Marketing de PME</cite>
+    </div>
+    <div class=""slides slide3"">
+      <p>""Promesse tenue, 100% recommandé ! Les 'Enjeux' m'ont retourné la tête ! La 'Pratique' m'a ouvert les yeux sur les cas d'usage. Et le 'Plan d'action' me permet de lancer la montée d'une 1ère marche d'IA demain matin. Vraiment une très bonne formation.""</p>
+      <cite>— DRH d'ETI</cite>
+    </div>
+  </div>
+
+  <div class=""carousel-controls"">
+    <label for=""slide1""></label>
+    <label for=""slide2""></label>
+    <label for=""slide3""></label>
+  </div>
+</div>
+
+</body>
+</html>
+"

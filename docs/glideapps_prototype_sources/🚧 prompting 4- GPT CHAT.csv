@@ -1,0 +1,9 @@
+Role,ai/ (IF) response or loading,prompt/ (RU) # session ID,prompt/ (TP) 1st prompt for chat,prompt/ (TP) Other prompts for chat,prompt/ (IF) 1st or other chat,bckoff/ id user _txt,bckoff/ user email
+user,AI IS WORKING . . . ⏱️ (up to 30 seconds),0,"Following my previous question, your answer was: 
+
+"" "".
+ 
+I have another question for which I expect a conscise answer, in :
+","OK. I have another question for which I expect a conscise answer, in :
+","OK. I have another question for which I expect a conscise answer, in :
+",Bd5A1cyJSsK8XkHGYCPJwg,aymard.de.scorbiac@gmail.com

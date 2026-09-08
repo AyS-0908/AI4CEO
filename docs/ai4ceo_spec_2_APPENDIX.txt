@@ -1,0 +1,133 @@
+﻿## DOCUMENTS OPERATIONS:
+
+
+### STRUCTURATION
+
+
+**Process indicators:**
+Only:
+    - a start message: `✨ AI is working for you… It can take up to 2 mn’,
+    - a final success message: `✅ Structuration per your Template delivered -> See in [tab_name] body`.  
+    - or an explicit error message upon termination.
+No status indicators in the list. No real-time progress log in the dialogue.
+
+
+#### Step 1 — Validation
+
+
+1. Provide list of active interviews -> For each interview: tick box (only 1 possible) + interview name.
+3. If  interview is empty (no text content before `---MERGED---` or entirely empty) -> warning, skip.
+4. Load the Interview template . If not found -> fatal error, complete shutdown.
+5. Look up interviewee metadata (see 3).
+
+
+#### Step 2 — Merger (prompt ID : `merger`)
+1. Read the interview.
+2. **Idempotence**: if `---MERGED---` already exists, the content **before** = original raw notes (input). The content **after** will be **overwritten**.
+3. If `---MERGED---` is absent: raw notes = full content.
+4. Inject the context into the prompt.
+5. Call LLM.
+6. Write:
+   - If the separator existed: replace all content after `---MERGED---`.
+   - Otherwise: append to the end of the body -> line `---MERGED---` -> result.
+   - Plain text (no Markdown conversion).
+
+
+#### Step 3 — Structuring
+1. Read the interview **after** `---MERGED---`.
+2. Load the template
+3. Insert the context into the prompt.
+4. Call the LLM.
+5. Writing: `clearAndWrite()` (clear body -> Markdown conversion -> insertion).
+
+
+---
+
+
+### INTERVIEWS SYNTHESIS
+
+
+**STEPS:**
+1. **Collecte** : parcourir tous les tabs d'interviews actives sous `INTERVIEWS`. Pour chaque interview active, lire le **body du onglet parent** `Int_[#]_[Nom]`.
+2. Si aucun onglet parent n'a de contenu -> erreur, arrêt.
+3. **Concaténation** avec séparateur par interview :
+   ```
+   --- INTERVIEW: [Nom du onglet] ---
+   [contenu body du onglet parent]
+   ```
+4. Lire `Int_Synthesis_Notes` (notes manuelles optionnelles). Si vide ou absent -> placeholder vide.
+5. Charger template `Tpl_Interview_Synthesis`.
+6. Injecter dans prompt `synthesis`.
+7. Appeler LLM.
+8. Écriture dans le **onglet racine `INTERVIEWS`** : `clearAndWrite()`.
+
+
+---
+
+
+### BENCHMARK
+
+
+#### SEARCH (prompt ID : `data_insights_research`)
+
+
+  1. Read `Bnch_Questions` -> question list.
+  2. Read `Bnch_Players` -> players list.
+  3. Calculate the number of total calls (questions × players). If > 50 -> display a warning with the number and ask for confirmation.
+  4. For each combinaison (question, player), run sequentially:
+     a. Inject `{{QUESTION}}` and `{{PLAYER}}` in the prompt.
+     b. Call `callLLM()` with `options.grounding = true`.
+     c. Append in `Bnch_Notes` :
+      ```
+      --- AI RESEARCH: [Player] / [Question] ---
+      [résultat]
+      --- END ---
+      ```
+  5. The content is appended **at the end of the body**, without altering the existing content (manual user notes at the top of the tab).
+  6. No deduplication if relaunched. The user manages manually.
+
+
+#### DATA INSIGHTS STRUCTURING (prompt ID : `data_insights_structuring`)
+
+
+  1. Read the entire `Bnch_Notes` file (manual notes + search results).
+  2. Load the `Tpl_Data insights` template.
+  3. Inject into the `data insights_structuration` prompt.
+  4. Call the LLM.
+  5. Write to the **`BENCHMARK` root tab**: `clearAndWrite()`.
+
+
+---
+
+
+### FINAL SYNTHESIS
+
+
+**TRIGGER:**  
+Menu -> Final Deliverable.
+
+
+**STEPS:**
+1. Read the body of `INTERVIEWS` (interview summary). If empty -> warning (non-blocking; the final summary may only cover the data insights).
+2. Read the body of `BENCHMARK` (structured data insights). If empty -> warning (non-blocking).
+3. Read `Final_Synt_Notes` (optional manual notes). If empty or absent -> empty placeholder.
+4. If all three are empty -> error message + terminate.
+5. Concatenate:
+   ```
+   --- 
+   ## **USER NOTES** SUMMARY:
+   > [body `Final_Synt_Notes`]
+
+
+   --- 
+   ## **INTERVIEW** SUMMARY:
+   > [body `INTERVIEWS`]
+   
+   --- 
+   ## **BENCHMARK** SUMMARY:
+   > [body `BENCHMARK`]
+   ```
+6. Load template `Tpl_Final_Synthesis`.
+7. Inject into prompt `final_synthesis`.
+8. Call selected LLM in tab `Prompts`.
+9. Write to the **root tab `FINAL_SYNTHESIS`**: `clearAndWrite()`.

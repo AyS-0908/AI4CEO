@@ -1,0 +1,211 @@
+﻿# AI STRATEGY SPECIFICATION
+
+
+—
+Database: _AI STRATEGY TOOL - WIP
+—
+
+
+[UPDATE- Any text preceded by “⚠️ “ are impacted by the merger of tabs in the Google Sheets]
+
+
+## 1. PROJECT INTRODUCTION
+
+
+**1.1. SELF-ASSESSMENT TOOL** for SMBs
+Value proposition is to enable SMBs to self-assess:
+- Strategic risk — Is AI an existential threat to the business model?
+- Process AI-eligibility — Which processes can realistically benefit from AI (value vs. feasibility)?
+
+
+**1.2. OUTPUT:** 
+- A scored diagnosis
+- and AI-generated strategic report (Google Doc).
+
+
+**1.3. CORE LOGIC:**
+1_company → 2_mission → 2_mission_function → optional instance creation in 3_diag_strategy and/or ⚠️ 3_diag_process → detailed scoring is entered at process level in ⚠️ 3_diag_process → final report generation tracked in 4_mission_report.
+User Story: As the director of an SME, I want to assess my company’s AI maturity and identify high-impact processes in order to make informed decisions on adoption and minimise my risks.
+Key features:
+- Strategic vulnerability assessment: Immediately identify whether AI poses a direct threat to your business model or represents a growth opportunity.
+- Process-specific assessment: Measure the relevance of AI for each business function (e.g. finance, HR, sales) by quantifying the actual added value against technical feasibility.
+- Automatic project prioritisation: Classify your projects as ‘Quick Wins’, ‘Strategic Priorities’ or ‘Projects to Defer’ using our recommendation engine, to avoid unprofitable investments.
+- ‘Turnkey’ action plan: Receive an automatically generated strategic report, incorporating personalised recommendations and a clear roadmap for your teams.
+
+
+**1.4. STRUCTURAL PRINCIPLE:**
+- 2_mission = mission header only
+- 2_mission_function = authoritative function scope per mission
+- 3_diag_strategy = macro strategic diagnosis
+- ⚠️ 3_diag_process = function-scoped detailed scoring engine
+
+
+---
+
+
+## 2. SHEETS PRESENTATION        
+
+
+### CORE INVARIANTS:
+- A. `2_mission_function` is the sole authoritative source of process-diagnosis scope.
+- B. `⚠️ 3_diag_process` must be created/read/grouped by `id_mission_function`.
+- C. Function scope must never be inferred from labels, merged text, or names.
+- D. Criteria columns are identified by matching Row-2 headers against pattern `crit_\d+`. Their left-to-right order must exactly match `_scoring_criteria` row order. The script must discover crit columns dynamically (regex on Row 2), never hardcode a fixed count.
+- E. All reads/writes use row-2 canonical headers, never display labels or hardcoded column indexes.
+
+
+### DETAILS:
+[TO UPDATE following the mergers of diag_dpt and diag_process + restructuring of lib_* into lib_cat_*]
+
+
+*Notes:*
+- Row 1 per sheet is only an indication of the field type (e.g. text, datalist...). Row 2 is the canonic header. Rows 3 and onward are data
+- IDs (field type: UUID- PK) is immutable + unique per sheet
+
+
+| Sheet | Sheet_type | Phase | Main_owner | Main_purpose | Primary_grain | Main_inputs | Main_outputs | Notes |
+|---|---|---|---|---|---|---|---|---|
+| 1_company | Core | Setup | User | Store company master data reused by all missions | 1 row = 1 company | Manual user input | Company context consumed by 2_mission | |
+| 2_mission | Core | Scoping | User | Store one mission header and mission-level context | 1 row = 1 mission | Manual user input + FK to 1_company | Mission context consumed by 2_mission_function, 3_diag_strategy, diagnosis instance sheets, and 4_mission_report | Mission header table only. Selected functions are NOT stored here. |
+| 2_mission_function | Core | Scoping | User | Store selected functions per mission | 1 row = 1 mission + 1 selected function | Manual user input + FK to 2_mission | Function scope consumed by ⚠️ 3_diag_department and ⚠️ 3_diag_process | Authoritative scope table for function selection in V1. |
+| 3_diag_strategy | Core | Diagnosis | User | Store mission-specific answers to imported strategy questions | 1 row = 1 mission + 1 strategy question | Template rows from ⚠️ _lib_strategy + FK to 2_mission + manual user answers | Strategy diagnosis dataset consumed by 4_mission_report | Instance table. Created by copying active library questions into mission scope. |
+| ⚠️ 3_diag_process | Core | Diagnosis | User | Store mission-specific process-level diagnosis rows within selected function scope | 1 row = 1 mission + 1 selected function + 1 process | Imported process rows from _lib_questions + mission/function scope + manual user answers + formula outputs | Process diagnosis dataset aggregated into ⚠️ 3_diag_department and consumed by 4_mission_report | V1 grain = process. Grain must stay function-scoped. |
+| 4_mission_report | Output | Delivery | System | Store metadata about generated report artifacts | 1 row = 1 generated report artifact | Mission core sheets including 2_mission_function + settings tables | Report artifact tracking | Output tracking table only. |
+| ⚠️ _lib_strategy | Reference | Library | Developer | Store reusable strategy question templates | 1 row = 1 strategy question | Developer-maintained reference data | Template source for 3_diag_strategy | |
+| ⚠️ _lib_process | Reference | Library | Developer | Store reusable function / department / process template hierarchy | 1 row = 1 process | Developer-maintained reference data | Template source for ⚠️ 3_diag_department and ⚠️ 3_diag_process | |
+| ⚠️ _lib_steps | Reference | Library | Developer | Store optional reusable process-step templates for V2 | 1 row = 1 process step | Developer-maintained reference data | Optional template source for process-step logic | V2 only. Not required by V1 core workflow. |
+| _scoring_criteria | Reference | Scoring | Developer | Store scoring criteria definitions and scoring metadata | 1 row = 1 criterion | Developer-maintained reference data | Scoring model reference consumed by diagnosis tables | Critical rule: logical order in this table must exactly match crit_* (crit_01, crit_02…) column order in diagnosis tables. |
+| _scoring_reco | Reference | Scoring | Developer | Store recommendation rules derived from value and feasibility bands | 1 row = 1 recommendation rule | Developer-maintained reference data | Recommendation lookup consumed by synthesis logic | Use explicit bands. Do not use one implicit Split_range field. |
+| _settings_api | Settings | Configuration | Developer | Store AI provider and model configuration metadata | 1 row = 1 provider-model configuration | Developer-maintained configuration | Configuration consumed by report generation | Store API key outside sheets in PropertiesService only. |
+| _settings_outputs | Settings | Configuration | Developer | Store prompt templates and output default parameters | 1 row = 1 output configuration | Developer-maintained configuration | Configuration consumed by report generation | Central output configuration table. Hosts the `output_folder_id`|
+| _options_list | Reference | Shared | Developer | Store reusable dropdown lists for data validation | 1 row = 1 datalist | Developer-maintained reference data | Data validation source for any sheet | |
+
+
+---
+
+
+## 3. ENTITY RELATIONSHIPS
+[TO UPDATE following the mergers of diag_dpt and diag_process + restructuring of lib_* into lib_cat_*]
+
+
+| source_entity | target_entity | link_kind | cardinality | source_key | target_key | link_rule | implementation_note |
+|---|---|---|---|---|---|---|---|---|
+| 1_company | 2_mission | direct_fk | 1_to_many | id_company | id_company | 2_mission.id_company = 1_company.id_company | Core business relation |
+| 2_mission | 3_diag_strategy | direct_fk | 1_to_many | id_mission | id_mission | 3_diag_strategy.id_mission = 2_mission.id_mission | One row per imported strategy question |
+| 2_mission | ⚠️ 3_diag_department | logical_parent_via_bridge | 1_to_many | id_mission | id_mission_function | ⚠️ 3_diag_department.id_mission_function -> 2_mission_function.id_mission_function -> 2_mission_function.id_mission = 2_mission.id_mission | Ownership only. No physical `id_mission` column in `⚠️ 3_diag_department`. Use `id_mission_function` as the implementation key. |
+| 2_mission | ⚠️ 3_diag_process | logical_parent_via_bridge | 1_to_many | id_mission | id_mission_function | ⚠️ 3_diag_process.id_mission_function -> 2_mission_function.id_mission_function -> 2_mission_function.id_mission = 2_mission.id_mission | Ownership only. No physical `id_mission` column in `⚠️ 3_diag_process`. Use `id_mission_function` as the implementation key. |
+| 2_mission | 2_mission_function | direct_fk | 1_to_many | id_mission | id_mission | 2_mission_function.id_mission = 2_mission.id_mission | Authoritative function-scope table for V1 |
+| 2_mission | 4_mission_report | output_generation | 1_to_many | id_mission | id_mission | 4_mission_report.id_mission = 2_mission.id_mission | Allows report versioning/history |
+| 2_mission_function | ⚠️ 3_diag_department | direct_fk | 1_to_many | id_mission_function | id_mission_function | ⚠️ 3_diag_department.id_mission_function = 2_mission_function.id_mission_function | Preferred scope relation when id_mission_function exists physically in both sheets |
+| 2_mission_function | ⚠️ 3_diag_process | direct_fk | 1_to_many | id_mission_function | id_mission_function | ⚠️ 3_diag_process.id_mission_function = 2_mission_function.id_mission_function | Preferred scope relation when id_mission_function exists physically in both sheets |
+| 2_mission_function | ⚠️ _lib_process | scope_filter | 1_to_many | scope_function | lib_function | ⚠️ _lib_process.lib_function = 2_mission_function.scope_function | Used at initialization to filter library rows into function scope. Join is on function label, not a UUID |
+| ⚠️ 3_diag_department | ⚠️ 3_diag_process | composite_logical_link | 1_to_many | id_mission_function + lib_id_department | id_mission_function + lib_id_department | ⚠️ 3_diag_process.{id_mission_function,lib_id_department} -> ⚠️ 3_diag_department.{id_mission_function,lib_id_department} | Use id_mission_function as the scope key; mission-only linking is invalid |
+| ⚠️ _lib_strategy | 3_diag_strategy | template_to_instance | 1_to_many | lib_id_strat_question | lib_id_strat_question | 3_diag_strategy.lib_id_strat_question = ⚠️ _lib_strategy.lib_id_strat_question | Instance row keeps source template reference |
+| ⚠️ _lib_process | ⚠️ 3_diag_department | template_to_instance | 1_to_many | lib_id_department | lib_id_department | ⚠️ 3_diag_department.lib_id_department = ⚠️ _lib_process.lib_id_department | Imported subset must be filtered by selected functions in 2_mission_function |
+| ⚠️ _lib_process | ⚠️ 3_diag_process | template_to_instance | 1_to_many | lib_id_process | lib_id_process | ⚠️ 3_diag_process.lib_id_process = ⚠️ _lib_process.lib_id_process | Imported subset must be filtered by selected functions in 2_mission_function |
+| ⚠️ _lib_steps | ⚠️ 3_diag_process | optional_enrichment | 1_to_many | lib_id_process | lib_id_process | ⚠️ _lib_steps.lib_id_process = ⚠️ 3_diag_process.lib_id_process | V2 only; not required in V1 |
+| _scoring_criteria | ⚠️ 3_diag_department | logical_column_mapping | 1_to_many | id_criteria | `crit_01`, `crit_02`... | _scoring_criteria.id_criteria maps by ordered position to ⚠️ 3_diag_department crit columns | No row-level FK; column-order dependency only |
+| _scoring_criteria | ⚠️ 3_diag_process | logical_column_mapping | 1_to_many | id_criteria | `crit_01`, `crit_02`... | _scoring_criteria.id_criteria maps by ordered position to ⚠️ 3_diag_process crit columns | No row-level FK; column-order dependency only |
+| _scoring_reco | ⚠️ 3_diag_department | rule_lookup | 1_to_many | value_min + value_max + feasibility_min + feasibility_max | aggregated VALUE + aggregated FEASIBILITY | ⚠️ 3_diag_department aggregated scores fall within _scoring_reco band ranges (value_min ≤ score ≤ value_max AND feasibility_min ≤ score ≤ feasibility_max) | Range lookup, not FK. Match is on band inclusion, not exact key equality |
+| _settings_api | 4_mission_report | runtime_configuration | 1_to_many | api_id | api_id | 4_mission_report.api_id = _settings_api.api_id | Runtime dependency; not core business relation |
+| _settings_outputs | 4_mission_report | runtime_configuration | 1_to_many | id_output_config | id_output_config | 4_mission_report.id_output_config = _settings_outputs.id_output_config | Runtime dependency; not core business relation |
+
+
+---
+
+
+## 4. CALCULATION OWNERSHIP
+
+
+- **Scores / aggregation / recommendation** → Formulas
+- **Narrative recommendation fields (reco_WHY, reco_RISK, reco_TOOL, reco_NEXT, reco_EFFORT)** → manual input for V1, AI API call for V2 (fields in ⚠️ 3_diag_process)
+- **Mission_report** → script reading sheets values and importing into a Google Docs template
+
+
+---
+
+
+## 5. WORKFLOW (for script)
+
+
+| Workflow title | Workflow step | Action / Trigger | UI component | Main server functions | Read sheets | Write sheets | Key fields / IDs | Core logic / validations |
+|---|---|---|---|---|---|---|---|---|
+| mission_report | 1. Open dialog | User: Click assigned button in Google Sheet | Assigned drawing/button → HTML modal dialog | `openDialogReport()`, `getInitDataReport()` | `1_company`, `2_mission`, `_settings_api`, `_settings_outputs` | None | `id_company`, `company_name`, `id_mission`, `mission_name`, `api_id`, AI label | Open modal dialog; preload Company options, Mission options, and AI options; UI displays labels, server keeps IDs/technical values |
+| mission_report | 2. Load initial dialog data | Script: Initialize Dialog | Company selector, Mission selector, AI selector | `getInitDataReport()` | `1_company`, `2_mission`, `_settings_api`, `_settings_outputs` | None | `id_company`, `company_name`, `id_mission`, `mission_name`, `api_id`; settings keys such as `provider`, `ai_model`, `output_folder_id` | 1. Read company list, full mission list, and AI settings (filtered by `is_active === 'True'`) from source sheets/settings.<br>2. Return clean arrays for HTML.<br>3. Preload all missions in memory in the Dialog with their parent `id_company`.<br>4. No additional server call is needed when Company changes. |
+| mission_report | 3. Filter missions in Dialog for selected company | User: select "Company" → Script in Dialog filters preloaded "Missions" → User: select "Mission" | Dependent Mission selector (client-side filtering) | None | None | None | `id_company`, `id_mission`, `mission_name` | 1. In the Dialog, filter the preloaded mission array where `mission.id_company == selectedCompanyId`.<br>2. Rebuild Mission selector options locally.<br>3. Display `mission_name` as label and `id_mission` as value.<br>4. Reset selected Mission when Company changes.<br>5. If no mission matches, show an empty/default state. |
+| mission_report | 4. Submit report request | User: validate (click "Produce Report") | Dialog submit button | `createAiReport(payload)` | None directly at submit step | None | `companyId`, `missionId`, `api_id` | 1. Get payload from dialog.<br>2. Validate required selections are not empty. |
+| mission_report | 5. Validate user entries | Script: Internal step after submit | None | `createAiReport(payload)` | `2_mission`, `_settings_outputs` | None | `companyId`, `missionId`, `output_folder_id`, AI settings keys | 1. Validate payload fields are present.<br>2. Read mission row by `missionId`.<br>3. Fail if mission does not exist.<br>4. Fail if `mission.id_company != companyId`.<br>5. Read required AI/settings values.<br>6. Validate output folder ID exists and is accessible.<br>7. Validate API key exists in `PropertiesService`. |
+| mission_report | 6. Fetch company metadata | Script: Internal step | None | `getCompanyRow(companyId)` | `1_company` | None | `id_company`, `company_name` | 1. Read company row by `id_company` using header-based lookup.<br>2. Do not use hardcoded column positions.<br>3. No Named Ranges needed for table fields. |
+| mission_report | 7. Fetch mission metadata | Script: Internal step | None | `getMissionRow(missionId)` | `2_mission` | None | `id_mission`, `id_company`, `mission_name` | 1. Read mission row by `id_mission`.<br>2. Verify foreign key to `id_company`. |
+| mission_report | 8. Fetch mission diagnosis dataset | Script: Internal step | None | `getDatasetMission(missionId)` | `2_mission`, `2_mission_function`, `3_diag_strategy`, `⚠️ 3_diag_department`, `⚠️ 3_diag_process` | None | `id_mission`, `id_mission_function` | 1. Read selected mission row from `2_mission`.<br>2. Read all `2_mission_function` rows linked to selected `id_mission`.<br>3. Build the list of `id_mission_function`.<br>4. Read `3_diag_strategy` by `id_mission`.<br>5. Read `⚠️ 3_diag_department` and `⚠️ 3_diag_process` only where `id_mission_function` is in that list.<br>6. If `mission.has_process_diag = True` and no `2_mission_function` rows exist, fail with blocking error. |
+| mission_report | 9. Compact rows for token efficiency | Script: Internal step | None | `compactRow(row)` | In-memory rows from prior reads | None | Business fields only | **Keep only analysis-relevant fields**, but **do not remove grouping keys before grouping**. 1a. Remove empty / null / blank fields. 1b. Remove fields whose value is a spreadsheet error (starts with `#`, e.g. `#VALUE!`, `#REF!`, `#N/A`). 2. Remove non-useful internal columns. 3. `id_mission_function` must be preserved until `buildJsonMission(data)` has grouped `⚠️ 3_diag_department` and `⚠️ 3_diag_process` under their parent mission function. 4. Therefore, `compactRow(row)` must be applied only to final serialized child rows inside `buildJsonMission(data)`, after group assignment. 5. Fields to exclude in final serialized rows: `id_diag_strategy`, `id_diag_department`, `id_diag_process`, `id_mission`, `id_mission_function`, `is_answered`, `is_deleted`, `is_customized`, `created_at`, `modified_at`. |
+| mission_report | 10. Build structured mission JSON | Script: Internal step | None | `buildJsonMission(data)` | In-memory data from `1_company`, `2_mission`, `2_mission_function`, `3_diag_strategy`, `⚠️ 3_diag_department`, `⚠️ 3_diag_process` | None | `id_company`, `id_mission`, `id_mission_function` | 1. Build compact JSON with sections such as: `company`, `mission`, `mission_functions`, `diagnosis.strategy`, `diagnosis.departments`, `diagnosis.processes`. 2. `diagnosis.departments` and `diagnosis.processes` must be grouped under their parent `id_mission_function`. 3. Grouping must use the raw rows returned by `getDatasetMission(missionId)` before `id_mission_function` is removed. 4. After grouping is completed, apply `compactRow(row)` to each final department/process row before serializing JSON. 5. Include a compact `mission_functions` section built from `2_mission_function`. 6. Do not reconstruct function scope from labels or free text; use only `2_mission_function`.  |
+| mission_report | 11. Build final prompt from template | Script: Internal step | None | `buildPromptMission(company, mission, missionJson)` | `_settings_outputs` | None | `prompt_template_report`, optional `system_prompt_report` | 1. Read prompt template from `prompt_report_template` in settings. 2. Read system prompt from `prompt_report_system` in settings. 3. Inject placeholders like `{{COMPANY_CONTEXT}}`, `{{MISSION_CONTEXT}}`, `{{MISSION_JSON}}`. |
+| mission_report | 12. Resolve AI configuration | Script: Internal step before API call | None | `resolveAiConfig(apiId)` (calls `getApiConfigById` internally, then fetches API key from PropertiesService) | `_settings_api` | None | `api_id`, `provider`, `ai_model`, `ai_temperature`, `ai_max_tokens` | 1. Normalize AI config from settings.<br>2. Fetch API key from `PropertiesService`.<br>**NB:** V1 recommendation: one backend provider format even if UI shows multiple AI choices. |
+| mission_report | 13. Call AI API | Script: Internal step | None | `callAiApi({systemPrompt, userPrompt}, aiConfig)` | None beyond already loaded config | None | API key, provider, model | 1. Build HTTP request with prompt + JSON; call via `UrlFetchApp.fetch`.<br>2. Handle timeout, non-200 response, malformed payload, empty result. |
+| mission_report | 14. Parse AI response | Script: Internal step after API call | None | `parseAiResponse(response, provider)` | None | None | Response text | 1. Extract final report text from provider response using `response_mapping`.<br>2. Normalize line breaks / trim whitespace.<br>3. Reject empty/invalid output.<br>4. Return plain report text only. |
+| mission_report | 15. Create Google Doc | Script: Internal step after AI result | None | `createDocReport({ company, mission, reportText, folderId })` | `_settings_outputs` | No sheet write; creates Google Doc file | `output_folder_id`, `company_name`, `mission_name`, date | 1. Create Doc.<br>2. Write title, metadata block, and report body.<br>3. Name file as `company_mission - AI Report - yyyy-MM-dd`.<br>4. Store in the target folder. |
+| mission_report | 16. Log report metadata | Script: after Doc creation | None | `logReportRow(metadata)` | None | `4_mission_report` | `id_report`, `id_mission`, `id_output_config`, `api_id`, `output_type`, `output_url`, `status`, `version_report`, `created_at` | 1. Generate `id_report` as UUID (e.g. `rep_{timestamp}` or `Utilities.getUuid()`). 2. Set `version_report` = count of existing rows for same `id_mission` + 1. 3. Set `output_type` = `"mission_report"`. 4. Set `status` = `"Completed"`. 5. Write one tracking row to `4_mission_report`. |
+| mission_report | 17. Return completion result to UI | Script: End of workflow | Dialog success state / clickable link | `createAiReport(payload)` | None | None | `docId`, `docUrl` | 1. Return created document URL to frontend.<br>2. Show readable success/error message. |
+| mission_report | 18. Error handling | Script: Any failure point | Dialog error message | `createAiReport(payload)` and subfunctions | Optional depending on failed step | None | Error object / status | 1. Log technical error server-side.<br>2. Return short business-readable error to user.<br>3. Stop workflow on blocking validation. |
+| mission_initialization | 1. Trigger initialization | User: clicks assigned button in sheet `2_mission` | Button | `openInitMission()` | `2_mission`, `2_mission_function` |  | `id_mission` \| `has_strategy_diag` \| `has_process_diag` | 1. Read selected mission row.<br>2. Validate: `id_mission` not empty.<br>3. Validate: at least one diag flag = `True`.<br>4. If `has_process_diag = True`, read linked rows in `2_mission_function`.<br>5. Fail if no linked `2_mission_function` rows exist. |
+| mission_initialization | 2. Generate instance IDs | Script: internal step |  | `initMission(missionId)` | `2_mission`, `2_mission_function` |  | `id_mission`, `id_mission_function` | 1. `id_diag_strategy` pattern: `{id_mission}_{lib_id_strat_question}`.<br>2. `id_diag_department` pattern: `{id_mission_function}_{lib_id_department}`.<br>3. `id_diag_process` pattern: `{id_mission_function}_{lib_id_process}`.<br>4. IDs must be deterministic to make re-run duplicate checks reliable. |
+| mission_initialization | 3. Import strategy questions | Script: if `has_strategy_diag = True` |  | `importStrategyQuestions(missionId)` | `⚠️ _lib_strategy` | `3_diag_strategy` | `lib_id_strat_question` \| `is_active` | 1. Read all rows from `⚠️ _lib_strategy` where `is_active = True`.<br>2. For each row, create a new row in `3_diag_strategy` with: `id_diag_strategy`, `id_mission`, `lib_id_strat_question`, `is_customized=False`, `is_deleted=False`, `lib_strat_category`, `lib_strat_question`, `response_type`.<br>3. Skip duplicates by `id_diag_strategy`. |
+| mission_initialization | 4. Import departments + processes | Script: if `has_process_diag = True` |  | `importProcessDiagnosis(missionId)` | `2_mission_function`, `⚠️ _lib_process` | `⚠️ 3_diag_department`, `⚠️ 3_diag_process` | `id_mission`, `id_mission_function`, `lib_id_function`, `lib_id_department`, `lib_id_process`, `is_active` | 1. Read all `2_mission_function` rows linked to `id_mission`.<br>2. For each `id_mission_function`, read `⚠️ _lib_process` where `is_active = True` **and** `lib_function` matches the current mission-function row's `scope_function` .<br>3. Create one row per unique (`id_mission_function`, `lib_id_department`) in `⚠️ 3_diag_department`.<br>4. Create one row per (`id_mission_function`, `lib_id_process`) in `⚠️ 3_diag_process`.<br>5. Skip duplicates by deterministic IDs `id_diag_department` and `id_diag_process`.<br>6. Do not use `id_mission` alone as the scope key when `id_mission_function` exists. <br>7. Field mapping clause: Copy from `⚠️ _lib_process` into `⚠️ 3_diag_department`: `lib_function`, `lib_id_department`, `lib_name_department`. Copy into `⚠️ 3_diag_process`: `lib_id_department`, `lib_id_process`, `lib_name_process`. <br> 8. Full row schema on creation: — `⚠️ 3_diag_department`: `id_diag_department`, `id_mission_function`, `lib_function`, `lib_id_department`, `lib_name_department`, `is_customized=False`, `is_deleted=False`, `created_at=now()`. — `⚠️ 3_diag_process`: `id_diag_process`, `id_mission_function`, `lib_id_department`, `lib_id_process`, `lib_name_process`, `is_customized=False`, `is_deleted=False`, `created_at=now()`.  — All other columns left empty (formulas self-calculate; user fields await manual input). |
+| mission_initialization | 5. Return result | Script: end | Toast notification | `initMission(missionId)` |  |  |  | 1. Show success with count of imported rows.<br>2. On error: log server-side, show business-readable error to user. |
+
+
+---
+## 6. IMPLEMENTATION PLAN
+
+
+### ARCHITECTURE
+
+
+Layer 0  config.gs              ← zero deps, schema constants
+Layer 1  sheetUtils.gs          ← depends on L0
+Layer 2  domain services        ← depends on L0+L1
+Layer 3  business logic         ← depends on L0+L1+L2
+Layer 4  orchestrators          ← depends on all above
+Layer 5  UI (HTML)              ← depends on L4 entry points
+
+
+
+
+### FILES & EXECUTION ORDER
+
+
+| Step | File | Layer | Purpose | Test checkpoint |
+|---|---|---|---|---|
+| 1 | `config.gs` | L0 | Single source of truth: sheet names, header conventions, `CRIT_PATTERN`, `COMPACT_EXCLUDE_FIELDS`, `SCHEMA` constants, `PROPERTIES_KEY_PREFIX` | Loads. `SCHEMA` constants accessible. |
+| 2 | `sheetUtils.gs` | L1 | Sole read/write seam to Sheets. Header-based lookup, row filtering, batch append, dynamic crit-column discovery | `getAllDataRows('1_company')` returns objects. `discoverCritColumns` finds `crit_01`, `crit_02`.... |
+| 3a | `companyService.gs` | L2 | Read company rows | Readers return correct data for known IDs. |
+| 3b | `missionService.gs` | L2 | Read mission + mission_function rows |  |
+| 3c | `libraryService.gs` | L2 | Read active library rows (`⚠️ _lib_strategy`, `⚠️ _lib_process`) filtered by `is_active` and/or `lib_function` |  |
+| 3d | `settingsService.gs` | L2 | Read API configs, output configs, API keys from `PropertiesService` |  |
+| 4 | `initService.gs` | L3 | Import library templates into diagnosis sheets for a mission (strategy + departments + processes). Deterministic IDs: `{parentId}_{libId}`. Idempotent via duplicate check. Write order: strategy → department → process. Partial failure reported with counts. | `initMission('mis_001')` → rows in 3 sheets. Re-run → no duplicates. Partial failure → report. |
+| 5a | `datasetService.gs` | L3 | Fetch full mission diagnosis dataset; build grouped JSON with `compactRow` applied after grouping by `id_mission_function` | `buildJsonMission` → valid grouped JSON. |
+| 5b | `promptService.gs` | L3 | Inject company/mission/JSON into prompt templates from `_settings_outputs` |  |
+| 6a | `aiService.gs` | L3 | Resolve AI config, call provider API, parse response via `response_mapping` | API call returns parsed report text. |
+| 6b | `docService.gs` | L3 | Create Google Doc with report content, move to target folder | Doc created in folder. |
+| 6c | `reportLogger.gs` | L3 | Log one tracking row to `4_mission_report` | Row logged. |
+| 7 | `initController.gs` | L4 | Active-row button on `2_mission` → validate → `initMission()` → Toast result | Button → init → Toast with counts. |
+| 8a | `reportController.gs` | L4 | Open dialog, serve init data, orchestrate full report pipeline (validate → dataset → prompt → AI → doc → log) | Dialog → select → submit → Doc link. |
+| 8b | `reportDialog.html` | L5 | HTML modal: company/mission/AI selectors, client-side mission filtering, spinner, success/error states |  |
+
+
+
+
+### CRITICAL CONSTRAINTS FOR AI-CODER
+
+
+**1. Boolean strings:** `is_active`, `has_strategy_diag`, `has_process_diag`, `is_customized`, `is_deleted` → compare with `=== 'True'`, never truthy check.
+**2. Crit columns are dynamic:** Regex `CRIT_PATTERN` on row-2 headers. Never hardcode count or positions.
+**3. Scope key = `id_mission_function`:** For `⚠️ 3_diag_department` and `⚠️ 3_diag_process`. `id_mission` is not a physical column in these sheets.
+**4. Deterministic IDs:** `{missionId}_{lib_id}` or `{missionFunctionId}_{lib_id}`. Enables idempotent re-runs via duplicate check.
+**5. API key in PropertiesService only:** Never in sheets.
+**6. Formula columns are read-only:** Script reads computed values, never writes to them.
+**7. Row 1 = display labels, Row 2 = canonical headers:** All reads/writes use Row 2.
+**8. `SCHEMA` is documentation, not a framework:** Use it to validate field names in write calls. Do not build generic ORM/CRUD logic from it.
+**9. `json_template` in `_settings_outputs` is legacy**. `buildJsonMission` output structure is authoritative.
+**10. `compactRow`:** Must be applied AFTER grouping by `id_mission_function`, not before.

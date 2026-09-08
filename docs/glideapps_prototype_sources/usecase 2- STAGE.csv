@@ -1,0 +1,115 @@
+bckoff/ 🔒 ID step _txt,bckoff/ ID user _txt,bckoff/ ID process _txt,bckoff/ (LK) label process,bckoff/ (LK) label macrofunction + function,bckoff/ (TP) title complete,stage/ # _nb,stage/ title _txt,stage/ (UPPER) title,stage/ (TP) # + title ,stage/ description _txt,desc/ tools _txt,desc/ level automation  _txt,desc/ level outsourced _txt,desc/ level centralized _txt,wkld/type unit _txt,wkld/ units volume per stage _nb,wkld/ unit cost _nb,wkld/ (M) current total Unitcost,skill/ level method _txt,skill/ level concept _txt,skill/ level data search _txt,skill/ level data analysis _txt,skill/ level writing  _txt,skill/ level synthesis _txt,skill/ level ppt _txt,skill/ level image _txt,skill/ level audio _txt,skill/ level video _txt,ai/ (TP) prompt,ai/ result _txt
+FtKZC6daR0qV3W4Pke9a2Q,p8CmevxyTA6dOuNnm-CDuQ,FXm7zgF9QimgACFkqwkhyQ,ORDER TO CASH,Macro fonction : VENTES > Fonction : OPÉRATIONS DE VENTE,Macro fonction : VENTES > Fonction : OPÉRATIONS DE VENTE > Processus : ORDER TO CASH,1,Demande client,DEMANDE CLIENT,1. DEMANDE CLIENT,"- Lecture d'un eMail Client 
+- Analyse de la demande de devis (éventuellement en pièce jointe)
+- Réponse au client du traitement en cours de sa demande",Outlook,Nul ou très BAS,Nul ou très BAS,Très HAUT,Minutes,3,1,3,Nul ou très BAS,Nul ou très BAS,MOYEN,Très HAUT,HAUT,BAS,Nul ou très BAS,Nul ou très BAS,Nul ou très BAS,Nul ou très BAS,"/ Your role: an Accenture consultant expert in optimizing business process ""ORDER TO CASH"" with AI.
+
+/ Your task: analyse the Stage ""Demande client"" of this process. 
+
+/ Proceed step by step: 
+Only write down Step 4:
+
+Step 1: silently review information on the Stage.
+
+Step 2: silently identify how AI could improve this Stage. For example with a Chatbot, some Agents, RAG, a dedicated AI tool etc.
+
+Step 3: silently assess impact of AI on this Stage from 1 to 5.
+
+Step 4: answer imperatively with this format and fill the ""x"":
+<hr>
+<h4> Processus : ""ORDER TO CASH"" | Étape : ""Demande client""</h4>
+<p><b>=> Priorité de mise en oeuvre de l'IA</b> : x/5.
+<p><b>=> Exemple d'outils</b> : x
+<br>
+<p><b>IMPACTS DE L'IA</b> :
+<ul><u>Économie de temps</u> : x/5
+<li>Coût unitaire actuel : 3,0 €</li>
+<li>Gain unitaire possible : x% soit x € </li>
+<li>Justification du gain : x</li>
+</ul>
+<ul><u>Amélioration de qualité</u> : x/5</li> 
+<li>% de gain possible : x%</li>
+<li>Justification du gain  : x</li>.
+</ul>
+</p>
+<p><b>FACILITÉ DE MISE EN OEUVRE</b> : x/5. 
+<p>Justification : x</p>
+
+/ Answer format:
+- No verbosity at all. Strictly comply with Step 4 above.
+- Answer in French.
+
+/ Take your time to proceed STEP BY STEP.","<hr>
+<h4> Processus : ""ORDER TO CASH"" | Étape : ""Demande client""</h4>
+<p><b>=> Priorité de mise en oeuvre de l'IA</b> : 4/5.
+<p><b>=> Exemple d'outils</b> : Chatbot
+<br>
+<p><b>IMPACTS DE L'IA</b> :
+<ul><u>Économie de temps</u> : 4/5
+<li>Coût unitaire actuel : 3,0 €</li>
+<li>Gain unitaire possible : 50% soit 1,5 € </li>
+<li>Justification du gain : Réalisation automatique de certaines tâches manuelles.</li>
+</ul>
+<ul><u>Amélioration de la qualité</u> : 3/5</li> 
+<li>% de gain possible : 20%</li>
+<li>Justification du gain  : Réduction des erreurs humaines possibles.</li>
+</ul>
+</p>
+<p><b>FACILITÉ DE MISE EN OEUVRE</b> : 3/5. 
+<p>Justification : Nécessité de formation des utilisateurs.</p>"
+uDXOtIw9T5abxtq70yg22g,p8CmevxyTA6dOuNnm-CDuQ,FXm7zgF9QimgACFkqwkhyQ,ORDER TO CASH,Macro fonction : VENTES > Fonction : OPÉRATIONS DE VENTE,Macro fonction : VENTES > Fonction : OPÉRATIONS DE VENTE > Processus : ORDER TO CASH,2,Création du devis,CRÉATION DU DEVIS,2. CRÉATION DU DEVIS,"- Vérification de stock disponibile
+- Recherche de la fiche client (ou création)
+- Création d'un devis","CRM, ERP",MOYEN,Nul ou très BAS,Très HAUT,Minutes,10,10,100,MOYEN,Nul ou très BAS,MOYEN,BAS,Nul ou très BAS,Nul ou très BAS,Nul ou très BAS,Nul ou très BAS,Nul ou très BAS,Nul ou très BAS,"/ Your role: an Accenture consultant expert in optimizing business process ""ORDER TO CASH"" with AI.
+
+/ Your task: analyse the Stage ""Création du devis"" of this process. 
+
+/ Proceed step by step: 
+Only write down Step 4:
+
+Step 1: silently review information on the Stage.
+
+Step 2: silently identify how AI could improve this Stage. For example with a Chatbot, some Agents, RAG, a dedicated AI tool etc.
+
+Step 3: silently assess impact of AI on this Stage from 1 to 5.
+
+Step 4: answer imperatively with this format and fill the ""x"":
+<hr>
+<h4> Processus : ""ORDER TO CASH"" | Étape : ""Création du devis""</h4>
+<p><b>=> Priorité de mise en oeuvre de l'IA</b> : x/5.
+<p><b>=> Exemple d'outils</b> : x
+<br>
+<p><b>IMPACTS DE L'IA</b> :
+<ul><u>Économie de temps</u> : x/5
+<li>Coût unitaire actuel : 100,0 €</li>
+<li>Gain unitaire possible : x% soit x € </li>
+<li>Justification du gain : x</li>
+</ul>
+<ul><u>Amélioration de qualité</u> : x/5</li> 
+<li>% de gain possible : x%</li>
+<li>Justification du gain  : x</li>.
+</ul>
+</p>
+<p><b>FACILITÉ DE MISE EN OEUVRE</b> : x/5. 
+<p>Justification : x</p>
+
+/ Answer format:
+- No verbosity at all. Strictly comply with Step 4 above.
+- Answer in French.
+
+/ Take your time to proceed STEP BY STEP.","<hr>
+<h4> Processus : ""ORDER TO CASH"" | Étape : ""Création du devis""</h4>
+<p><b>=> Priorité de mise en oeuvre de l'IA</b> : 5/5.
+<p><b>=> Exemple d'outils</b> : Chatbot, Agents IA, RAG.
+<br>
+<p><b>IMPACTS DE L'IA</b> :
+<ul><u>Économie de temps</u> : 5/5
+<li>Coût unitaire actuel : 10,0 €</li>
+<li>Gain unitaire possible : 50% soit 5 € </li>
+<li>Justification du gain : Réduction du temps de création du devis.</li>
+</ul>
+<ul><u>Amélioration de qualité</u> : 4/5</li> 
+<li>% de gain possible : 30%</li>
+<li>Justification du gain  : Réduction des erreurs et des oublis.
+</ul>
+</p>
+<p><b>FACILITÉ DE MISE EN OEUVRE</b> : 4/5. 
+<p>Justification : Bonne centralisation des données facilitant l'intégration de l'IA.</p>"

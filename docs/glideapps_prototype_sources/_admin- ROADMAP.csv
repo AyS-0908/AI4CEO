@@ -1,0 +1,162 @@
+title _txt,type _txt,details _txt,picture _img
+v3: A cross-tools prompt,Roadmap,To be detailed but must include to check what AI provides the best result,https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/4P7hyxb4SawKuAEkyr2d/pub/oxLtmYPVTFYl3qtfzrZV.png
+Terms of use,Specification,"[Your Name]
+Attorney at Law
+Specialized in Digital Law
+
+Website Terms of Use Agreement
+
+This Website Terms of Use Agreement (the ""Agreement"") is entered into between [Your Name] (""Website Owner"" or ""we"") and the users (""Users"" or ""you"") of the website [Your Website URL] (the ""Website""). This Agreement sets forth the rights and duties of Users in connection with their use of the Website.
+
+1. Acceptance of Terms
+By accessing and using the Website, you acknowledge that you have read, understood, and agree to be bound by the terms and conditions of this Agreement. If you do not agree to these terms, please refrain from using the Website.
+
+2. Intellectual Property Rights
+a. Ownership: The Website and all its contents, including but not limited to text, graphics, images, videos, software, and prototypes of digital tools (collectively, the ""Content""), are the sole property of the Website Owner, protected by intellectual property laws and international treaties.
+b. Limited License: The Website Owner grants you a limited, non-exclusive, non-transferable, revocable license to access and use the Website and its Content for personal, non-commercial purposes. You may not copy, modify, distribute, display, transmit, perform, reproduce, publish, license, create derivative works from, transfer, or sell any part of the Content without the prior written consent of the Website Owner.
+
+3. User Conduct
+a. Compliance: You agree to use the Website in compliance with all applicable laws and regulations. You shall not engage in any activity that may disrupt or interfere with the proper functioning of the Website or infringe upon the rights of the Website Owner or any third party.
+b. Prohibited Actions: Without limiting the generality of the foregoing, you shall not:
+   - Use the Website for any unlawful or fraudulent purpose.
+   - Collect or store personal information of other Users without their consent.
+   - Transmit any viruses, malware, or other harmful code.
+   - Engage in any activity that may damage, disable, or impair the Website or its underlying infrastructure.
+   - Attempt to gain unauthorized access to any part of the Website.
+
+4. Confidentiality of Prototyped Tools
+By accessing and using the Website, you agree to keep strictly confidential all ideas, models, prototypes, and other intellectual property related to the prototyped digital tools presented on the Website. You shall not exploit these ideas, models, prototypes, or disclose them to any third party without the express written consent of the Website Owner. The obligation of confidentiality shall survive the termination or expiration of this Agreement.
+
+5. Limitation of Liability
+a. Disclaimer of Warranties: The Website and its Content are provided on an ""as is"" and ""as available"" basis, without any warranties of any kind, whether express or implied. The Website Owner disclaims all warranties, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.
+b. Limitation of Liability: In no event shall the Website Owner be liable to you or any third party for any direct, indirect, incidental, special, or consequential damages arising out of or in connection with your use of the Website or its Content, regardless of the theory of liability (contract, tort, or otherwise), even if the Website Owner has been advised of the possibility of such damages.
+
+6. Governing Law and Jurisdiction
+This Agreement shall be governed by and construed in accordance with the laws of [Your Jurisdiction]. Any disputes arising out of or in connection with this Agreement shall be submitted to the exclusive jurisdiction of the courts of [Your Jurisdiction].
+
+By using this Website, you acknowledge that you have read, understood, and agree to the terms and conditions of this Agreement. If you do not agree to these terms, please refrain from using the Website.
+
+If you have any questions regarding this Agreement, please contact [Your Contact Information].
+
+[Your Name]
+Attorney at Law
+[Your Law Firm Name]
+[Your Law Firm Address]
+[Your Law Firm Contact Information]",
+AI OFFICE (ex. PromptAI),Specification,"Prototype -
+
+The USC field ([USC form]) is filled in by:
+- either the text entry in main page,
+- or a form to generate a prompt.
+
+In both case, validating the prompt add a row to [Form].
+to generate an inline of prompts' history, and enable a continuous chat with the AI.",
+PROMPTS CATEGORIZATION & G-SHEET FORMULA,Specification,"[prompt] AI Tools categorization
+
+Assume that YOU have a deep expertise in product description in the field of AI TOOLS; you have analyzed  a lot of AI tools and know how to categorize and describe them from an end-user point of view.
+
+I need to define the different categories of AI Tools, from the point of view of a non-technical end-user.
+The categories must therefore (probably) be defined according to the AI tools' outptuts for the end-user (example: write, analyse, draw....). 
+
+Request: provide me with a list of categories representing the AI tools landscape from an end-user point of view:
+- the wording must be very easy to understand and concrete; do not use technical terms such as ""computer vision"",
+- each category must be describe by some keywords,
+- present the result in a table.
+
+_______________________________________________________
+
+[prompt] Script GSheet for: AI Tools Descriptions & Keywords
+
+Assume you are very skilled in crafting product descriptions, especially for AI tools.
+Below is a [Text] containing a list of AI tools. For each tool, please: 1- Revise the description: retain all details of the initial description, but rephrase it in a professional manner.
+2- Create keywords: produce a set of up to 7 representative keywords on the basis of each initial description, excluding the tool's name.
+
+Display the results in a table format with three columns: name | description | keywords
+
+[Text]
+
+_______________________________________________
+
+[prompt] Formula for AI Tools categories vs Keywords
+
+My need: I want to match a list of AI Tools with some standard keywords in the field of AI. 
+
+I already have 2 google sheets:
+- Sheet1 ""AI Categories"": 13 Categories' columns with rows of keywords per category: Category 1 keywords | Category 2 keywords | ....
+- Sheet2 ""AI Tools"":  15 columns with rows of AI Tools and formula per AI Category: AI Tool name | Description | Formula category 1 | Formula category 2 etc
+
+My problem: 
+In sheet2 ""AI Tools"", the formula for Category 1 (""Text writing"") is working well. 
+The formula is: ={""CAT. Text writing""; ARRAYFORMULA(IF(LEN($B$2:$B)=0; """"; IF(REGEXMATCH($AG$2:$AG; ""(?i)\b("" & JOIN(""|""; FILTER('AI CATEGORIES'!A$2:A; NOT(ISBLANK('AI CATEGORIES'!A$2:A)))) & "")\b""); ""Text writing""; """")))}
+
+BUT the formula for the other Categories are not working. Example of formula: 
+- ={""CAT. Image""; ARRAYFORMULA(IF(LEN($B$2:$B)=0; """"; IF(REGEXMATCH($AG$2:$AG; ""(?i)\b("" & JOIN(""|""; FILTER('AI CATEGORIES'!B$2:B; NOT(ISBLANK('AI CATEGORIES'!B$2:B)))) & "")\b""); ""Image""; """")))}
+- ={""CAT. Audio""; ARRAYFORMULA(IF(LEN($B$2:$B)=0; """"; IF(REGEXMATCH($AG$2:$AG; ""(?i)\b("" & JOIN(""|""; FILTER('AI CATEGORIES'!C$2:C; NOT(ISBLANK('AI CATEGORIES'!C$2:C)))) & "")\b""); ""Audio""; """")))}
+
+My question: 
+- How come that the same type of formula are not working?
+- What verifications to perform, knowing that I have already checked the spaces inside each space (cf. TRIM function)?
+- Is the right type of formula?
+
+________________________________________________
+
+[prompt] Script to find Urls based upon company title
+
+Assume you are an expert in Google AppScript for Google Sheet. My context: In Google Sheet, I have a column of websites' titles, but I don't have all their URL. I need a script to automatically launch a google search on each website's title which does not have an URL and find its URL. The script must: 1- check when the named range columns ""source_URL"" AND ""source_FINDURL"" are empty, 2- if both are empty, fetch the URL of the website's title hosted in the named range column ""source_NAME"", 3- then write the result in the named range column ""source_FINDURL"", 4- Let a 3 seconds delay between each search to avoid being bannished by Google, 5- follows redirects automatically by setting the followRedirects option to true, 6-in case of error, it must move to next row
+
+_______________________________________________________
+
+[prompt] Prompt ""Business Functions""
+
+Assume the role of a consultant with expertise in various business functions (HR, Marketing, Sales, IT, etc.) and their respective sub-functions (e.g., Recruitment, Compensation & Benefits, Training, etc.).
+
+You have a directory of AI tools, and your task is to identify which business function each tool is most suitable for. For instance, Dall-e is particularly well-suited for Marketing.
+You will proceed in two steps: start by Defining keywords per business functions, then match these keywords with a list of AI Tools which will be provided in next prompt. 
+ 
+Step 1. Please provide 5 to 10 keywords for each of the following business functions, highlighting the primary deliverables associated with each function (e.g., HR: job descriptions, payroll, training plans, etc.):
+
+1. Marketing & Communication
+2. Sales
+3. Production
+4. Logistics
+5. R&D - Innovation
+6. IT & Services
+7. Human Resources
+8. Finance
+9. Legal
+10̀. Management
+11. Other Functions
+
+Present the result as a table with business functions in columns: Mkg & com | Sales | Production....
+
+________________________________________________
+
+[prompt] Script (v2) to connect gSheet > OpenAI
+
+Assume you are an expert in Google AppScript: you know how to apply the AppScript best practices; you also know the best practices to make optimized calls to the API with OpenAI. 
+
+Context: 
+I have a Google Sheet with a column named ""tool description"" and hundreds of rows in this column.
+With Google AppScript and the OpenAI API, I need to: 
+- create 7 keywords which are representative of each ""tool description"",
+- and categorize each ""tool description"" with 3 criteria knowing that each criteria has a finite list of possible choices.
+Note that I already have an OpenAI account and the API key.
+
+Your objective: provide a Google AppScript which complies accurately with the following requirements:
+1- The script must apply the best practices of Google AppScript (example: do not hard code the API key and host it in AppScript service property; do not write a complicated script to avoid errors; handle errors; etc)
+2- The script must be optimized to cost as less as possible in terms of API and Tokens usage (example: batch the calls to the API with 1 single prompt applicable to all ""descriptions"" of the batch; if it is relevant, use the cache of the script; etc.)
+3- The script must include the 3 criteria of categorization and their list of options (criteria 1 is ""Need"", and possible options are ""Create, Modify, Learn""; criteria 2 is ""Output"" and possible options are ""text, image, video, audio, 3D, code""; criteria 3 is ""Business Function"" and possible options are ""marketing, sales, production, logistics"").
+4- The script must prompt the end user so that he chooses which rows to analyze.
+5- The script must prompt the end user so that he chooses which destination columns to return the results; he will indicate the columns by letters, possibly non consecutive
+6- The returned results must be in 4 different columns: a column for ""keywords"", a column for ""criteria 1"", a column for ""criteria 2"" and a column for ""criteria 3""
+7- The returned results must not include the initial prompt; they must only provide the answer.
+8- The ""Keywords"" must not be returned as numbered lists, but as a lines separated by comma.
+
+If you understand the context, the objective and each requirement (e.g. if you do not need further clarification), provide me with the code and concise comments on how to use it.
+
+------------------------------------------------------
+DALL-E PROMPT: 
+
+Wide angle. Authentic photo. Pirate ship in front of a business building, on a turbulent dark sea: the business building is bigger than the ship and has a dark blue and orange tone; The pirate ship is in wood color, with full black sails and 1 visible pirate flag. Dark bule tone background
+
+Grand angle. Photo authentique. Navire pirate devant un immeuble d'affaires, sur une mer sombre et agitée : l'immeuble est plus grand que le navire et a un ton bleu foncé et orange ; le navire pirate est en bois, avec des voiles noires et un drapeau de pirate visible. Fond bleu foncé",

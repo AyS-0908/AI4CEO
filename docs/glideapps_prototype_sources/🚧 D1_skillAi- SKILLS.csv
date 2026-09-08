@@ -1,0 +1,182 @@
+screen/⛔title _Rtxt,screen/⛔subtitle _Rtxt,screen/⛔sub-subtitle _Rtxt,bckoff/ 🔒 id skill _txt,bckoff/ id user _txt,bckoff/ date,scope/ field skill _txt,obj/ level knowledge _txt,privacy/ ⚡notification frequency _txt,privacy/⚡notification channel _txt,privacy/ public visibility _boolean,prompt/ language _txt,prompt/ style _txt,prompt/ (TP) initial skill prompt,ai/ (IF) wait or core lesson,ai/ (IF) display core lesson,bckoff/ (LK) mail user,scope/ (LK)  label field skill,scope/ sub-field skill _txt,obj/ title skill _txt,obj/ (LK) label level knowledge,obj/ concrete achievements _txt,obj/ automatic picture _img,obj/ manual picture _img,obj/ (IF) display picture,privacy/ (LK) label notification frequency,prompt/ (LK) label language,prompt/ (LK) label style,prompt/ length 1st lesson _txt,prompt/ (LK) label length 1st lesson,ai/ initial core lesson _txt,ai/ ⚡(SVx) last updated core lesson
+SKILLS.ai,"<!--⛔ KEEP THIS LINE -->
+<h2>
+FORGET NEWSLETTERS,
+<br><span style=""color: #724ddd;"">BUT LEARN WHAT's INSIDE!</span>","<!--⛔ KEEP THIS LINE -->
+<p style=""; line-height: 1.7;"">
+Personal reader-assistant <b>summarizing</b> your sources of knowledge and continuously <b>updating a customised global ""lesson""</b> on the topic",a.JXLuhCZSveOOQPZxn2jaQ,⛔ KEEP THIS LINE ,⛔ KEEP THIS LINE ,⛔ KEEP THIS LINE ,⛔ KEEP THIS LINE ,⛔ KEEP THIS LINE ,⛔ KEEP THIS LINE ,false,⛔ KEEP THIS LINE ,⛔ KEEP THIS LINE ,"Your role: pedagogical expert in """".
+
+Context: need to develop my knowledge in  """".
+
+Your objective: write an introductive lesson on """", with a particular focus on: 
+
+
+Format of answer: 
+- Length: ,
+- Rich Text when relevant (ex. 'bold' for section headings),
+- Language: ,
+- Style of writing: ",⏱️ AI is working ...,⏱️ AI is working ...,,,,,,,,,,,,,,,,
+,,,3ZrerOKsTVKQsGb3XwUxaQ,p8CmevxyTA6dOuNnm-CDuQ,07/08/2023 22:04:10,1,3,1,1,true,2,3,"Your role: pedagogical expert in ""DIGITAL"".
+
+Context: need to develop my knowledge in  ""Artificial Intelligence"".
+
+Your objective: write an introductive lesson on ""Artificial Intelligence"", with a particular focus on: 
+- Core concepts of AI,
+- Use cases
+
+Format of answer: 
+- Length: 1,
+- Rich Text when relevant (ex. 'bold' for section headings),
+- Language: English,
+- Style of writing: < 100 mots (~10 lignes)","Introduction to Artificial Intelligence
+
+Artificial Intelligence (AI) is a rapidly evolving field that aims to create intelligent machines capable of mimicking human intelligence and performing tasks that typically require human intelligence. It involves the development of computer systems that can think, learn, reason, and problem-solve like humans. 
+
+Core Concepts of AI:
+1. Machine Learning: This branch of AI focuses on developing algorithms and statistical models that provide computers with the ability to learn from and make predictions or decisions based on data.
+2. Neural Networks: Inspired by the structure of the human brain, neural networks are algorithms designed to recognize patterns and relationships within data.
+3. Natural Language Processing (NLP): NLP enables computers to understand and interpret human language, allowing for applications like language translation and sentiment analysis.
+4. Computer Vision: This technology allows computers to analyze and understand visual information, making it possible for machines to recognize objects, people, and gestures.
+
+Use Cases in B2B Services:
+1. Customer Service: AI-powered chatbots can provide personalized assistance to customers, answering their queries and resolving issues efficiently.
+2. Data Analysis: AI tools can analyze large volumes of data quickly and accurately, uncovering valuable insights that can drive business decisions in areas like market research and risk assessment.
+3. Cybersecurity: AI algorithms can assist in identifying and mitigating security threats by continuously monitoring networks and detecting suspicious activities.
+4. Predictive Maintenance: AI-powered systems can monitor industrial machinery, predicting maintenance needs and minimizing downtime, thus improving efficiency and reducing costs.
+
+In conclusion, Artificial Intelligence encompasses various concepts like machine learning, neural networks, NLP, and computer vision. In the B2B services sector, AI finds extensive applications in customer service, data analysis, cybersecurity, and predictive maintenance, among others.","**Artificial Intelligence**
+
+Artificial Intelligence (AI) is a branch of computer science that focuses on the development of intelligent machines that can perform tasks that typically require human intelligence. AI involves the study and simulation of human intelligence processes, such as learning, problem-solving, perception, and decision-making.
+
+One area where AI is making significant breakthroughs is in the field of physics research. Researchers are leveraging AI algorithms to analyze vast amounts of data and extract useful insights. For example, AI is being used to help analyze particle collisions in particle physics experiments like the Large Hadron Collider (LHC). By using machine learning techniques, scientists can identify and classify patterns in the data, potentially leading to new discoveries in high-energy physics.
+
+AI is also helping automate the process of designing new materials. By training machine learning models on massive databases of known materials and their properties, researchers can predict the characteristics of novel materials without the need for expensive and time-consuming physical experiments.
+
+Furthermore, AI-powered robots are being developed to assist scientists in conducting complex experiments and simulations. These robots can perform repetitive tasks with precision and accuracy, freeing up researchers' time to focus on more advanced scientific inquiries.
+
+In addition to these applications, AI is also finding significant use cases in B2B services. McKinsey & Company states that AI has the potential to unlock substantial economic value in the B2B sector. With AI, businesses can automate various processes, improve decision-making, enhance customer experience, and optimize operations. AI-powered chatbots and virtual assistants are being used by businesses to provide personalized support and streamline customer interactions.
+
+Moreover, AI can help in predicting market trends and detecting anomalies, enabling businesses to make data-driven decisions and identify potential risks or opportunities. AI algorithms can analyze vast amounts of data from multiple sources, providing valuable insights for companies to optimize their supply chains, pricing strategies, and resource allocation.
+
+In conclusion, AI is revolutionizing not only the field of physics research but also B2B services. It enables faster data analysis, predictive modeling, automation, and improved decision-making. The integration of AI in various domains holds great promise for accelerating scientific progress and driving economic growth through enhanced productivity and efficiency. The rapid advancement of AI technology continues to unlock new possibilities and transform industries across the globe.",aymard.de.scorbiac@gmail.com,Science & Technology,DIGITAL,Artificial Intelligence,Detailed,"- Core concepts of AI,
+- Use cases","glide:mesh,Artificial Intelligence",https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/4P7hyxb4SawKuAEkyr2d/pub/MUIrQQboYFzb6HpLevtu.png,https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/4P7hyxb4SawKuAEkyr2d/pub/MUIrQQboYFzb6HpLevtu.png,Immediate,English,Pédagogique,1,< 100 mots (~10 lignes),"Introduction to Artificial Intelligence
+
+Artificial Intelligence (AI) is a rapidly evolving field that aims to create intelligent machines capable of mimicking human intelligence and performing tasks that typically require human intelligence. It involves the development of computer systems that can think, learn, reason, and problem-solve like humans. 
+
+Core Concepts of AI:
+1. Machine Learning: This branch of AI focuses on developing algorithms and statistical models that provide computers with the ability to learn from and make predictions or decisions based on data.
+2. Neural Networks: Inspired by the structure of the human brain, neural networks are algorithms designed to recognize patterns and relationships within data.
+3. Natural Language Processing (NLP): NLP enables computers to understand and interpret human language, allowing for applications like language translation and sentiment analysis.
+4. Computer Vision: This technology allows computers to analyze and understand visual information, making it possible for machines to recognize objects, people, and gestures.
+
+Use Cases in B2B Services:
+1. Customer Service: AI-powered chatbots can provide personalized assistance to customers, answering their queries and resolving issues efficiently.
+2. Data Analysis: AI tools can analyze large volumes of data quickly and accurately, uncovering valuable insights that can drive business decisions in areas like market research and risk assessment.
+3. Cybersecurity: AI algorithms can assist in identifying and mitigating security threats by continuously monitoring networks and detecting suspicious activities.
+4. Predictive Maintenance: AI-powered systems can monitor industrial machinery, predicting maintenance needs and minimizing downtime, thus improving efficiency and reducing costs.
+
+In conclusion, Artificial Intelligence encompasses various concepts like machine learning, neural networks, NLP, and computer vision. In the B2B services sector, AI finds extensive applications in customer service, data analysis, cybersecurity, and predictive maintenance, among others.","**Artificial Intelligence**
+
+Artificial Intelligence (AI) is a branch of computer science that focuses on the development of intelligent machines that can perform tasks that typically require human intelligence. AI involves the study and simulation of human intelligence processes, such as learning, problem-solving, perception, and decision-making.
+
+One area where AI is making significant breakthroughs is in the field of physics research. Researchers are leveraging AI algorithms to analyze vast amounts of data and extract useful insights. For example, AI is being used to help analyze particle collisions in particle physics experiments like the Large Hadron Collider (LHC). By using machine learning techniques, scientists can identify and classify patterns in the data, potentially leading to new discoveries in high-energy physics.
+
+AI is also helping automate the process of designing new materials. By training machine learning models on massive databases of known materials and their properties, researchers can predict the characteristics of novel materials without the need for expensive and time-consuming physical experiments.
+
+Furthermore, AI-powered robots are being developed to assist scientists in conducting complex experiments and simulations. These robots can perform repetitive tasks with precision and accuracy, freeing up researchers' time to focus on more advanced scientific inquiries.
+
+In addition to these applications, AI is also finding significant use cases in B2B services. McKinsey & Company states that AI has the potential to unlock substantial economic value in the B2B sector. With AI, businesses can automate various processes, improve decision-making, enhance customer experience, and optimize operations. AI-powered chatbots and virtual assistants are being used by businesses to provide personalized support and streamline customer interactions.
+
+Moreover, AI can help in predicting market trends and detecting anomalies, enabling businesses to make data-driven decisions and identify potential risks or opportunities. AI algorithms can analyze vast amounts of data from multiple sources, providing valuable insights for companies to optimize their supply chains, pricing strategies, and resource allocation.
+
+In conclusion, AI is revolutionizing not only the field of physics research but also B2B services. It enables faster data analysis, predictive modeling, automation, and improved decision-making. The integration of AI in various domains holds great promise for accelerating scientific progress and driving economic growth through enhanced productivity and efficiency. The rapid advancement of AI technology continues to unlock new possibilities and transform industries across the globe."
+,,,O7F6YVIOQP-g5WtJ9XIPPw,p8CmevxyTA6dOuNnm-CDuQ,08/08/2023 20:51:09,2,3,1,1,true,2,1,"Your role: pedagogical expert in ""Innovation"".
+
+Context: need to develop my knowledge in  ""Corporate Venture Building ('cvB') "".
+
+Your objective: write an introductive lesson on ""Corporate Venture Building ('cvB') "", with a particular focus on: 
+- Core principles,
+- Use cases,
+- When use 'cvB' and when not,
+- Methodology 
+
+Format of answer: 
+- Length: 1,
+- Rich Text when relevant (ex. 'bold' for section headings),
+- Language: English,
+- Style of writing: < 100 mots (~10 lignes)","Lesson 1: Introduction to Corporate Venture Building ('cvB')
+
+Core Principles:
+Corporate Venture Building ('cvB') is a strategic approach where a company creates and nurtures startups within its own ecosystem. The core principles of 'cvB' include fostering innovation, driving growth, and unlocking new business opportunities. It involves building internal teams, setting up dedicated funds, and providing resources and expertise to these startups.
+
+Use Cases:
+'cvB' has been successfully implemented by various companies across industries. Developing new products or services, exploring new markets, entering adjacent industries, and accelerating digital transformation are common use cases. By leveraging the entrepreneurial spirit of startups, companies can stay ahead in the competitive landscape, discover disruptive ideas, and create a culture of innovation.
+
+When to Use 'cvB' and When Not:
+'cvB' is recommended when companies seek to capitalize on emerging technologies, access external expertise, and generate long-term growth. It is especially useful when traditional innovation methods are not providing desired results or when a company wants to enter unfamiliar markets. However, 'cvB' may not be suitable for organizations with limited resources, risk-averse cultures, or those not willing to embrace uncertainty and experimentation.
+
+Methodology:
+Implementing 'cvB' involves several key steps. First, companies need to identify areas of potential disruption and define their strategic objectives. Next, they must establish partnerships, invest in startups, or create their own ventures to address these areas. Then, dedicated teams are formed, comprising both internal and external talent, to collaborate on ideas, build prototypes, and test market viability. Finally, successful ventures are scaled up, integrated back into the parent company, or spun off, depending on the desired outcomes.
+
+Conclusion:
+Corporate Venture Building ('cvB') is an innovative approach that enables companies to proactively shape their future by nurturing startups within their ecosystem. By understanding its core principles, exploring relevant use cases, identifying appropriate situations for implementation, and following a structured methodology, companies can harness the potential of 'cvB' to drive growth and stay ahead of the competition.","%Start-CoreLesson%
+Lesson 1: Introduction to Corporate Venture Building ('cvB')
+
+Core Principles:
+Corporate Venture Building ('cvB') is a strategic approach where a company creates and nurtures startups within its own ecosystem. The core principles of 'cvB' include fostering innovation, driving growth, unlocking new business opportunities, and leveraging external partnerships. It involves building internal teams, setting up dedicated funds, and providing resources and expertise to these startups.
+
+Use Cases:
+'cvB' has been successfully implemented by various companies across industries. Developing new products or services, exploring new markets, entering adjacent industries, accelerating digital transformation, and leveraging external expertise are common use cases. By leveraging the entrepreneurial spirit of startups, companies can stay ahead in the competitive landscape, discover disruptive ideas, and create a culture of innovation.
+
+When to Use 'cvB' and When Not:
+'cvB' is recommended when companies seek to capitalize on emerging technologies, drive global expansion, access external expertise, and generate long-term growth. It is especially useful when traditional innovation methods are not providing desired results or when a company wants to enter unfamiliar markets. However, 'cvB' may not be suitable for organizations with limited resources, risk-averse cultures, or those not willing to embrace uncertainty and experimentation.
+
+Methodology:
+Implementing 'cvB' involves several key steps. First, companies need to identify areas of potential disruption and define their strategic objectives. Next, they must establish partnerships, invest in startups, or create their own ventures to address these areas. Then, dedicated teams are formed, comprising both internal and external talent, to collaborate on ideas, build prototypes, and test market viability. Continuous learning and adaptation are crucial. Finally, successful ventures are scaled up, integrated back into the parent company, or spun off, depending on the desired outcomes.
+
+Conclusion:
+Corporate Venture Building ('cvB') is an innovative approach that enables companies to proactively shape their future by nurturing startups within their ecosystem. By understanding its core principles, exploring relevant use cases, identifying appropriate situations for implementation, and following a structured methodology, companies can harness the potential of 'cvB' to drive growth, expand globally, and stay ahead of the competition.
+%End-CoreLesson%
+
+%Start-NewInfo%
+New Information: According to McKinsey, one key insight to successfully grow a global tech unicorn is to focus on talent retention. By building a supportive culture, providing opportunities for growth, offering competitive compensation, and aligning incentives between the corporate venture and the parent company, companies can attract and retain top entrepreneurial talent. This reinforces the importance of fostering a culture of innovation and entrepreneurialism within the corporate environment when implementing 'cvB'. Additionally, strategic partnerships and collaborations with other industry players can accelerate the growth of corporate ventures and provide access to new markets and customer bases.
+%End-NewInfo%",aymard.de.scorbiac@gmail.com,Business,Innovation,Corporate Venture Building ('cvB') ,Detailed,"- Core principles,
+- Use cases,
+- When use 'cvB' and when not,
+- Methodology ","glide:mesh,Corporate Venture Building ('cvB') ",,"glide:mesh,Corporate Venture Building ('cvB') ",Immediate,English,Business,1,< 100 mots (~10 lignes),"Lesson 1: Introduction to Corporate Venture Building ('cvB')
+
+Core Principles:
+Corporate Venture Building ('cvB') is a strategic approach where a company creates and nurtures startups within its own ecosystem. The core principles of 'cvB' include fostering innovation, driving growth, and unlocking new business opportunities. It involves building internal teams, setting up dedicated funds, and providing resources and expertise to these startups.
+
+Use Cases:
+'cvB' has been successfully implemented by various companies across industries. Developing new products or services, exploring new markets, entering adjacent industries, and accelerating digital transformation are common use cases. By leveraging the entrepreneurial spirit of startups, companies can stay ahead in the competitive landscape, discover disruptive ideas, and create a culture of innovation.
+
+When to Use 'cvB' and When Not:
+'cvB' is recommended when companies seek to capitalize on emerging technologies, access external expertise, and generate long-term growth. It is especially useful when traditional innovation methods are not providing desired results or when a company wants to enter unfamiliar markets. However, 'cvB' may not be suitable for organizations with limited resources, risk-averse cultures, or those not willing to embrace uncertainty and experimentation.
+
+Methodology:
+Implementing 'cvB' involves several key steps. First, companies need to identify areas of potential disruption and define their strategic objectives. Next, they must establish partnerships, invest in startups, or create their own ventures to address these areas. Then, dedicated teams are formed, comprising both internal and external talent, to collaborate on ideas, build prototypes, and test market viability. Finally, successful ventures are scaled up, integrated back into the parent company, or spun off, depending on the desired outcomes.
+
+Conclusion:
+Corporate Venture Building ('cvB') is an innovative approach that enables companies to proactively shape their future by nurturing startups within their ecosystem. By understanding its core principles, exploring relevant use cases, identifying appropriate situations for implementation, and following a structured methodology, companies can harness the potential of 'cvB' to drive growth and stay ahead of the competition.","%Start-CoreLesson%
+Lesson 1: Introduction to Corporate Venture Building ('cvB')
+
+Core Principles:
+Corporate Venture Building ('cvB') is a strategic approach where a company creates and nurtures startups within its own ecosystem. The core principles of 'cvB' include fostering innovation, driving growth, unlocking new business opportunities, and leveraging external partnerships. It involves building internal teams, setting up dedicated funds, and providing resources and expertise to these startups.
+
+Use Cases:
+'cvB' has been successfully implemented by various companies across industries. Developing new products or services, exploring new markets, entering adjacent industries, accelerating digital transformation, and leveraging external expertise are common use cases. By leveraging the entrepreneurial spirit of startups, companies can stay ahead in the competitive landscape, discover disruptive ideas, and create a culture of innovation.
+
+When to Use 'cvB' and When Not:
+'cvB' is recommended when companies seek to capitalize on emerging technologies, drive global expansion, access external expertise, and generate long-term growth. It is especially useful when traditional innovation methods are not providing desired results or when a company wants to enter unfamiliar markets. However, 'cvB' may not be suitable for organizations with limited resources, risk-averse cultures, or those not willing to embrace uncertainty and experimentation.
+
+Methodology:
+Implementing 'cvB' involves several key steps. First, companies need to identify areas of potential disruption and define their strategic objectives. Next, they must establish partnerships, invest in startups, or create their own ventures to address these areas. Then, dedicated teams are formed, comprising both internal and external talent, to collaborate on ideas, build prototypes, and test market viability. Continuous learning and adaptation are crucial. Finally, successful ventures are scaled up, integrated back into the parent company, or spun off, depending on the desired outcomes.
+
+Conclusion:
+Corporate Venture Building ('cvB') is an innovative approach that enables companies to proactively shape their future by nurturing startups within their ecosystem. By understanding its core principles, exploring relevant use cases, identifying appropriate situations for implementation, and following a structured methodology, companies can harness the potential of 'cvB' to drive growth, expand globally, and stay ahead of the competition.
+%End-CoreLesson%
+
+%Start-NewInfo%
+New Information: According to McKinsey, one key insight to successfully grow a global tech unicorn is to focus on talent retention. By building a supportive culture, providing opportunities for growth, offering competitive compensation, and aligning incentives between the corporate venture and the parent company, companies can attract and retain top entrepreneurial talent. This reinforces the importance of fostering a culture of innovation and entrepreneurialism within the corporate environment when implementing 'cvB'. Additionally, strategic partnerships and collaborations with other industry players can accelerate the growth of corporate ventures and provide access to new markets and customer bases.
+%End-NewInfo%"

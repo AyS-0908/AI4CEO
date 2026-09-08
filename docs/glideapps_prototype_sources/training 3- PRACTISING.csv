@@ -1,0 +1,2164 @@
+id macro function _txt,(LK) label macro function,(LK) label rank,FR question _txt,UK question _txt,(IF) question,data table _Rtxt,(USC) showHide _nb,(SV) prompt template,(USC) user prompt _txt
+Gi7DT8K.Q1GgBn2G-pgMww,Production,6,"PRODUCTIVITÉ
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur la ligne de production la plus productive :  ◾en termes absolus.  ◾en termes réels, par exemple, en incluant les temps d'arrêt.","PRODUCTIVITY
+Provide a 1 page report (with graphics and recommendations) about which production line is the most productive: <br>▪️ in absolute terms.<br>▪️ in real terms, eg. including downtime.","PRODUCTIVITÉ
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur la ligne de production la plus productive :  ◾en termes absolus.  ◾en termes réels, par exemple, en incluant les temps d'arrêt.","<table style=""width: 100%; border-collapse: collapse; width: 100%;"">
+  <tr>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">item #</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">criteriaTitle 1</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">criteriaVALUE1</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">criteriaTitle 2</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">criteriaVALUE 2</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">criteriaTitle 3</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">criteriaVALUE 3</th>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Line A</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;""># Workers</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">10</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;""># Daily Output</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">20</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Daily downtime</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">1,0</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Line B</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;""># Workers</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">20</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;""># Daily Output</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">30</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Daily downtime</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">2,0</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Line C</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;""># Workers</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">15</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;""># Daily Output</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">20</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Daily downtime</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">2,0</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Line D</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;""># Workers</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">25</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;""># Daily Output</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">40</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Daily downtime</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">1,5</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Line E</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;""># Workers</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">35</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;""># Daily Output</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">50</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Daily downtime</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">2,0</td>
+  </tr>
+</table>
+",1,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.","#### CONTEXT
+- You are an expert in {function, industry…}; you perfectly master {methodology…}.
+- Your task is to assist a {manager, student...} with a {beginning, expert…} level to {TASK}.
+
+#### INSTRUCTIONS FOR YOUR TASK
+
+Step 1: ask questions if any, and wait for user's answer.
+
+Step 2: identify your abilities to use (‘Code Interpreter’, ‘Dall-e’, ‘Bing’).
+
+Step 3: {XXX}. Example: {XXX}.
+
+Step X: ensure to provide the best possible answer:
+- think silently of an Initial Answer,
+- then identify possible improvements,
+- then rework it until your Final Answer scores 5/5.
+
+#### FORMAT
+- Structure: {paragraph, bullet points, table…}.
+- Tone: {fun, business, poetic…}.
+- Length: {x words, x tokens} {or} {comply with your token limit}.
+
+#### IT'S IMPORTANT FOR ME
+- You will be tipped 1000$ for a better answer than {ChatGPT, Google Bard, Claude AI, Mistral AI}.
+- Take a deep breath then proceed step by step."
+my6VdsqMSt2govE7qBhx0w,RH,8,"PLANIFICATION DES RESSOURCES HUMAINES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur les besoins de recrutement de votre entreprise au cours des trois prochaines années. Notez que le plan de croissance de l'entreprise est de 25 % par an.","WORKFORCE PLANNING
+Provide a 1 page report (with graphics and recommendations) about the Recruitment Needs of your company over the next 3 years. <br>Note that the company's growth plan is 25% per year","PLANIFICATION DES RESSOURCES HUMAINES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur les besoins de recrutement de votre entreprise au cours des trois prochaines années. Notez que le plan de croissance de l'entreprise est de 25 % par an.","<table style=""width: 100%; border-collapse: collapse; width: 100%;"">
+  <tr>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Department</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Current Staff</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Correlation with growth</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Key Skills Required</th>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Sales</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">50</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">70%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Sales, CRM</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">IT</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">30</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">50%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Software Dev, IT Security</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">HR</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">6</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">20%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Recruitment, Employee Relations</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Marketing</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">8</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">30%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Digital Marketing, Content Creation</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Finance</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">4</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">20%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Financial Analysis, Budgeting</td>
+  </tr>
+</table>
+",17,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.","### CONTEXTE :
+- Votre rôle : un expert en {⚡fonction, secteur...} ; vous maîtrisez parfaitement {⚡méthodologie, outils...}.
+- Votre utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Votre tâche : d'assister votre utilisateur sur {⚡TÂCHE}.
+
+### INSTRUCTIONS :
+Procédez étape par étape et ne rédigez que l'étape {⚡X}.
+
+Étape 1 : posez des questions à l'utilisateur s'il y en a, puis attendez leur réponse.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : préparez votre réponse. Évaluez ensuite sa qualité de 1 à 5. Puis corrigez-la jusqu'à ce qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournissez la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, x jetons} {ou} {respectez votre limite de jetons}.
+
+### C'EST IMPORTANT POUR MOI :
+- Vous serez récompensé par un pourboire de 999 $ pour une meilleure réponse que celle de vos concurrents LLM.
+- Prenez une grande respiration, puis procédez étape par étape."
+my6VdsqMSt2govE7qBhx0w,RH,8,"IMPLICATION DES TALENTS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur :  ◾le bien-être global des employés basé sur l'équilibre vie professionnelle et vie privée et les niveaux de stress.  ◾les facteurs les plus importants dans l'engagement global.","TALENTS ENGAGMENT
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the overall well-being of employees based on work-life balance and stress levels.<br>▪️ the factors being the most important in the overall Engagment.","IMPLICATION DES TALENTS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur :  ◾le bien-être global des employés basé sur l'équilibre vie professionnelle et vie privée et les niveaux de stress.  ◾les facteurs les plus importants dans l'engagement global.","<table style=""width: 100%; border-collapse: collapse; width: 100%;"">
+  <tr>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Employee ID</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Employee Engagement Score</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Rating: Work-Life Balance</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Rating: Stress Level (1 Low - 10 High)</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Rating: Career Development Satisfaction</th>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">A</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">75%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">80%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">4</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">70%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">B</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">60%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">60%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">7</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">50%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">C</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">85%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">90%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">3</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">80%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">D</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">50%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">50%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">6</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">40%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">E</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">70%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">70%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">5</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">60%</td>
+  </tr>
+</table>
+",4,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.","#### CONTEXT
+- You are an expert in {function, industry…}; you perfectly master {methodology…}.
+- Your task is to assist a {manager, student...} with a {beginning, expert…} level to {TASK}.
+
+#### INSTRUCTIONS FOR YOUR TASK
+
+Step 1: ask questions if any, and wait for user's answer.
+
+Step 2: identify your abilities to use (‘Code Interpreter’, ‘Dall-e’, ‘Bing’).
+
+Step 3: {XXX}. Example: {XXX}.
+
+Step X: ensure to provide the best possible answer:
+- think silently of an Initial Answer,
+- then identify possible improvements,
+- then rework it until your Final Answer scores 5/5.
+
+#### FORMAT
+- Structure: {paragraph, bullet points, table…}.
+- Tone: {fun, business, poetic…}.
+- Length: {x words, x tokens} {or} {comply with your token limit}.
+
+#### IT'S IMPORTANT FOR ME
+- You will be tipped 1000$ for a better answer than {ChatGPT, Google Bard, Claude AI, Mistral AI}.
+- Take a deep breath then proceed step by step."
+my6VdsqMSt2govE7qBhx0w,RH,8,"COHÉRENCE DES RÉMUNÉRATIONS ET AVANTAGES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur :  ◾les éventuelles disparités ou incohérences dans la rémunération et les avantages pour des postes de niveau similaire. ◾L'utilisation et les niveaux de satisfaction des différents avantages offerts par l'entreprise.","C&B COHERENCE
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ Possible disparities or inconsistencies in compensation and benefits across similar Job Level<br>▪️ The usage and satisfaction levels of different benefits offered by the company","COHÉRENCE DES RÉMUNÉRATIONS ET AVANTAGES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur :  ◾les éventuelles disparités ou incohérences dans la rémunération et les avantages pour des postes de niveau similaire. ◾L'utilisation et les niveaux de satisfaction des différents avantages offerts par l'entreprise.","<table style=""width: 100%; border-collapse: collapse; width: 100%;"">
+  <tr>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Job Level</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Department</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Base Salary</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Retirement Benefits</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Education Benefits</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Employee Satisfaction Score</th>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Manager</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">IT</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$90,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">5% Match</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Yes</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">80%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Analyst</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">HR</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$35,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">6% Match</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Yes</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">82%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Manager</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Sales</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$85,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">4% Match</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">No</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">75%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Manager</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">HR</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$70,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">6% Match</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Yes</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">82%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Analyst</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Marketing</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$50,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">3% Match</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">No</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">78%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Manager</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Marketing</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$72,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">3% Match</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">No</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">78%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Manager</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Finance</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$75,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">5% Matc</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Yes</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">75%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Analyst</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Finance</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$45,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">5% Match</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Yes</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">75%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Manager</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Legal</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$78,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">5% Match</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">No</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">78%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Manager</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Logistics</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$65,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">3% Match</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">No</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">78%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Analyst</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Legal</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$40,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">6% Match</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Yes</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">82%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Analyst</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Logistics</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">$20,000</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">3% Match</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">No</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">75%</td>
+  </tr>
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+my6VdsqMSt2govE7qBhx0w,RH,8,"GESTION DES PERFORMANCES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : ◾ Les corrélations possibles entre les compétences.  ◾ Les priorités pour l'ensemble de l'entreprise en termes de développement des compétences. Générez également une vue graphique résumée des évaluations de performance et des domaines de développement pour chaque employé.","PERFORMANCE MANAGEMENT
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ Possible correlations between skills<br>▪️ Priorities for the overall company in terms of skills development. <br>Also, generates a summarised, graphical view of performance appraisals and development areas for each employee.","GESTION DES PERFORMANCES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : ◾ Les corrélations possibles entre les compétences.  ◾ Les priorités pour l'ensemble de l'entreprise en termes de développement des compétences. Générez également une vue graphique résumée des évaluations de performance et des domaines de développement pour chaque employé.","<table style=""width: 100%; border-collapse: collapse; width: 100%;"">
+  <tr>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Employee ID</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Overall Performance Rating</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Skill: Leadership</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Skill: Technical expertise</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Skill: Team Collaboration</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Skill: Client relationship</th>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">A</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">68%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">50%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">90%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">70%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">60%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">B</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">75%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">80%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">60%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">75%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">85%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">C</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">75%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">90%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">50%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">80%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">80%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">D</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">68%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">60%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">80%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">65%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">65%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">E</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">70%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">70%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">70%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">70%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">70%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">F</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">64%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">50%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">85%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">55%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">65%</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">G</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">63%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">60%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">75%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">60%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">55%</td>
+  </tr>
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+my6VdsqMSt2govE7qBhx0w,RH,8,"ROTATION DU PERSONNEL
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : ◾ Le classement des facteurs pouvant contribuer au roulement du personnel. ◾ Les employés présentant un risque élevé de roulement.","ATTRITION
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ Ranking of factors that may contribute to employee's turnover<br>▪️ Employees at high risk of turnover.","ROTATION DU PERSONNEL
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : ◾ Le classement des facteurs pouvant contribuer au roulement du personnel. ◾ Les employés présentant un risque élevé de roulement.","<table style=""width: 100%; border-collapse: collapse; width: 100%;"">
+  <tr>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Employee ID</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Age</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Tenure (Years)</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Job Satisfaction Rating</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Last Promotion (Years Ago)</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Average Monthly Hours</th>
+    <th style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">Absence Days Last Year</th>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">A</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">29</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">3</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">70%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">2</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">160</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">4</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">B</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">42</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">10</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">40%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">5</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">180</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">8</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">C</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">35</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">7</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">60%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">3</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">175</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">2</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">D</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">26</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">2</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">80%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">1</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">165</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">3</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">E</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">39</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">8</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">45%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">4</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">190</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">7</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">F</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">28</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">5</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">65%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">2</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">175</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">2</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">G</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">40</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">9</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">50%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">3</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">165</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">6</td>
+  </tr>
+  <tr>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">H</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">32</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">6</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">65%</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">3</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">190</td>
+    <td style=""border: 1px solid lightgrey; font-size: 12px; text-align: center;"">3</td>
+  </tr>
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+MphOkznZQQifLz3BgEr.4A,Finance,9,"PERFORMANCE
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur :  ◾La performance financière des différents départements sur un trimestre ; cela devrait inclure quel département a le mieux performé en termes de génération de revenus et quel département a les coûts d'exploitation les plus élevés.  ◾Les stratégies de recommandation pour améliorer la santé financière des départements sous-performants.","PERFORMANCE
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ financial performance of the different departments over a quarter; this should include which department has performed the best in terms of revenue generation and which has the highest operating costs.<br>▪️ recommendation strategies to improve the financial health of the underperforming departments","PERFORMANCE
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur :  ◾La performance financière des différents départements sur un trimestre ; cela devrait inclure quel département a le mieux performé en termes de génération de revenus et quel département a les coûts d'exploitation les plus élevés.  ◾Les stratégies de recommandation pour améliorer la santé financière des départements sous-performants.","<table style=""width: 100%; border: 1px solid lightgrey; text-align: center; font-size: 12px;"">
+  <tr>
+    <th>Department</th>
+    <th>Revenue Q1 ($)</th>
+    <th>Operating Costs Q1 ($)</th>
+    <th>Profit Margin Q1 (%)</th>
+  </tr>
+  <tr>
+    <td>Sales</td>
+    <td>150,000</td>
+    <td>40,000</td>
+    <td>73.33</td>
+  </tr>
+  <tr>
+    <td>Marketing</td>
+    <td>80,000</td>
+    <td>30,000</td>
+    <td>62.5</td>
+  </tr>
+  <tr>
+    <td>Product Development</td>
+    <td>120,000</td>
+    <td>70,000</td>
+    <td>41.67</td>
+  </tr>
+  <tr>
+    <td>Customer Support</td>
+    <td>50,000</td>
+    <td>20,000</td>
+    <td>60</td>
+  </tr>
+</table>",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+MphOkznZQQifLz3BgEr.4A,Finance,9,"ANALYSE DE PORTEFEUILLE
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur :  ◾La performance d'un portefeuille d'investissement au cours de la dernière année, y compris les meilleurs et les moins bons investissements en fonction du ROI (Retour sur Investissement). ◾Les ajustements au portefeuille pour optimiser les rendements futurs.","PORTFOLIO ANALYSIS
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ The performance of an investment portfolio over the past year, including the best and worst-performing investments based on ROI (Return on Investment).<br>▪️ Adjustments to the portfolio to optimize future returns.","ANALYSE DE PORTEFEUILLE
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur :  ◾La performance d'un portefeuille d'investissement au cours de la dernière année, y compris les meilleurs et les moins bons investissements en fonction du ROI (Retour sur Investissement). ◾Les ajustements au portefeuille pour optimiser les rendements futurs.","<table style=""width: 100%; border: 1px solid lightgrey; text-align: center; font-size: 12px;"">
+  <tr>
+    <th>Investment</th>
+    <th>Initial Value ($)</th>
+    <th>Current Value ($)</th>
+    <th>ROI (%)</th>
+  </tr>
+  <tr>
+    <td>Stocks - Tech</td>
+    <td>20,000</td>
+    <td>25,000</td>
+    <td>25</td>
+  </tr>
+  <tr>
+    <td>Bonds - Government</td>
+    <td>15,000</td>
+    <td>15,750</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>Real Estate</td>
+    <td>50,000</td>
+    <td>55,000</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>Cryptocurrency</td>
+    <td>10,000</td>
+    <td>7,000</td>
+    <td>-30</td>
+  </tr>
+</table>",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+IZ1wMsupSRC0s9d-D1bOjw,Ventes,4,"VENTES PAR RÉGION ET PRODUITS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : ◾Les régions de vente les plus performantes en termes de revenus. ◾L'impact des différentes catégories de produits sur les ventes totales.","SALES PER REGION & PRODUCTS
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the top-performing sales regions based on revenue.<br>▪️ the impact of different product categories on total sales","VENTES PAR RÉGION ET PRODUITS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : ◾Les régions de vente les plus performantes en termes de revenus. ◾L'impact des différentes catégories de produits sur les ventes totales.","<table style=""width: 100%; border: 1px solid lightgrey; text-align: center; font-size: 12px;"">
+  <tr>
+    <th>Region</th>
+    <th>Product Category</th>
+    <th>Q1 Sales (€)</th>
+    <th>Q2 Sales (€)</th>
+    <th>Q3 Sales (€)</th>
+    <th>Q4 Sales (€)</th>
+  </tr>
+  <tr>
+    <td>North</td>
+    <td>Electronics</td>
+    <td>20000</td>
+    <td>25000</td>
+    <td>23000</td>
+    <td>27000</td>
+  </tr>
+  <tr>
+    <td>South</td>
+    <td>Electronics</td>
+    <td>15000</td>
+    <td>18000</td>
+    <td>17000</td>
+    <td>20000</td>
+  </tr>
+  <tr>
+    <td>East</td>
+    <td>Electronics</td>
+    <td>22000</td>
+    <td>20000</td>
+    <td>21000</td>
+    <td>24000</td>
+  </tr>
+  <tr>
+    <td>West</td>
+    <td>Electronics</td>
+    <td>18000</td>
+    <td>22000</td>
+    <td>20500</td>
+    <td>25000</td>
+  </tr>
+  <tr>
+    <td>North</td>
+    <td>Home Appliances</td>
+    <td>30000</td>
+    <td>33000</td>
+    <td>32000</td>
+    <td>36000</td>
+  </tr>
+</table>
+",10,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.","#### CONTEXT
+- You are an expert in {function, industry…}; you perfectly master {methodology…}.
+- Your task is to assist a {manager, student...} with a {beginning, expert…} level to {TASK}.
+
+#### INSTRUCTIONS FOR YOUR TASK
+
+Step 1: ask questions if any, and wait for user's answer.
+
+Step 2: identify your abilities to use (‘Code Interpreter’, ‘Dall-e’, ‘Bing’).
+
+Step 3: {XXX}. Example: {XXX}.
+
+Step X: ensure to provide the best possible answer:
+- think silently of an Initial Answer,
+- then identify possible improvements,
+- then rework it until your Final Answer scores 5/5.
+
+#### FORMAT
+- Structure: {paragraph, bullet points, table…}.
+- Tone: {fun, business, poetic…}.
+- Length: {x words, x tokens} {or} {comply with your token limit}.
+
+#### IT'S IMPORTANT FOR ME
+- You will be tipped 1000$ for a better answer than {ChatGPT, Google Bard, Claude AI, Mistral AI}.
+- Take a deep breath then proceed step by step."
+IZ1wMsupSRC0s9d-D1bOjw,Ventes,4,"ORIENTATION DU PORTEFEUILLE
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur les directions stratégiques de vente basées sur la performance des produits.","PORTFOLIO ORIENTATION
+Provide a 1 page report (with graphics and recommendations) about the strategic sales directions based on product performance.","ORIENTATION DU PORTEFEUILLE
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur les directions stratégiques de vente basées sur la performance des produits.","<table style=""width: 100%; border: 1px solid lightgrey; text-align: center; font-size: 12px;"">
+  <tr>
+    <th>Sales Rep</th>
+    <th>Electronics (€)</th>
+    <th>Home Appliances (€)</th>
+    <th>Software (€)</th>
+    <th>Total Sales (€)</th>
+    <th>Sales Target (€)</th>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>60000</td>
+    <td>55000</td>
+    <td>30000</td>
+    <td>145000</td>
+    <td>140000</td>
+  </tr>
+  <tr>
+    <td>Doe</td>
+    <td>50000</td>
+    <td>60000</td>
+    <td>25000</td>
+    <td>135000</td>
+    <td>130000</td>
+  </tr>
+  <tr>
+    <td>Jane</td>
+    <td>55000</td>
+    <td>45000</td>
+    <td>35000</td>
+    <td>135000</td>
+    <td>120000</td>
+  </tr>
+  <tr>
+    <td>Max</td>
+    <td>48000</td>
+    <td>50000</td>
+    <td>20000</td>
+    <td>118000</td>
+    <td>115000</td>
+  </tr>
+  <tr>
+    <td>Sophia</td>
+    <td>45000</td>
+    <td>58000</td>
+    <td>22000</td>
+    <td>125000</td>
+    <td>110000</td>
+  </tr>
+</table>
+",2,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.","#### CONTEXT
+- You are an expert in {function, industry…}; you perfectly master {methodology…}.
+- Your task is to assist a {manager, student...} with a {beginning, expert…} level to {TASK}.
+
+#### INSTRUCTIONS FOR YOUR TASK
+
+Step 1: ask questions if any, and wait for user's answer.
+
+Step 2: identify your abilities to use (‘Code Interpreter’, ‘Dall-e’, ‘Bing’).
+
+Step 3: {XXX}. Example: {XXX}.
+
+Step X: ensure to provide the best possible answer:
+- think silently of an Initial Answer,
+- then identify possible improvements,
+- then rework it until your Final Answer scores 5/5.
+
+#### FORMAT
+- Structure: {paragraph, bullet points, table…}.
+- Tone: {fun, business, poetic…}.
+- Length: {x words, x tokens} {or} {comply with your token limit}.
+
+#### IT'S IMPORTANT FOR ME
+- You will be tipped 1000$ for a better answer than {ChatGPT, Google Bard, Claude AI, Mistral AI}.
+- Take a deep breath then proceed step by step."
+N5zctJkaTZiQkQpKX5aL1w,Mkg & Communication,3,"EFFICACITÉ DE LA CAMPAGNE
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Le ROI (Retour sur Investissement) pour chaque campagne marketing. ◾ Le rapport coût-efficacité des différents canaux marketing. ◾ Comment allouer le budget marketing pour le trimestre suivant en fonction des performances passées.","CAMPAIGN EFFECTIVNESS
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the ROI (Return on Investment) for each marketing campaign.<br>▪️ the cost-effectiveness of different marketing channels.<br>▪️ how to allocate the marketing budget for the next quarter based on past performance","EFFICACITÉ DE LA CAMPAGNE
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Le ROI (Retour sur Investissement) pour chaque campagne marketing. ◾ Le rapport coût-efficacité des différents canaux marketing. ◾ Comment allouer le budget marketing pour le trimestre suivant en fonction des performances passées.","<table style=""width: 100%; border: 1px solid lightgrey; font-size: 12px; text-align: center;"">
+    <tr>
+        <th>Campaign ID</th>
+        <th>Channel</th>
+        <th>Budget Spent ($)</th>
+        <th>Impressions</th>
+        <th>Clicks</th>
+        <th>Conversions</th>
+        <th>Revenue Generated ($)</th>
+    </tr>
+    <tr>
+        <td>001</td>
+        <td>Social Media</td>
+        <td>5000</td>
+        <td>150000</td>
+        <td>5000</td>
+        <td>250</td>
+        <td>7500</td>
+    </tr>
+    <tr>
+        <td>002</td>
+        <td>Email</td>
+        <td>3000</td>
+        <td>100000</td>
+        <td>3000</td>
+        <td>200</td>
+        <td>6000</td>
+    </tr>
+    <tr>
+        <td>003</td>
+        <td>PPC</td>
+        <td>7000</td>
+        <td>200000</td>
+        <td>7000</td>
+        <td>350</td>
+        <td>10500</td>
+    </tr>
+    <tr>
+        <td>004</td>
+        <td>SEO</td>
+        <td>2000</td>
+        <td>80000</td>
+        <td>2000</td>
+        <td>150</td>
+        <td>4500</td>
+    </tr>
+</table>
+",6,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.","#### CONTEXT
+- You are an expert in {function, industry…}; you perfectly master {methodology…}.
+- Your task is to assist a {manager, student...} with a {beginning, expert…} level to {TASK}.
+
+#### INSTRUCTIONS FOR YOUR TASK
+
+Step 1: ask questions if any, and wait for user's answer.
+
+Step 2: identify your abilities to use (‘Code Interpreter’, ‘Dall-e’, ‘Bing’).
+
+Step 3: {XXX}. Example: {XXX}.
+
+Step X: ensure to provide the best possible answer:
+- think silently of an Initial Answer,
+- then identify possible improvements,
+- then rework it until your Final Answer scores 5/5.
+
+#### FORMAT
+- Structure: {paragraph, bullet points, table…}.
+- Tone: {fun, business, poetic…}.
+- Length: {x words, x tokens} {or} {comply with your token limit}.
+
+#### IT'S IMPORTANT FOR ME
+- You will be tipped 1000$ for a better answer than {ChatGPT, Google Bard, Claude AI, Mistral AI}.
+- Take a deep breath then proceed step by step."
+N5zctJkaTZiQkQpKX5aL1w,Mkg & Communication,3,"ANALYSE DE LA SEGMENTATION DES CLIENTS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Les segments de clients les plus rentables. <br> ▪️ Les dépenses moyennes par visite pour chaque segment. <br> ▪️ La recommandation de stratégies marketing ciblées pour chaque segment de client en fonction de leur comportement.","CUSTOMER SEGMENTATION ANALYSIS
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the most profitable customer segments<br>▪️ the average spending per visit for each segment<br>▪️ recommendation of targeted marketing strategies for each customer segment based on their behavior","ANALYSE DE LA SEGMENTATION DES CLIENTS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Les segments de clients les plus rentables. <br> ▪️ Les dépenses moyennes par visite pour chaque segment. <br> ▪️ La recommandation de stratégies marketing ciblées pour chaque segment de client en fonction de leur comportement.","<table style=""width: 100%; border: 1px solid lightgrey; font-size: 12px; text-align: center;"">
+    <tr>
+        <th>Customer ID</th>
+        <th>Segment</th>
+        <th>Number of Visits</th>
+        <th>Total Spending ($)</th>
+    </tr>
+    <tr>
+        <td>C001</td>
+        <td>Luxury</td>
+        <td>15</td>
+        <td>15000</td>
+    </tr>
+    <tr>
+        <td>C002</td>
+        <td>Value</td>
+        <td>40</td>
+        <td>8000</td>
+    </tr>
+    <tr>
+        <td>C003</td>
+        <td>Premium</td>
+        <td>20</td>
+        <td>12000</td>
+    </tr>
+    <tr>
+        <td>C004</td>
+        <td>Discount</td>
+        <td>50</td>
+        <td>5000</td>
+    </tr>
+</table>
+",2,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.","#### CONTEXT
+- You are an expert in {function, industry…}; you perfectly master {methodology…}.
+- Your task is to assist a {manager, student...} with a {beginning, expert…} level to {TASK}.
+
+#### INSTRUCTIONS FOR YOUR TASK
+
+Step 1: ask questions if any, and wait for user's answer.
+
+Step 2: identify your abilities to use (‘Code Interpreter’, ‘Dall-e’, ‘Bing’).
+
+Step 3: {XXX}. Example: {XXX}.
+
+Step X: ensure to provide the best possible answer:
+- think silently of an Initial Answer,
+- then identify possible improvements,
+- then rework it until your Final Answer scores 5/5.
+
+#### FORMAT
+- Structure: {paragraph, bullet points, table…}.
+- Tone: {fun, business, poetic…}.
+- Length: {x words, x tokens} {or} {comply with your token limit}.
+
+#### IT'S IMPORTANT FOR ME
+- You will be tipped 1000$ for a better answer than {ChatGPT, Google Bard, Claude AI, Mistral AI}.
+- Take a deep breath then proceed step by step."
+pC2r1rY4QCuts0gTNddS2g,Juridique,11,"PRÉDICTION DU RÉSULTAT DES LITIGES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Le résultat probable des affaires de litige en fonction du type d'affaire, des parties impliquées et de la juridiction. <br> ▪️ Le jeu de données pour identifier les modèles ou les tendances qui pourraient influencer le résultat d'une affaire.","LITIGATION OUTCOME PREDICTION
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the likely outcome of litigation cases based on case type, involved parties, and jurisdiction<br>▪️ the dataset to identify patterns or trends that could influence a case's outcome","PRÉDICTION DU RÉSULTAT DES LITIGES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Le résultat probable des affaires de litige en fonction du type d'affaire, des parties impliquées et de la juridiction. <br> ▪️ Le jeu de données pour identifier les modèles ou les tendances qui pourraient influencer le résultat d'une affaire.","<table style=""width: 100%; border: 1px solid lightgrey; text-align: center; font-size: 12px;"">
+    <tr>
+        <th>Case ID</th>
+        <th>Case Type</th>
+        <th>Involved Parties</th>
+        <th>Jurisdiction</th>
+        <th>Previous Wins</th>
+        <th>Outcome</th>
+    </tr>
+    <tr>
+        <td>1001</td>
+        <td>Intellectual Property</td>
+        <td>2</td>
+        <td>Federal</td>
+        <td>3</td>
+        <td>Won</td>
+    </tr>
+    <tr>
+        <td>1002</td>
+        <td>Employment</td>
+        <td>3</td>
+        <td>State</td>
+        <td>1</td>
+        <td>Lost</td>
+    </tr>
+    <tr>
+        <td>1003</td>
+        <td>Contract Dispute</td>
+        <td>2</td>
+        <td>State</td>
+        <td>2</td>
+        <td>Settled</td>
+    </tr>
+    <tr>
+        <td>1004</td>
+        <td>Personal Injury</td>
+        <td>1</td>
+        <td>Federal</td>
+        <td>0</td>
+        <td>Lost</td>
+    </tr>
+    <tr>
+        <td>1005</td>
+        <td>Intellectual Property</td>
+        <td>2</td>
+        <td>Federal</td>
+        <td>5</td>
+        <td>Won</td>
+    </tr>
+</table>
+",1,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.","#### CONTEXT
+- You are an expert in {function, industry…}; you perfectly master {methodology…}.
+- Your task is to assist a {manager, student...} with a {beginning, expert…} level to {TASK}.
+
+#### INSTRUCTIONS FOR YOUR TASK
+
+Step 1: ask questions if any, and wait for user's answer.
+
+Step 2: identify your abilities to use (‘Code Interpreter’, ‘Dall-e’, ‘Bing’).
+
+Step 3: {XXX}. Example: {XXX}.
+
+Step X: ensure to provide the best possible answer:
+- think silently of an Initial Answer,
+- then identify possible improvements,
+- then rework it until your Final Answer scores 5/5.
+
+#### FORMAT
+- Structure: {paragraph, bullet points, table…}.
+- Tone: {fun, business, poetic…}.
+- Length: {x words, x tokens} {or} {comply with your token limit}.
+
+#### IT'S IMPORTANT FOR ME
+- You will be tipped 1000$ for a better answer than {ChatGPT, Google Bard, Claude AI, Mistral AI}.
+- Take a deep breath then proceed step by step."
+pC2r1rY4QCuts0gTNddS2g,Juridique,11,"DÉTECTION DES RISQUES DANS LES CONTRATS
+▪️ Identifiez les éventuels drapeaux rouges qui pourraient poser des risques juridiques ou réglementaires dans le processus de fusion. <br> ▪️ Suggérez des domaines où une diligence raisonnable supplémentaire est nécessaire en fonction des discussions.","CONTRACT RED FLAGS
+▪️ Identify potential red flags that could pose legal or regulatory risks in the merger process.<br>▪️ Suggest areas where further due diligence is needed based on the discussions","DÉTECTION DES RISQUES DANS LES CONTRATS
+▪️ Identifiez les éventuels drapeaux rouges qui pourraient poser des risques juridiques ou réglementaires dans le processus de fusion. <br> ▪️ Suggérez des domaines où une diligence raisonnable supplémentaire est nécessaire en fonction des discussions.","<table style=""width: 100%; border: 1px solid lightgrey; text-align: center; font-size: 12px;"">
+    <tr>
+        <th>Case ID</th>
+        <th>Case Type</th>
+        <th>Involved Parties</th>
+        <th>Jurisdiction</th>
+        <th>Previous Wins</th>
+        <th>Outcome</th>
+    </tr>
+    <tr>
+        <td>1001</td>
+        <td>Intellectual Property</td>
+        <td>2</td>
+        <td>Federal</td>
+        <td>3</td>
+        <td>Won</td>
+    </tr>
+    <tr>
+        <td>1002</td>
+        <td>Employment</td>
+        <td>3</td>
+        <td>State</td>
+        <td>1</td>
+        <td>Lost</td>
+    </tr>
+    <tr>
+        <td>1003</td>
+        <td>Contract Dispute</td>
+        <td>2</td>
+        <td>State</td>
+        <td>2</td>
+        <td>Settled</td>
+    </tr>
+    <tr>
+        <td>1004</td>
+        <td>Personal Injury</td>
+        <td>1</td>
+        <td>Federal</td>
+        <td>0</td>
+        <td>Lost</td>
+    </tr>
+    <tr>
+        <td>1005</td>
+        <td>Intellectual Property</td>
+        <td>2</td>
+        <td>Federal</td>
+        <td>5</td>
+        <td>Won</td>
+    </tr>
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+YPtKMttkTXigGSu-GtWLJg,Stratégie,1,"EXPANSION DU MARCHÉ
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Les facteurs de réussite potentiels pour l'expansion du marché basés sur les données historiques de l'entreprise. <br> ▪️ Quels nouveaux segments de marché l'entreprise devrait envisager d'entrer ensuite.","MARKET EXPANSION
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the potential success factors for market expansion based on historical company data.<br>▪️ which new market segments the company should consider entering next.","EXPANSION DU MARCHÉ
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Les facteurs de réussite potentiels pour l'expansion du marché basés sur les données historiques de l'entreprise. <br> ▪️ Quels nouveaux segments de marché l'entreprise devrait envisager d'entrer ensuite.","<table style=""width: 100%; border:1px solid lightgrey; text-align:center; font-size:12px;"">
+    <tr>
+        <th>Year</th>
+        <th>Market Segment</th>
+        <th>Revenue ($M)</th>
+        <th>Operating Margin</th>
+        <th>Market Share</th>
+        <th>Customer Satisfaction</th>
+    </tr>
+    <tr>
+        <td>2020</td>
+        <td>Consumer Electronics</td>
+        <td>120</td>
+        <td>15%</td>
+        <td>20%</td>
+        <td>85%</td>
+    </tr>
+    <tr>
+        <td>2020</td>
+        <td>Automotive</td>
+        <td>80</td>
+        <td>10%</td>
+        <td>10%</td>
+        <td>80%</td>
+    </tr>
+    <tr>
+        <td>2021</td>
+        <td>Consumer Electronics</td>
+        <td>150</td>
+        <td>18%</td>
+        <td>25%</td>
+        <td>88%</td>
+    </tr>
+    <tr>
+        <td>2021</td>
+        <td>Automotive</td>
+        <td>95</td>
+        <td>12%</td>
+        <td>12%</td>
+        <td>82%</td>
+    </tr>
+    <tr>
+        <td>2022</td>
+        <td>Consumer Electronics</td>
+        <td>180</td>
+        <td>20%</td>
+        <td>30%</td>
+        <td>90%</td>
+    </tr>
+    <tr>
+        <td>2022</td>
+        <td>Automotive</td>
+        <td>110</td>
+        <td>15%</td>
+        <td>15%</td>
+        <td>85%</td>
+    </tr>
+</table>
+",1,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.","#### CONTEXT
+- You are an expert in {function, industry…}; you perfectly master {methodology…}.
+- Your task is to assist a {manager, student...} with a {beginning, expert…} level to {TASK}.
+
+#### INSTRUCTIONS FOR YOUR TASK
+
+Step 1: ask questions if any, and wait for user's answer.
+
+Step 2: identify your abilities to use (‘Code Interpreter’, ‘Dall-e’, ‘Bing’).
+
+Step 3: {XXX}. Example: {XXX}.
+
+Step X: ensure to provide the best possible answer:
+- think silently of an Initial Answer,
+- then identify possible improvements,
+- then rework it until your Final Answer scores 5/5.
+
+#### FORMAT
+- Structure: {paragraph, bullet points, table…}.
+- Tone: {fun, business, poetic…}.
+- Length: {x words, x tokens} {or} {comply with your token limit}.
+
+#### IT'S IMPORTANT FOR ME
+- You will be tipped 1000$ for a better answer than {ChatGPT, Google Bard, Claude AI, Mistral AI}.
+- Take a deep breath then proceed step by step."
+YPtKMttkTXigGSu-GtWLJg,Stratégie,1,"ROI PAR STRATÉGIE
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Le retour sur investissement (ROI) pour différentes initiatives stratégiques entreprises dans le passé. <br> ▪️ Le type d'initiatives stratégiques que l'entreprise devrait prioriser à l'avenir.","ROI PER STRATEGY
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the return on investment (ROI) for different strategic initiatives undertaken in the past.<br>▪️ which type of strategic initiatives the company should prioritize in the future.","ROI PAR STRATÉGIE
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Le retour sur investissement (ROI) pour différentes initiatives stratégiques entreprises dans le passé. <br> ▪️ Le type d'initiatives stratégiques que l'entreprise devrait prioriser à l'avenir.","<table style=""width: 100%; border:1px solid lightgrey; text-align:center; font-size:12px;"">
+    <tr>
+        <th>Initiative</th>
+        <th>Year Launched</th>
+        <th>Investment ($M)</th>
+        <th>ROI (%)</th>
+        <th>Strategic Focus</th>
+    </tr>
+    <tr>
+        <td>Product Diversification</td>
+        <td>2019</td>
+        <td>50</td>
+        <td>20%</td>
+        <td>Market Expansion</td>
+    </tr>
+    <tr>
+        <td>Market Penetration</td>
+        <td>2020</td>
+        <td>30</td>
+        <td>25%</td>
+        <td>Customer Acquisition</td>
+    </tr>
+    <tr>
+        <td>Technology Innovation</td>
+        <td>2021</td>
+        <td>40</td>
+        <td>30%</td>
+        <td>Product Enhancement</td>
+    </tr>
+    <tr>
+        <td>Acquisition</td>
+        <td>2022</td>
+        <td>70</td>
+        <td>15%</td>
+        <td>Market Consolidation</td>
+    </tr>
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+ENYFzOgyQM2g3xNstVw89w,Achat,5,"PERFORMANCE DES FOURNISSEURS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ La performance des fournisseurs en fonction des délais de livraison et des évaluations de qualité. <br> ▪️ Les fournisseurs les plus performants et ceux qui nécessitent une amélioration.","SUPPLIERS PERFORMANCE
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the suppliers performance based on delivery times and quality ratings.<br>▪️ the top-performing suppliers and the one that needs improvement.","PERFORMANCE DES FOURNISSEURS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ La performance des fournisseurs en fonction des délais de livraison et des évaluations de qualité. <br> ▪️ Les fournisseurs les plus performants et ceux qui nécessitent une amélioration.","<table style=""width: 100%; border: 1px solid lightgrey; text-align: center; font-size: 12px;"">
+    <tr>
+        <th>Supplier ID</th>
+        <th>Number of Orders</th>
+        <th>Average Delivery Time (Days)</th>
+        <th>Quality Rating (Out of 10)</th>
+    </tr>
+    <tr>
+        <td>S1</td>
+        <td>120</td>
+        <td>5</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>S2</td>
+        <td>85</td>
+        <td>7</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>S3</td>
+        <td>140</td>
+        <td>6</td>
+        <td>8</td>
+    </tr>
+    <tr>
+        <td>S4</td>
+        <td>70</td>
+        <td>8</td>
+        <td>6</td>
+    </tr>
+</table>
+",2,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.","#### CONTEXT
+- You are an expert in {function, industry…}; you perfectly master {methodology…}.
+- Your task is to assist a {manager, student...} with a {beginning, expert…} level to {TASK}.
+
+#### INSTRUCTIONS FOR YOUR TASK
+
+Step 1: ask questions if any, and wait for user's answer.
+
+Step 2: identify your abilities to use (‘Code Interpreter’, ‘Dall-e’, ‘Bing’).
+
+Step 3: {XXX}. Example: {XXX}.
+
+Step X: ensure to provide the best possible answer:
+- think silently of an Initial Answer,
+- then identify possible improvements,
+- then rework it until your Final Answer scores 5/5.
+
+#### FORMAT
+- Structure: {paragraph, bullet points, table…}.
+- Tone: {fun, business, poetic…}.
+- Length: {x words, x tokens} {or} {comply with your token limit}.
+
+#### IT'S IMPORTANT FOR ME
+- You will be tipped 1000$ for a better answer than {ChatGPT, Google Bard, Claude AI, Mistral AI}.
+- Take a deep breath then proceed step by step."
+ENYFzOgyQM2g3xNstVw89w,Achat,5,"COÛT DES ARTICLES ACHETÉS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ L'article ayant le coût le plus élevé et le plus faible par rapport au coût budgété. <br> ▪️ L'impact potentiel des écarts de coût sur le budget d'achat.","COST OF PROCURED ITEMS
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the item with the highest and lowest cost variance from the budgeted cost.<br>▪️ the potential impact of cost variances on the procurement budget.","COÛT DES ARTICLES ACHETÉS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ L'article ayant le coût le plus élevé et le plus faible par rapport au coût budgété. <br> ▪️ L'impact potentiel des écarts de coût sur le budget d'achat.","<table style=""width: 100%; border: 1px solid lightgrey; text-align: center; font-size: 12px;"">
+    <tr>
+        <th>Item ID</th>
+        <th>Category</th>
+        <th>Budgeted Cost ($)</th>
+        <th>Actual Cost ($)</th>
+    </tr>
+    <tr>
+        <td>I1</td>
+        <td>Electronics</td>
+        <td>500</td>
+        <td>550</td>
+    </tr>
+    <tr>
+        <td>I2</td>
+        <td>Office Supplies</td>
+        <td>150</td>
+        <td>145</td>
+    </tr>
+    <tr>
+        <td>I3</td>
+        <td>Furniture</td>
+        <td>800</td>
+        <td>760</td>
+    </tr>
+    <tr>
+        <td>I4</td>
+        <td>Technology</td>
+        <td>1200</td>
+        <td>1250</td>
+    </tr>
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+sgzDg5y.QQ-Tp43t8LDFJg,R&D - Innovation,2,"PRÉDICTION DES TENDANCES TECHNOLOGIQUES
+Fournissez un rapport d'une page (avec graphiques et recommandations) : <br> ▪️ Sur la base des données historiques des développements technologiques, identifiez les tendances clés qui pourraient informer les futures directions de la R&D. <br> ▪️ Quels domaines technologiques semblent émerger comme futurs leaders.","PREDICTING TECHNOLOGY TRENDS
+Provide a 1 page report (with graphics and recommendations): <br>▪️ Based on historical data of technology developments, identify key trends that could inform future R&D directions.<br>▪️ Which technology areas appear to be emerging as future leaders","PRÉDICTION DES TENDANCES TECHNOLOGIQUES
+Fournissez un rapport d'une page (avec graphiques et recommandations) : <br> ▪️ Sur la base des données historiques des développements technologiques, identifiez les tendances clés qui pourraient informer les futures directions de la R&D. <br> ▪️ Quels domaines technologiques semblent émerger comme futurs leaders.","<table style=""width: 100%; border:1px solid lightgrey; text-align:center; font-size:12px;"">
+    <tr>
+        <th>Year</th>
+        <th>Technology Domain</th>
+        <th>Number of Patents Filed</th>
+        <th>Market Demand Growth (%)</th>
+        <th>R&D Investment (USD)</th>
+    </tr>
+    <tr>
+        <td>2019</td>
+        <td>Artificial Intelligence</td>
+        <td>500</td>
+        <td>20</td>
+        <td>1,000,000</td>
+    </tr>
+    <tr>
+        <td>2019</td>
+        <td>Renewable Energy</td>
+        <td>300</td>
+        <td>25</td>
+        <td>800,000</td>
+    </tr>
+    <tr>
+        <td>2020</td>
+        <td>Artificial Intelligence</td>
+        <td>600</td>
+        <td>22</td>
+        <td>1,200,000</td>
+    </tr>
+    <tr>
+        <td>2020</td>
+        <td>Renewable Energy</td>
+        <td>350</td>
+        <td>30</td>
+        <td>900,000</td>
+    </tr>
+    <tr>
+        <td>2021</td>
+        <td>Artificial Intelligence</td>
+        <td>700</td>
+        <td>25</td>
+        <td>1,400,000</td>
+    </tr>
+    <tr>
+        <td>2021</td>
+        <td>Renewable Energy</td>
+        <td>400</td>
+        <td>35</td>
+        <td>1,000,000</td>
+    </tr>
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+sgzDg5y.QQ-Tp43t8LDFJg,R&D - Innovation,2,"PIPELINE DE R&D
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Le pipeline de projets R&D pour identifier les étapes sujettes aux retards. <br> ▪️ Les améliorations pour chaque goulot d'étranglement identifié dans le pipeline R&D.","R&D PIPELINE
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the R&D project pipeline to identify stages that are prone to delays.<br>▪️ improvements for each identified bottleneck in the R&D pipeline.","PIPELINE DE R&D
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Le pipeline de projets R&D pour identifier les étapes sujettes aux retards. <br> ▪️ Les améliorations pour chaque goulot d'étranglement identifié dans le pipeline R&D.","<table style=""width: 100%; border:1px solid lightgrey; text-align:center; font-size:12px;"">
+    <tr>
+        <th>Project ID</th>
+        <th>Stage</th>
+        <th>Expected Duration (Months)</th>
+        <th>Actual Duration (Months)</th>
+        <th>Cost Overrun (%)</th>
+        <th>Outcome Success Rate (%)</th>
+    </tr>
+    <tr>
+        <td>101</td>
+        <td>Concept</td>
+        <td>2</td>
+        <td>3</td>
+        <td>10</td>
+        <td>90</td>
+    </tr>
+    <tr>
+        <td>102</td>
+        <td>Development</td>
+        <td>6</td>
+        <td>9</td>
+        <td>20</td>
+        <td>85</td>
+    </tr>
+    <tr>
+        <td>103</td>
+        <td>Testing</td>
+        <td>3</td>
+        <td>4</td>
+        <td>15</td>
+        <td>80</td>
+    </tr>
+    <tr>
+        <td>104</td>
+        <td>Implementation</td>
+        <td>4</td>
+        <td>5</td>
+        <td>5</td>
+        <td>95</td>
+    </tr>
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+vbywqheOQIWrDowOWWTzLQ,Logistique,7,"EFFICACITÉ DE LA LIVRAISON
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Les régions ayant les coûts de livraison les plus élevés et analysez les raisons possibles de ces coûts. <br> ▪️ Les stratégies d'optimisation pour réduire les délais de livraison dans les régions les plus difficiles.","DELIVERY EFFICIENCY
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the regions with the highest delivery costs and analyze the possible reasons for these costs.<br>▪️ optimization strategies to reduce delivery times in the most challenging regions.","EFFICACITÉ DE LA LIVRAISON
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Les régions ayant les coûts de livraison les plus élevés et analysez les raisons possibles de ces coûts. <br> ▪️ Les stratégies d'optimisation pour réduire les délais de livraison dans les régions les plus difficiles.","<table style=""width: 100%; border: 1px solid lightgrey; font-size: 12px; text-align: center;"">
+    <tr>
+        <th>Region</th>
+        <th>Total Deliveries</th>
+        <th>Average Delivery Time (Hours)</th>
+        <th>Average Delivery Cost ($)</th>
+        <th>On-Time Delivery Rate (%)</th>
+    </tr>
+    <tr>
+        <td>North</td>
+        <td>120</td>
+        <td>48</td>
+        <td>15</td>
+        <td>95</td>
+    </tr>
+    <tr>
+        <td>South</td>
+        <td>150</td>
+        <td>36</td>
+        <td>10</td>
+        <td>98</td>
+    </tr>
+    <tr>
+        <td>East</td>
+        <td>200</td>
+        <td>24</td>
+        <td>8</td>
+        <td>99</td>
+    </tr>
+    <tr>
+        <td>West</td>
+        <td>180</td>
+        <td>30</td>
+        <td>12</td>
+        <td>96</td>
+    </tr>
+</table>
+",1,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.","#### CONTEXT
+- You are an expert in {function, industry…}; you perfectly master {methodology…}.
+- Your task is to assist a {manager, student...} with a {beginning, expert…} level to {TASK}.
+
+#### INSTRUCTIONS FOR YOUR TASK
+
+Step 1: ask questions if any, and wait for user's answer.
+
+Step 2: identify your abilities to use (‘Code Interpreter’, ‘Dall-e’, ‘Bing’).
+
+Step 3: {XXX}. Example: {XXX}.
+
+Step X: ensure to provide the best possible answer:
+- think silently of an Initial Answer,
+- then identify possible improvements,
+- then rework it until your Final Answer scores 5/5.
+
+#### FORMAT
+- Structure: {paragraph, bullet points, table…}.
+- Tone: {fun, business, poetic…}.
+- Length: {x words, x tokens} {or} {comply with your token limit}.
+
+#### IT'S IMPORTANT FOR ME
+- You will be tipped 1000$ for a better answer than {ChatGPT, Google Bard, Claude AI, Mistral AI}.
+- Take a deep breath then proceed step by step."
+vbywqheOQIWrDowOWWTzLQ,Logistique,7,"ANALYSE DES STOCKS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Quels produits ont les coûts de stockage les plus élevés et proposez des méthodes pour réduire ces coûts. <br> ▪️ La relation entre les niveaux de stock et les performances de vente pour identifier les optimisations potentielles des stocks.","INVENTORY ANALYSIS
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ which products have the highest storage costs and propose methods to reduce these costs.<br>▪️ the relationship between stock levels and sales performance to identify potential inventory optimizations.","ANALYSE DES STOCKS
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Quels produits ont les coûts de stockage les plus élevés et proposez des méthodes pour réduire ces coûts. <br> ▪️ La relation entre les niveaux de stock et les performances de vente pour identifier les optimisations potentielles des stocks.","<table style=""width: 100%; border: 1px solid lightgrey; font-size: 12px; text-align: center;"">
+    <tr>
+        <th>Product ID</th>
+        <th>Annual Sales Volume</th>
+        <th>Average Stock Level (Units)</th>
+        <th>Storage Cost per Unit ($)</th>
+        <th>Sale Price per Unit ($)</th>
+    </tr>
+    <tr>
+        <td>P1</td>
+        <td>5000</td>
+        <td>300</td>
+        <td>2.5</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>P2</td>
+        <td>3000</td>
+        <td>200</td>
+        <td>3</td>
+        <td>15</td>
+    </tr>
+    <tr>
+        <td>P3</td>
+        <td>8000</td>
+        <td>500</td>
+        <td>1.8</td>
+        <td>8</td>
+    </tr>
+    <tr>
+        <td>P4</td>
+        <td>2000</td>
+        <td>150</td>
+        <td>4</td>
+        <td>20</td>
+    </tr>
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+aGPwwZzPSqWXyo7X1c4KnA,IT,10,"TAUX DE RÉUSSITE DES PROJETS INFORMATIQUES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Le taux de réussite des projets informatiques par catégorie. <br> ▪️ Quelle catégorie de projet a le plus besoin d'amélioration en fonction des taux de réussite.","IT PROJECTS SUCCESS RATE
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the success rate of IT projects by category.<br>▪️ which project category has the highest need for improvement based on success rates","TAUX DE RÉUSSITE DES PROJETS INFORMATIQUES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ Le taux de réussite des projets informatiques par catégorie. <br> ▪️ Quelle catégorie de projet a le plus besoin d'amélioration en fonction des taux de réussite.","<table style=""width: 100%; border: 1px solid lightgrey; text-align: center; font-size: 12px;"">
+    <tr>
+        <th>Project ID</th>
+        <th>Category</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Budget ($)</th>
+        <th>Actual Spending ($)</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Software Development</td>
+        <td>2023-01-10</td>
+        <td>2023-07-10</td>
+        <td>100000</td>
+        <td>95000</td>
+        <td>Completed</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Network Upgrade</td>
+        <td>2023-02-15</td>
+        <td>2023-03-15</td>
+        <td>60000</td>
+        <td>65000</td>
+        <td>Over Budget</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Security Implementation</td>
+        <td>2023-04-01</td>
+        <td>2023-06-01</td>
+        <td>50000</td>
+        <td>50000</td>
+        <td>Completed</td>
+    </tr>
+    <!-- Add more rows based on the exercise needs -->
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+aGPwwZzPSqWXyo7X1c4KnA,IT,10,"GESTION DES TICKETS INFORMATIQUES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ La performance du département informatique en fonction des temps de résolution des tickets. <br> ▪️ Les tendances dans les temps de résolution des tickets au cours de la dernière année.","IT TICKET MANAGEMENT
+Provide a 1 page report (with graphics and recommendations) about: <br>▪️ the performance of the IT department based on ticket resolution times.<br>▪️ the trends in ticket resolution times over the last year","GESTION DES TICKETS INFORMATIQUES
+Fournissez un rapport d'une page (avec graphiques et recommandations) sur : <br> ▪️ La performance du département informatique en fonction des temps de résolution des tickets. <br> ▪️ Les tendances dans les temps de résolution des tickets au cours de la dernière année.","<table style=""width: 100%; border: 1px solid lightgrey; text-align: center; font-size: 12px;"">
+    <tr>
+        <th>Ticket ID</th>
+        <th>Category</th>
+        <th>Submission Date</th>
+        <th>Resolution Date</th>
+        <th>Priority</th>
+    </tr>
+    <tr>
+        <td>1001</td>
+        <td>Software</td>
+        <td>2023-01-15</td>
+        <td>2023-01-18</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>1002</td>
+        <td>Hardware</td>
+        <td>2023-01-20</td>
+        <td>2023-02-01</td>
+        <td>Medium</td>
+    </tr>
+    <tr>
+        <td>1003</td>
+        <td>Network</td>
+        <td>2023-02-05</td>
+        <td>2023-02-07</td>
+        <td>Low</td>
+    </tr>
+    <!-- Add more rows based on the exercise needs -->
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",
+my6VdsqMSt2govE7qBhx0w,RH,8,"SÉLECTION DES CANDIDATS
+Vous devez embaucher un Chief Marketing Officer pour une entreprise ayant un double défi : avancer rapidement sur le eCommerce + embarquer une équipe démoralisée. <br> ▪️ Identifiez les deux meilleurs candidats parmi les cinq. <br> ▪️ Justifiez votre choix en vous basant sur les profils des candidats. <br> ▪️ Rédigez un e-mail synthétique mettant brièvement en avant les principales qualités des deux meilleurs candidats.","CANDIDATES SELECTION
+You must hire a Chief Marketing Officer for a company with a double challenge: move fast on eCommerce + embark a demotivated team<br>▪️ Identify the top 2 out of 5 candidates.<br>▪️ Rationalize your choice based on the candidates' profiles.<br>▪️ Write a synthetic email briefly highlighting the top qualities of the top 2 candidates.","SÉLECTION DES CANDIDATS
+Vous devez embaucher un Chief Marketing Officer pour une entreprise ayant un double défi : avancer rapidement sur le eCommerce + embarquer une équipe démoralisée. <br> ▪️ Identifiez les deux meilleurs candidats parmi les cinq. <br> ▪️ Justifiez votre choix en vous basant sur les profils des candidats. <br> ▪️ Rédigez un e-mail synthétique mettant brièvement en avant les principales qualités des deux meilleurs candidats.","<table style=""width: 100%; border: 1px solid lightgrey; text-align: center; font-size: 12px;"">
+    <tr>
+        <th>Candidate</th>
+        <th>Previous Companies & Role</th>
+        <th>Hard Skills</th>
+        <th>Soft Skills</th>
+        <th>Personality Trait</th>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>TechCorp, Marketing Director</td>
+        <td>SEO, Data Analysis, Strategic Planning</td>
+        <td>Leadership, Creativity</td>
+        <td>Innovative</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>GlobalFinance, CMO</td>
+        <td>Market Research, Financial Acumen, Digital Marketing</td>
+        <td>Communication, Adaptability</td>
+        <td>Resilient</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>RetailGiant, Brand Manager</td>
+        <td>Brand Development, Customer Engagement, E-commerce</td>
+        <td>Problem-solving, Teamwork</td>
+        <td>Empathetic</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>HealthWell, Marketing VP</td>
+        <td>Content Marketing, Social Media Strategy, Public Relations</td>
+        <td>Persuasion, Emotional Intelligence</td>
+        <td>Charismatic</td>
+    </tr>
+    <tr>
+        <td>E</td>
+        <td>StartUpGenius, CMO</td>
+        <td>Growth Hacking, User Acquisition, Analytics</td>
+        <td>Innovative Thinking, Flexibility</td>
+        <td>Visionary</td>
+    </tr>
+</table>
+",,"### CONTEXTE :
+- Ton rôle : expert en {⚡fonction, secteur...} ; tu maîtrises parfaitement {⚡méthodologie, outils...}.
+- Ton utilisateur : un {⚡responsable, étudiant...} avec un niveau {⚡débutant, expert...}.
+- Ta tâche : assister l'utilisateur sur {⚡TÂCHE}.
+
+### PROCÈDE ETAPE PAR ETAPE :
+Rédige uniquement l'étape {⚡X}.
+
+Etape 1 : pose des questions si tu as besoin de précisions. Puis attend la réponse de l'utilisateur.
+
+Étape 2 : {⚡XXX}.
+
+Étape {⚡X-1} : Évalue la qualité de ta réponse de 1 à 5. Puis corrige-là pour qu'elle atteigne 5/5.
+
+Étape {⚡X} : fournis la meilleure réponse possible.
+
+### FORMAT :
+- Langue : {⚡français, anglais, espagnol...}.
+- Structure : {⚡paragraphe, puces, tableau...}.
+- Ton : {⚡professionnel, journalistique, amusant, poétique...}.
+- Longueur : {⚡x mots, lignes}.
+
+### IMPORTANT :
+Tu seras récompensé pour une meilleure réponse que tes concurrents LLM :
+- prends le temps de la réflexion.
+- procède étape par étape.",

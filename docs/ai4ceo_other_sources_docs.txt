@@ -1,0 +1,5 @@
+* Ceo role: "C:\Users\aymar\OneDrive\3_ PRO AYS\a_ SOURCINNO\4_ CONCEPTS\a_ aiOFFICE- aiFORALL\aistack- roles CxO.jpg"
+* AI Consulting: "C:\Users\aymar\OneDrive\3_ PRO AYS\a_ SOURCINNO\4_ CONCEPTS\a_ aiOFFICE- aiFORALL\gpts_aiConsultant - Instructions.docx" + "C:\Users\aymar\OneDrive\3_ PRO AYS\a_ SOURCINNO\4_ CONCEPTS\a_ aiOFFICE- aiFORALL\processor- gpts instructions.docx" + "C:\Users\aymar\AYS_CODING\_AI_SKILLS\skill-benchmark"
+* AI Use case: "C:\Users\aymar\OneDrive\3_ PRO AYS\a_ SOURCINNO\4_ CONCEPTS\a_ ai4all- USECASES\ai usecase- Knowledge illustration.xlsx" + "C:\Users\aymar\OneDrive\3_ PRO AYS\a_ SOURCINNO\4_ CONCEPTS\a_ ai4all- USECASES\AI USECASES PROMPTS.txt"
+* Prompt generation: "C:\Users\aymar\OneDrive\3_ PRO AYS\a_ SOURCINNO\4_ CONCEPTS\a_ aiOFFICE- aiFORALL\aiforall- Functional spec _written.txt" + C:\Users\aymar\AYS_CODING\code-AIFORALL_EXTENSION
+* AI Course (could be a module in the AI4CEO suite): "C:\Users\aymar\OneDrive\3_ PRO AYS\a_ SOURCINNO\4_ CONCEPTS\a_ @office- AIBIZ COURSE\AI course- Why What How -v1.pptx"

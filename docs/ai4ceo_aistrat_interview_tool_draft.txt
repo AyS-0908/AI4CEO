@@ -1,0 +1,1924 @@
+# README
+
+Here is a **clean, structured README** tailored to your project, with a **user-first approach**, explicit warnings, and a clear macro logic explanation.
+
+---
+
+# 🎤 AI Interview Tool (Google Apps Script)
+
+## 🚀 USER GUIDE (Start Here)
+
+### 1. Setup
+
+1. Open the Google Sheet template
+2. Go to menu: **🎤 Strat Interview**
+3. Click **▶ New interview**
+
+---
+
+### 2. Run an Interview
+
+* A wizard opens (7 sections)
+* Fill step-by-step:
+
+  * S1 → Context
+  * S2 → AI Projects
+  * S3 → Market impact
+  * S4 → Processes
+  * S5 → Opportunities
+  * S6 → Execution
+  * S7 → Wrap-up
+
+✅ Data is **auto-saved in background**
+✅ You can **navigate freely between sections**
+✅ Progress is shown in the sidebar
+
+---
+
+### 3. Resume Later
+
+* Go to sheet **DASH_OVERVIEW**
+* Select an `Interview ID`
+* Click **↩ Resume interview**
+
+---
+
+### 4. Finalize
+
+* On last step → click **✓ Enregistrer et fermer**
+* All data is saved across all tables
+
+---
+
+## ⚠️ IMPORTANT RULES (CRITICAL)
+
+### ❌ DO NOT MODIFY SHEETS STRUCTURE
+
+This system is **strictly dependent on exact sheet structure**
+
+**NEVER change:**
+
+* Sheet names
+* Column headers
+* Column order
+
+👉 The script performs **strict validation** and will BREAK if modified 
+
+---
+
+### ⚠️ TEMPLATE VALIDATION
+
+* Menu → **⚙ Validate template**
+* Ensures:
+
+  * All sheets exist
+  * Headers match EXACTLY
+
+---
+
+## 🧪 PROJECT STATUS (READ BEFORE USING)
+
+### ⚠️ Working Prototype — Work In Progress
+
+This is a **functional but incomplete system**
+
+#### Current limitation (main reason project paused):
+
+* ❗ **Questions are hardcoded in the code**
+* ❗ Any change requires **editing Apps Script**
+* ❗ No dynamic configuration layer
+
+👉 This creates **low flexibility for iteration**
+
+---
+
+## 🧠 MACRO LOGIC (How it works)
+
+### 1. Data Model = Multi-table relational system
+
+Each interview is identified by:
+
+```
+interview_id
+```
+
+And stored across multiple tables:
+
+| Table           | Purpose            |
+| --------------- | ------------------ |
+| DB_INTERVIEW    | Metadata           |
+| DB_SCOPE_VISION | Core + notes       |
+| DB_PROJECTS     | AI projects        |
+| DB_MARKET       | Porter forces      |
+| DB_PROCESSES    | Process analysis   |
+| DB_EXECUTION    | Execution maturity |
+| REPORTS         | Aggregated outputs |
+
+---
+
+### 2. Wizard → Structured Data Pipeline
+
+UI (Wizard) → JSON payload → Mapping → Sheets
+
+```
+User Input (Wizard UI)
+        ↓
+Structured JSON (per section)
+        ↓
+Validation (allowed keys)
+        ↓
+Mapping to DB fields
+        ↓
+Batch write to Sheets
+```
+
+---
+
+### 3. Section-based architecture
+
+Each section:
+
+* Has **allowed input keys**
+* Maps to:
+
+  * Scalar fields (1 row)
+  * or child tables (multiple rows)
+
+Example:
+
+* S2 → Projects → multiple rows
+* S3 → Market → fixed 4 forces
+* S4 → Processes → dynamic rows
+
+---
+
+### 4. Performance design
+
+Optimized for Apps Script limits:
+
+* ✅ Read once → process in memory → write once
+* ✅ Batch updates
+* ✅ Locking for concurrent writes
+* ✅ Lazy loading in UI
+
+---
+
+### 5. Save strategy
+
+* Auto-save every ~8 seconds
+* Background sync
+* Final full save on completion
+
+---
+
+## 🧩 ARCHITECTURE OVERVIEW
+
+### Backend (Apps Script) 
+
+* Data validation
+* Mapping logic
+* Sheet operations
+* Menu + orchestration
+
+### Frontend (Wizard UI) 
+
+* 7-step interview flow
+* Dynamic forms
+* Auto-save engine
+* Navigation + completion tracking
+
+---
+
+## ⚙️ KEY DESIGN PRINCIPLES
+
+* **SSOT (Single Source of Truth)**:
+
+  * Sheet names
+  * Headers
+  * Field mappings
+
+* **Strict validation over flexibility**
+
+* **No silent failures**
+
+* **Deterministic saves**
+
+* **Separation UI / Logic**
+
+---
+
+## 🚧 KNOWN LIMITATIONS
+
+1. **Hardcoded questionnaire**
+
+   * Not configurable from sheets or config
+2. **Rigid schema**
+
+   * Any change requires code update
+3. **No versioning of interviews**
+4. **No user permissions / roles**
+5. **No API / external integrations**
+
+---
+
+## 💡 FUTURE IMPROVEMENT (RECOMMENDED)
+
+### 🔁 JSON Import for Notes
+
+**Idea:**
+Allow importing structured notes into the system.
+
+#### Concept:
+
+* Input: JSON file
+* Format mimics Google Sheets structure
+* Example:
+
+```json
+{
+  "interview": {
+    "interviewer_name": "...",
+    "interviewee_name": "..."
+  },
+  "projects": [
+    {
+      "project_name": "...",
+      "phase": "PoC"
+    }
+  ]
+}
+```
+
+#### Benefits:
+
+* Import external notes
+* Integrate with AI tools
+* Faster data entry
+* Enables automation pipelines
+
+---
+
+### 🧠 Other logical next steps
+
+1. Config-driven questions (from CONFIG sheet)
+2. Dynamic sections builder
+3. Export to PDF / slides
+4. LLM-assisted summarization
+5. API layer for integrations
+
+---
+
+## 🛠️ TROUBLESHOOTING
+
+### Issue: Script fails / no data saved
+
+→ Run **⚙ Validate template**
+
+---
+
+### Issue: Missing sheets
+
+→ Run **🛠 Repair template**
+
+---
+
+### Issue: Wizard stuck loading
+
+* Check:
+
+  * Interview ID exists
+  * Sheets not modified
+  * No header mismatch
+
+---
+
+## 📌 FINAL NOTES
+
+This project is:
+
+* ✅ Strong **v1 foundation**
+* ✅ Reliable for structured interviews
+* ⚠️ Limited by **lack of configurability**
+
+👉 Best next evolution:
+**Decouple questionnaire from code**
+
+---
+
+If you want, I can next:
+
+* Turn this into a **Notion-style doc**
+* Or design the **v2 architecture (config-driven system)**
+
+
+============
+
+# CODE.GS
+
+// ============================================================
+// AI INTERVIEW TOOL v4 — Google Apps Script (Server-side)
+// ============================================================
+
+// Sheet structure, formulas, and protections are owned by the template. 
+// Script must NOT create/modify them. HEADERS is the runtime validation contract
+
+// ==================== SSOT CONSTANTS ====================
+
+var SHEETS = {
+  META: 'DB_INTERVIEW',
+  SCOPE: 'DB_SCOPE_VISION',
+  PROJECTS: 'DB_PROJECTS',
+  MARKET: 'DB_MARKET',
+  PROCESSES: 'DB_PROCESSES',
+  EXECUTION: 'DB_EXECUTION',
+  OVERVIEW: 'DASH_OVERVIEW', // Renamed from INTERVIEWS
+  REPORTS: 'REPORTS',
+  CONFIG: 'CONFIG'
+};
+
+var HEADERS = {
+  DB_INTERVIEW: [
+    'interview_id', 'date', 'interviewer_name', 'interviewee_name', 'interviewee_role', 'status'
+  ],
+  DB_SCOPE_VISION: [
+    'interview_id', 'activities', 'teams_headcounts', 'main_tools', 'objectives_kpi',
+    'core_business', 'new_products_services', 'new_personas_geographies',
+    'execution_priority_1', 'execution_priority_2', 'execution_priority_3', 'wildest_dream_3y',
+    'linked_processes_s4', 'notes_s1', 'notes_s2', 'notes_s3', 'notes_s4', 'notes_s5', 'notes_s6', 'notes_s7'
+  ],
+  DB_PROJECTS: ['interview_id', 'project_name', 'phase', 'results', 'lessons_learnt'],
+  DB_MARKET: ['interview_id', 'force', 'opportunities', 'score_opportunity', 'threats', 'score_threat'],
+  DB_PROCESSES: [
+    'interview_id', 'process_name', 'score_accelerate', 'score_costs', 'score_quality',
+    'determinism', 'data_quality', 'skills_buyin', 'existing_tools_ai', 'comment'
+  ],
+  DB_EXECUTION: [
+    'interview_id', 'action_plan', 'roadblocks', 'score_velocity', 'score_governance',
+    'score_culture', 'score_organization', 'score_skills', 'score_it'
+  ],
+  DASH_OVERVIEW: ['Interview ID', 'Date', 'Interviewer', 'Interviewee', 'Role', 'Status'],
+  REPORTS: [
+    'interview_id', 'interviewee', 'date_generated', 'projects_count', 'projects_by_phase',
+    'market_opp_avg', 'market_threat_avg', 'process_accelerate_avg', 'process_costs_avg', 'process_quality_avg',
+    'exec_velocity', 'exec_governance', 'exec_culture', 'exec_organization', 'exec_skills', 'exec_it', 'exec_avg',
+    'interviewee_role',
+    'determinism_summary', 'data_quality_avg', 'skills_buyin_avg', 'existing_tools_ai_summary',
+    'execution_priority_1', 'execution_priority_2', 'execution_priority_3', 'wildest_dream_3y',
+    'market_by_force',
+    'prompt', 'llm_response', 'prompt_formula_output'
+  ]
+};
+
+var FORCE_NAMES = ['Competition', 'Clients', 'Suppliers & Ecosystem', 'Regulation'];
+
+var SECTION_FIELD_MAP = {
+  1: {
+    allowedKeys: ['interviewer', 'name', 'role', 'activities', 'teams', 'tools', 'objectives', 'notes'],
+    scalarTargets: [
+      {
+        sheet: SHEETS.META,
+        map: {
+          interviewer: 'interviewer_name',
+          name: 'interviewee_name',
+          role: 'interviewee_role'
+        }
+      },
+      {
+        sheet: SHEETS.SCOPE,
+        map: {
+          activities: 'activities',
+          teams: 'teams_headcounts',
+          tools: 'main_tools',
+          objectives: 'objectives_kpi',
+          notes: 'notes_s1'
+        }
+      }
+    ]
+  },
+
+  2: {
+    allowedKeys: ['projects', 'notes'],
+    scalarTargets: [
+      {
+        sheet: SHEETS.SCOPE,
+        map: {
+          notes: 'notes_s2'
+        }
+      }
+    ]
+  },
+
+  3: {
+    allowedKeys: ['forces', 'notes'],
+    scalarTargets: [
+      {
+        sheet: SHEETS.SCOPE,
+        map: {
+          notes: 'notes_s3'
+        }
+      }
+    ]
+  },
+
+  4: {
+    allowedKeys: ['processes', 'linkedProcesses', 'notes'],
+    scalarTargets: [
+      {
+        sheet: SHEETS.SCOPE,
+        map: {
+          linkedProcesses: 'linked_processes_s4',
+          notes: 'notes_s4'
+        }
+      }
+    ]
+  },
+
+  5: {
+    allowedKeys: ['coreBusiness', 'newProducts', 'newPersonas', 'notes'],
+    scalarTargets: [
+      {
+        sheet: SHEETS.SCOPE,
+        map: {
+          coreBusiness: 'core_business',
+          newProducts: 'new_products_services',
+          newPersonas: 'new_personas_geographies',
+          notes: 'notes_s5'
+        }
+      }
+    ]
+  },
+
+  6: {
+    allowedKeys: ['actionPlan', 'roadblocks', 'velocity', 'governance', 'culture', 'organization', 'skills', 'it', 'notes'],
+    scalarTargets: [
+      {
+        sheet: SHEETS.SCOPE,
+        map: {
+          notes: 'notes_s6'
+        }
+      }
+    ]
+  },
+
+  7: {
+    allowedKeys: ['priority1', 'priority2', 'priority3', 'dream', 'notes'],
+    scalarTargets: [
+      {
+        sheet: SHEETS.SCOPE,
+        map: {
+          priority1: 'execution_priority_1',
+          priority2: 'execution_priority_2',
+          priority3: 'execution_priority_3',
+          dream: 'wildest_dream_3y',
+          notes: 'notes_s7'
+        }
+      }
+    ]
+  }
+};
+
+function getWizardConfig() {
+  return {
+    sectionTitles: [
+      'S1 — Périmètre actuel',
+      'S2 — Projets AI',
+      'S3 — Impact marché',
+      'S4 — Impact processus',
+      'S5 — Opportunités business',
+      'S6 — Exécution',
+      'S7 — Wrap-up'
+    ],
+
+    forceNames: FORCE_NAMES.slice(),
+
+    porterMap: {
+      'Competition': 'comp',
+      'Clients': 'cli',
+      'Suppliers & Ecosystem': 'sup',
+      'Regulation': 'reg'
+    },
+
+    fieldMap: {
+      s1: {
+        s1_interviewer: 'interviewer_name',
+        s1_name: 'interviewee_name',
+        s1_role: 'interviewee_role',
+        s1_activities: 'activities',
+        s1_teams: 'teams_headcounts',
+        s1_tools: 'main_tools',
+        s1_objectives: 'objectives_kpi',
+        s1_notes: 'notes_s1'
+      },
+      cross: {
+        s4_linked: 'linked_processes_s4',
+        s2_notes: 'notes_s2',
+        s3_notes: 'notes_s3',
+        s4_notes: 'notes_s4',
+        s6_notes: 'notes_s6'
+      },
+      s5: {
+        s5_core: 'core_business',
+        s5_products: 'new_products_services',
+        s5_personas: 'new_personas_geographies',
+        s5_notes: 'notes_s5'
+      },
+      s7: {
+        s7_p1: 'execution_priority_1',
+        s7_p2: 'execution_priority_2',
+        s7_p3: 'execution_priority_3',
+        s7_dream: 'wildest_dream_3y',
+        s7_notes: 'notes_s7'
+      }
+    },
+
+    s6Map: {
+      s6_plan: 'action_plan',
+      s6_roadblocks: 'roadblocks'
+    },
+
+    s6Scores: {
+      s6_velocity: 'score_velocity',
+      s6_governance: 'score_governance',
+      s6_culture: 'score_culture',
+      s6_org: 'score_organization',
+      s6_skills: 'score_skills',
+      s6_it: 'score_it'
+    },
+
+    completionRules: {
+      0: {
+        interviewFields: [
+          'interviewer_name',
+          'interviewee_name',
+          'interviewee_role',
+          'activities',
+          'teams_headcounts',
+          'main_tools',
+          'objectives_kpi',
+          'notes_s1'
+        ]
+      },
+      1: {
+        interviewFields: ['notes_s2'],
+        secondaryTable: 'projects',
+        secondaryFields: ['project_name', 'phase', 'results', 'lessons_learnt']
+      },
+      2: {
+        interviewFields: ['notes_s3'],
+        secondaryTable: 'market',
+        secondaryFields: ['opportunities', 'score_opportunity', 'threats', 'score_threat']
+      },
+      3: {
+        interviewFields: ['linked_processes_s4', 'notes_s4'],
+        secondaryTable: 'processes',
+        secondaryFields: [
+          'process_name',
+          'score_accelerate',
+          'score_costs',
+          'score_quality',
+          'determinism',
+          'data_quality',
+          'skills_buyin',
+          'existing_tools_ai',
+          'comment'
+        ]
+      },
+      4: {
+        interviewFields: [
+          'core_business',
+          'new_products_services',
+          'new_personas_geographies',
+          'notes_s5'
+        ]
+      },
+      5: {
+        interviewFields: ['notes_s6'],
+        secondaryRow: 'execution',
+        secondaryFields: [
+          'action_plan',
+          'roadblocks',
+          'score_velocity',
+          'score_governance',
+          'score_culture',
+          'score_organization',
+          'score_skills',
+          'score_it'
+        ]
+      },
+      6: {
+        interviewFields: [
+          'execution_priority_1',
+          'execution_priority_2',
+          'execution_priority_3',
+          'wildest_dream_3y',
+          'notes_s7'
+        ]
+      }
+    }
+  };
+}
+
+function isPlainObject(value) {
+  return Object.prototype.toString.call(value) === '[object Object]';
+}
+
+function validateArrayOfObjects(sectionNum, fieldName, value) {
+  if (Object.prototype.toString.call(value) !== '[object Array]') {
+    throw new Error(
+      'validateSectionPayload: "' + fieldName + '" for section "' + sectionNum + '" must be an array.'
+    );
+  }
+
+  for (var i = 0; i < value.length; i++) {
+    if (!isPlainObject(value[i])) {
+      throw new Error(
+        'validateSectionPayload: "' + fieldName + '" item #' + (i + 1) +
+        ' for section "' + sectionNum + '" must be an object.'
+      );
+    }
+  }
+}
+
+function validateSectionPayload(sectionNum, data) {
+  var config = SECTION_FIELD_MAP[sectionNum];
+  if (!config) {
+    throw new Error('validateSectionPayload: unknown section "' + sectionNum + '".');
+  }
+
+  if (!isPlainObject(data)) {
+    throw new Error('validateSectionPayload: payload for section "' + sectionNum + '" must be an object.');
+  }
+
+  var allowed = config.allowedKeys || [];
+  var incomingKeys = Object.keys(data);
+  var unknownKeys = [];
+
+  for (var i = 0; i < incomingKeys.length; i++) {
+    if (allowed.indexOf(incomingKeys[i]) === -1) {
+      unknownKeys.push(incomingKeys[i]);
+    }
+  }
+
+  if (unknownKeys.length) {
+    throw new Error(
+      'saveSection: unknown payload key(s) for section "' + sectionNum + '": ' +
+      unknownKeys.join(', ') +
+      '. Allowed keys: ' + allowed.join(', ')
+    );
+  }
+
+  // Light nested shape validation for child-row sections
+  if (Object.prototype.hasOwnProperty.call(data, 'projects')) {
+    validateArrayOfObjects(sectionNum, 'projects', data.projects);
+  }
+
+  if (Object.prototype.hasOwnProperty.call(data, 'forces')) {
+    validateArrayOfObjects(sectionNum, 'forces', data.forces);
+  }
+
+  if (Object.prototype.hasOwnProperty.call(data, 'processes')) {
+    validateArrayOfObjects(sectionNum, 'processes', data.processes);
+  }
+}
+
+function mapPayloadToDbFields(data, fieldMap) {
+  var output = {};
+  var keys = Object.keys(fieldMap);
+
+  for (var i = 0; i < keys.length; i++) {
+    var payloadKey = keys[i];
+    var dbField = fieldMap[payloadKey];
+
+    if (Object.prototype.hasOwnProperty.call(data, payloadKey)) {
+      output[dbField] = data[payloadKey];
+    }
+  }
+
+  return output;
+}
+
+function applySectionScalarTargets(ss, sectionNum, interviewId, data) {
+  var config = SECTION_FIELD_MAP[sectionNum];
+  if (!config || !config.scalarTargets || !config.scalarTargets.length) return;
+
+  for (var i = 0; i < config.scalarTargets.length; i++) {
+    var target = config.scalarTargets[i];
+    var dbFields = mapPayloadToDbFields(data, target.map);
+
+    if (Object.keys(dbFields).length > 0) {
+      updateInterviewFields(ss, target.sheet, interviewId, dbFields);
+    }
+  }
+}
+
+// ==================== MENU ====================
+
+function onOpen() {
+  SpreadsheetApp.getUi()
+    .createMenu('🎤 Strat Interview')
+    .addItem('▶ New interview', 'newInterview')
+    .addItem('↩ Resume interview', 'resumeInterview')
+    .addSeparator()
+    .addItem('⚙ Validate template', 'validateTemplateFromMenu')
+    .addItem('🛠 Repair template', 'repairTemplate')
+    .addToUi();
+}
+
+// ==================== SETUP ====================
+
+function validateTemplate(options) {
+  var opts = options || {};
+  var showSuccess = opts.showSuccess === true;
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheetKeys = Object.keys(SHEETS);
+
+  for (var i = 0; i < sheetKeys.length; i++) {
+    var key = sheetKeys[i];
+    var sheetName = SHEETS[key];
+
+    var sheet = ss.getSheetByName(sheetName);
+    if (!sheet) {
+      throw new Error('Template error: missing sheet "' + sheetName + '".');
+    }
+
+    var expectedHeaders = HEADERS[sheetName];
+    if (!expectedHeaders) continue; // CONFIG has no strict header contract
+
+    var lastCol = sheet.getLastColumn();
+    var actualHeaders = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+
+    // --- STRICT COLUMN COUNT CHECK ---
+    if (actualHeaders.length !== expectedHeaders.length) {
+      throw new Error(
+        'Template error in sheet "' + sheetName + '"\n\n' +
+        'Expected ' + expectedHeaders.length + ' columns but found ' + actualHeaders.length + '.\n\n' +
+        'Expected:\n' + expectedHeaders.join(', ') + '\n\n' +
+        'Found:\n' + actualHeaders.join(', ')
+      );
+    }
+
+    // --- COLUMN-BY-COLUMN VALIDATION ---
+    for (var c = 0; c < expectedHeaders.length; c++) {
+      var expected = expectedHeaders[c];
+      var actual = String(actualHeaders[c]).trim();
+
+      if (actual !== expected) {
+        throw new Error(
+          'Template error in sheet "' + sheetName + '"\n\n' +
+          'Column #' + (c + 1) + ' mismatch\n\n' +
+          'Expected: "' + expected + '"\n' +
+          'Found: "' + actual + '"'
+        );
+      }
+    }
+  }
+
+  if (showSuccess) {
+    SpreadsheetApp.getUi().alert('✅ Template is valid.');
+  }
+}
+
+function validateTemplateFromMenu() {
+  validateTemplate({ showSuccess: true });
+}
+
+function repairTemplate() {
+  var ui = SpreadsheetApp.getUi();
+
+  try {
+    validateTemplate();
+    ui.alert('✅ Template already valid. No repair needed.');
+    return;
+  } catch (err) {
+    var proceed = ui.alert(
+      '⚠️ Template issue detected\n\n' +
+      err.message + '\n\n' +
+      'Do you want to RECREATE missing sheets only?\n\n' +
+      'Note: incorrect existing headers will NOT be repaired automatically.\n' +
+      'Use a fresh template or fix the header row manually.',
+      ui.ButtonSet.YES_NO
+    );
+
+    if (proceed !== ui.Button.YES) return;
+  }
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheetKeys = Object.keys(SHEETS);
+
+  for (var i = 0; i < sheetKeys.length; i++) {
+    var sheetName = SHEETS[sheetKeys[i]];
+    var expectedHeaders = HEADERS[sheetName];
+
+    // Skip CONFIG (no strict contract)
+    if (!expectedHeaders) continue;
+
+    var sheet = ss.getSheetByName(sheetName);
+
+    // --- CREATE MISSING SHEET ---
+    if (!sheet) {
+      sheet = ss.insertSheet(sheetName);
+      sheet.getRange(1, 1, 1, expectedHeaders.length)
+        .setValues([expectedHeaders])
+        .setFontWeight('bold');
+
+      sheet.setFrozenRows(1);
+      continue;
+    }
+
+    // --- DO NOT MODIFY EXISTING STRUCTURE ---
+    // (We only warn — no destructive changes)
+  }
+
+  ui.alert(
+    '🛠 Repair complete\n\n' +
+    '✔ Missing sheets recreated\n' +
+    '⚠ Existing sheets with wrong headers were not modified.\n' +
+    'For header mismatches, copy a fresh template or fix row 1 manually.'
+  );
+}
+
+function ensureSetup() {
+  try {
+    validateTemplate({ showSuccess: false });
+  } catch (err) {
+    SpreadsheetApp.getUi().alert(
+      'Template is corrupted or missing tabs.\n\n' +
+      'Copy a fresh template.\n\n' +
+      'Details:\n' + err.message
+    );
+    throw err;
+  }
+}
+
+function buildInterviewId() {
+  var timestamp = Utilities.formatDate(
+    new Date(),
+    Session.getScriptTimeZone(),
+    'yyyyMMdd_HHmmss'
+  );
+
+  var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  var suffix = '';
+
+  for (var i = 0; i < 4; i++) {
+    suffix += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+
+  return 'INT_' + timestamp + '_' + suffix;
+}
+
+// ==================== NEW / RESUME ====================
+
+function newInterview() {
+  ensureSetup();
+
+  var id = buildInterviewId();
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+
+  // Init META
+  // Write only columns A:E.
+  // Column F ("status") is owned by the sheet/template formula and is NOT written by Apps Script.
+  // The wizard must display that backend status as read-only information.
+  var metaSheet = ss.getSheetByName(SHEETS.META);
+  var nextMetaRow = metaSheet.getLastRow() + 1;
+  metaSheet.getRange(nextMetaRow, 1, 1, 5).setValues([[
+    id,
+    Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyy-MM-dd'),
+    '',
+    '',
+    ''
+  ]]);
+
+  // Init SCOPE
+  var scopeSheet = ss.getSheetByName(SHEETS.SCOPE);
+  var scopeRow = buildEmptyRow(HEADERS.DB_SCOPE_VISION);
+  setRowValue(scopeRow, HEADERS.DB_SCOPE_VISION, 'interview_id', id);
+  scopeSheet.appendRow(scopeRow);
+
+  SpreadsheetApp.flush();
+  openWizard(id);
+}
+
+function resumeInterview() {
+  ensureSetup();
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var activeSheet = ss.getActiveSheet();
+  var activeRow = activeSheet.getActiveCell().getRow();
+  var selectedId = String(activeSheet.getRange(activeRow, 1).getValue()).trim();
+
+  if (selectedId.indexOf('INT_') === 0) {
+    openWizard(selectedId);
+    return;
+  }
+
+  var interviews = listInterviews();
+  if (interviews.length === 0) { SpreadsheetApp.getUi().alert('No interview found.\n\n→ Use "▶ New interview" to create one.'); return; }
+  if (interviews.length === 1) { openWizard(interviews[0].id); return; }
+
+  SpreadsheetApp.getUi().alert(
+    'To resume an interview:\n\n' +
+    '1. Go to the "DASH_OVERVIEW" sheet.\n' +
+    '2. Select the cell in column "Interview ID" for the interview you want to resume.\n' +
+    '3. Click "↩ Resume interview" again.'
+  );
+}
+
+function listInterviews() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName(SHEETS.META);
+  var data = sheet.getDataRange().getValues();
+  var headers = data[0];
+  var result = [];
+  for (var i = 1; i < data.length; i++) {
+    var rid = String(data[i][0] || '').trim();
+    if (rid && rid.indexOf('INT_') === 0) {
+      result.push({
+        id: rid,
+        name: colVal(data[i], headers, 'interviewee_name') || '(unnamed)',
+        role: colVal(data[i], headers, 'interviewee_role') || '',
+        status: colVal(data[i], headers, 'status') || '?'
+      });
+    }
+  }
+  return result;
+}
+
+// ==================== WIZARD ====================
+
+function openWizard(interviewId) {
+  var template = HtmlService.createTemplateFromFile('Wizard');
+  template.interviewId = interviewId;
+  template.wizardConfig = getWizardConfig();
+  var html = template.evaluate().setWidth(1000).setHeight(750);
+  SpreadsheetApp.getUi().showModalDialog(html, '🎯 Interview: ' + interviewId);
+}
+
+// ==================== LOAD DATA ====================
+
+// Phase 1: load enough data to render the wizard immediately.
+// Note: this reads the 1-to-1 META row and the full SCOPE/VISION row,
+// which also contains S5, S7 and cross-section notes.
+function loadInitialData(id) {
+  if (!id) return null;
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+
+  var metaObj = getRowsFor(ss, SHEETS.META, id, 1)[0] || {};
+  var scopeObj = getRowsFor(ss, SHEETS.SCOPE, id, 1)[0] || {};
+
+  return {
+    id: id,
+    interview: Object.assign({}, metaObj, scopeObj)
+  };
+}
+
+// Phase 2: load the remaining child tables plus the EXECUTION row in background.
+function loadSecondaryData(id) {
+  if (!id) return null;
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  return {
+    projects: getRowsFor(ss, SHEETS.PROJECTS, id, 0),
+    market: getRowsFor(ss, SHEETS.MARKET, id, 0),
+    processes: getRowsFor(ss, SHEETS.PROCESSES, id, 0),
+    execution: getRowsFor(ss, SHEETS.EXECUTION, id, 1)[0] || null
+  };
+}
+
+function getRowsFor(ss, sheetName, interviewId, limit) {
+  var sheet = ss.getSheetByName(sheetName);
+  if (!sheet) return [];
+
+  // getDataRange() is the most performant way to read without knowing exact boundaries
+  var data = sheet.getDataRange().getValues();
+  if (data.length <= 1) return [];
+
+  var headers = getHeaders(sheet);
+  var rows = [];
+  var targetId = String(interviewId).trim();
+
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][0]).trim() === targetId) {
+      var obj = {};
+      for (var j = 0; j < headers.length; j++) {
+        var val = data[i][j];
+        if (val instanceof Date) val = val.toISOString();
+        obj[headers[j]] = val;
+      }
+      rows.push(obj);
+
+      // OPTIMIZATION: Break early if we only needed a specific number of rows
+      if (limit && rows.length >= limit) break;
+    }
+  }
+  return rows;
+}
+
+// ==================== SAVE ====================
+
+function saveSection(num, id, data) {
+  if (!id) return false;
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var payload = data || {};
+  validateSectionPayload(num, payload);
+
+  switch (num) {
+    case 1:
+      applySectionScalarTargets(ss, 1, id, payload);
+      break;
+
+    case 2:
+      if (Object.prototype.hasOwnProperty.call(payload, 'projects')) {
+        replaceChildRows(ss, SHEETS.PROJECTS, id, (payload.projects || []).map(function (p) {
+          return [id, p.name, p.phase, p.results, p.lessons];
+        }));
+      }
+      applySectionScalarTargets(ss, 2, id, payload);
+      break;
+
+    case 3:
+      if (Object.prototype.hasOwnProperty.call(payload, 'forces')) {
+        replaceChildRows(ss, SHEETS.MARKET, id, FORCE_NAMES.map(function (fname, i) {
+          var f = (payload.forces || [])[i] || {};
+          return [id, fname, f.opportunities || '', f.scoreOpp || '', f.threats || '', f.scoreThr || ''];
+        }));
+      }
+      applySectionScalarTargets(ss, 3, id, payload);
+      break;
+
+    case 4:
+      if (Object.prototype.hasOwnProperty.call(payload, 'processes')) {
+        replaceChildRows(ss, SHEETS.PROCESSES, id, (payload.processes || []).map(function (p) {
+          return [
+            id,
+            p.name,
+            p.accelerate,
+            p.costs,
+            p.quality,
+            p.determinism,
+            p.dataQuality,
+            p.skillsBuyin,
+            p.existingTools,
+            p.comment
+          ];
+        }));
+      }
+      applySectionScalarTargets(ss, 4, id, payload);
+      break;
+
+    case 5:
+      applySectionScalarTargets(ss, 5, id, payload);
+      break;
+
+    case 6:
+      if (
+        Object.prototype.hasOwnProperty.call(payload, 'actionPlan') ||
+        Object.prototype.hasOwnProperty.call(payload, 'roadblocks') ||
+        Object.prototype.hasOwnProperty.call(payload, 'velocity') ||
+        Object.prototype.hasOwnProperty.call(payload, 'governance') ||
+        Object.prototype.hasOwnProperty.call(payload, 'culture') ||
+        Object.prototype.hasOwnProperty.call(payload, 'organization') ||
+        Object.prototype.hasOwnProperty.call(payload, 'skills') ||
+        Object.prototype.hasOwnProperty.call(payload, 'it')
+      ) {
+        replaceChildRows(ss, SHEETS.EXECUTION, id, [[
+          id,
+          payload.actionPlan,
+          payload.roadblocks,
+          payload.velocity,
+          payload.governance,
+          payload.culture,
+          payload.organization,
+          payload.skills,
+          payload.it
+        ]]);
+      }
+      applySectionScalarTargets(ss, 6, id, payload);
+      break;
+
+    case 7:
+      applySectionScalarTargets(ss, 7, id, payload);
+      break;
+
+    default:
+      throw new Error('saveSection: unknown section "' + num + '".');
+  }
+
+  return true;
+}
+
+function saveAllSections(id, payloadBySection) {
+  if (!id) {
+    throw new Error('saveAllSections: missing interview id.');
+  }
+
+  if (!isPlainObject(payloadBySection)) {
+    throw new Error('saveAllSections: payloadBySection must be an object.');
+  }
+
+  // Save in strict section order so the finalization is deterministic
+  for (var sectionNum = 1; sectionNum <= 7; sectionNum++) {
+    var sectionPayload = payloadBySection[sectionNum] || payloadBySection[String(sectionNum)] || {};
+    saveSection(sectionNum, id, sectionPayload);
+  }
+
+  return true;
+}
+
+// ==================== BATCH HELPERS (ULTRA PERFORMANCE) ====================
+
+function findRowByInterviewId(sheet, interviewId) {
+  var lastRow = sheet.getLastRow();
+  if (lastRow < 2) return -1;
+
+  var idValues = sheet.getRange(2, 1, lastRow - 1, 1).getValues();
+  var targetId = String(interviewId).trim();
+
+  for (var i = 0; i < idValues.length; i++) {
+    if (String(idValues[i][0]).trim() === targetId) {
+      return i + 2; // convert array index to sheet row number
+    }
+  }
+
+  return -1;
+}
+
+function normalizeHeaderName(name) {
+  return String(name == null ? '' : name).trim();
+}
+
+function getHeaderIndexMap(headers) {
+  var map = {};
+  for (var i = 0; i < headers.length; i++) {
+    map[normalizeHeaderName(headers[i])] = i + 1; // 1-based column index
+  }
+  return map;
+}
+
+function updateInterviewFields(ss, sheetName, interviewId, fields) {
+  var sheet = ss.getSheetByName(sheetName);
+  if (!sheet) {
+    throw new Error('updateInterviewFields: sheet "' + sheetName + '" not found.');
+  }
+
+  var fieldKeys = Object.keys(fields || {});
+  if (fieldKeys.length === 0) {
+    return;
+  }
+
+  var lastCol = sheet.getLastColumn();
+  if (lastCol < 1) {
+    throw new Error('updateInterviewFields: sheet "' + sheetName + '" has no headers.');
+  }
+
+  var headers = getHeaders(sheet);
+  var headerMap = getHeaderIndexMap(headers);
+  var rowNum = findRowByInterviewId(sheet, interviewId);
+
+  if (rowNum === -1) {
+    throw new Error(
+      'updateInterviewFields: interview "' + interviewId + '" not found in sheet "' + sheetName + '". Data was NOT saved.'
+    );
+  }
+
+  // Validate all requested fields before writing anything
+  for (var i = 0; i < fieldKeys.length; i++) {
+    var fieldName = fieldKeys[i];
+    if (!headerMap[fieldName]) {
+      throw new Error(
+        'updateInterviewFields: field "' + fieldName + '" not found in sheet "' + sheetName + '".'
+      );
+    }
+  }
+
+  // Read full row once, patch in memory, write once
+  var rowValues = sheet.getRange(rowNum, 1, 1, lastCol).getValues()[0];
+
+  for (var j = 0; j < fieldKeys.length; j++) {
+    var key = fieldKeys[j];
+    var colIndex = headerMap[key] - 1; // convert 1-based column index to 0-based array index
+    rowValues[colIndex] = fields[key];
+  }
+
+  sheet.getRange(rowNum, 1, 1, lastCol).setValues([rowValues]);
+}
+
+function replaceChildRows(ss, sheetName, interviewId, newRows) {
+  var lock = LockService.getScriptLock();
+  if (!lock.tryLock(10000)) {
+    throw new Error('replaceChildRows: could not obtain lock for sheet "' + sheetName + '". Please retry.');
+  }
+
+  try {
+    var sheet = ss.getSheetByName(sheetName);
+    if (!sheet) {
+      throw new Error('replaceChildRows: sheet "' + sheetName + '" not found.');
+    }
+
+    if (Object.prototype.toString.call(newRows) !== '[object Array]') {
+      throw new Error('replaceChildRows: newRows must be an array for sheet "' + sheetName + '".');
+    }
+
+    var headers = getHeaders(sheet);
+    var expectedWidth = headers.length;
+    var targetId = String(interviewId).trim();
+    var lastRow = sheet.getLastRow();
+
+    // Validate every incoming row BEFORE writing anything
+    for (var r = 0; r < newRows.length; r++) {
+      var row = newRows[r];
+
+      if (Object.prototype.toString.call(row) !== '[object Array]') {
+        throw new Error(
+          'replaceChildRows: row #' + (r + 1) + ' in sheet "' + sheetName + '" is not an array.'
+        );
+      }
+
+      if (row.length !== expectedWidth) {
+        throw new Error(
+          'replaceChildRows: row #' + (r + 1) + ' in sheet "' + sheetName + '" has ' +
+          row.length + ' column(s), expected ' + expectedWidth + '.'
+        );
+      }
+
+      if (String(row[0]).trim() !== targetId) {
+        throw new Error(
+          'replaceChildRows: row #' + (r + 1) + ' in sheet "' + sheetName + '" has interview_id "' +
+          row[0] + '" but expected "' + targetId + '".'
+        );
+      }
+    }
+
+    // Read existing rows below header
+    var data = lastRow > 1
+      ? sheet.getRange(2, 1, lastRow - 1, expectedWidth).getValues()
+      : [];
+
+    // Keep rows that belong to other interviews
+    var keptRows = [];
+    for (var i = 0; i < data.length; i++) {
+      if (String(data[i][0]).trim() !== targetId) {
+        keptRows.push(data[i]);
+      }
+    }
+
+    // Append new rows for this interview
+    for (var j = 0; j < newRows.length; j++) {
+      keptRows.push(newRows[j]);
+    }
+
+    // Rewrite dataset below header
+    if (keptRows.length > 0) {
+      sheet.getRange(2, 1, keptRows.length, expectedWidth).setValues(keptRows);
+    }
+
+    // Clear leftover old rows if dataset shrank
+    var expectedLastRow = keptRows.length + 1; // +1 header row
+    if (lastRow > expectedLastRow) {
+      sheet.getRange(expectedLastRow + 1, 1, lastRow - expectedLastRow, expectedWidth).clearContent();
+    }
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function getHeaders(sheet) {
+  var raw = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+  var headers = [];
+  for (var i = 0; i < raw.length; i++) {
+    headers.push(normalizeHeaderName(raw[i]));
+  }
+  return headers;
+}
+
+function buildEmptyRow(headers) { var r = []; for (var i = 0; i < headers.length; i++) r.push(''); return r; }
+function setRowValue(row, headers, name, val) { var idx = headers.indexOf(name); if (idx >= 0) row[idx] = val; }
+
+function colVal(row, headers, name) {
+  var idx = headers.indexOf(normalizeHeaderName(name));
+  return (idx >= 0) ? String(row[idx] || '') : '';
+}
+
+======
+
+# WIZARD.HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 13px; color: #1a1a2e; display: flex; height: 100vh; overflow: hidden; background: #f8f9fa; }
+
+  /* --- SIDEBAR --- */
+  .sidebar { width: 200px; background: #1a1a2e; color: #fff; padding: 16px 0; display: flex; flex-direction: column; flex-shrink: 0; }
+  .sidebar h2 { font-size: 13px; padding: 0 16px 12px; color: #8888aa; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #2a2a4e; margin-bottom: 8px; }
+  .nav-item { padding: 10px 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background .15s; font-size: 13px; border-left: 3px solid transparent; }
+  .nav-item:hover { background: #2a2a4e; }
+  .nav-item.active { background: #2a2a4e; border-left-color: #667eea; color: #fff; }
+  .nav-item.done { color: #66bb6a; }
+  .nav-item .dot { width: 8px; height: 8px; border-radius: 50%; background: #555; flex-shrink: 0; }
+  .nav-item.active .dot { background: #667eea; }
+  .nav-item.done .dot { background: #66bb6a; }
+  .nav-label { flex: 1; }
+  .sidebar-footer { margin-top: auto; padding: 12px 16px; border-top: 1px solid #2a2a4e; }
+  .sidebar-footer .interview-id { font-size: 11px; color: #667eea; word-break: break-all; }
+
+  /* --- MAIN --- */
+  .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  .header { padding: 14px 24px; background: #fff; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: space-between; }
+  .header h1 { font-size: 16px; font-weight: 600; color: #1a1a2e; }
+  .status-badge { font-size: 11px; padding: 3px 10px; border-radius: 12px; background: #e8eaf6; color: #3949ab; }
+
+  .content { flex: 1; overflow-y: auto; padding: 20px 24px; }
+
+  /* --- SECTIONS --- */
+  .section { display: none; }
+  .section.active { display: block; }
+  .section h2 { font-size: 15px; color: #1a1a2e; margin-bottom: 4px; }
+  .section .subtitle { font-size: 12px; color: #888; margin-bottom: 16px; }
+
+  /* --- FORM ELEMENTS --- */
+  label { display: block; font-weight: 600; margin-bottom: 4px; margin-top: 14px; font-size: 12px; color: #444; }
+  label:first-child { margin-top: 0; }
+  textarea { width: 100%; border: 1px solid #d0d0d0; border-radius: 6px; padding: 8px 10px; font-size: 13px; font-family: inherit; resize: vertical; min-height: 56px; transition: border .2s; }
+  textarea:focus { outline: none; border-color: #667eea; }
+  input[type=text] { width: 100%; border: 1px solid #d0d0d0; border-radius: 6px; padding: 7px 10px; font-size: 13px; font-family: inherit; }
+  input[type=text]:focus { outline: none; border-color: #667eea; }
+  select { border: 1px solid #d0d0d0; border-radius: 6px; padding: 6px 8px; font-size: 12px; font-family: inherit; background: #fff; }
+  select:focus { outline: none; border-color: #667eea; }
+
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+  /* --- NOTES BOX --- */
+  .notes-box { margin-top: 20px; padding-top: 14px; border-top: 1px dashed #ccc; }
+  .notes-box label { color: #667eea; font-weight: 500; }
+  .notes-box textarea { background: #f8f9ff; border-color: #c5cae9; }
+
+  /* --- PROJECT CARDS (S2) --- */
+  .project-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 14px; margin-bottom: 10px; position: relative; }
+  .project-card .remove-btn { position: absolute; top: 8px; right: 10px; background: none; border: none; color: #e53935; cursor: pointer; font-size: 16px; line-height: 1; }
+
+  /* --- PORTER CARDS (S3) --- */
+  .porter-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 14px; margin-bottom: 10px; }
+  .porter-card h3 { font-size: 13px; color: #3949ab; margin-bottom: 8px; }
+
+  /* --- PROCESS TABLE (S4) --- */
+  .proc-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+  .proc-table th { background: #e8eaf6; padding: 6px 4px; text-align: center; font-weight: 600; font-size: 11px; border: 1px solid #d0d0d0; }
+  .proc-table td { padding: 4px; border: 1px solid #e0e0e0; vertical-align: middle; }
+  .proc-table input[type=text] { width: 100%; padding: 4px 6px; font-size: 12px; border-radius: 4px; }
+  .proc-table textarea { width: 100%; padding: 4px 6px; font-size: 11px; border-radius: 4px; min-height: 32px; resize: vertical; }
+  .proc-table select { width: 100%; padding: 4px 2px; font-size: 11px; border-radius: 4px; }
+
+  /* --- SCORE SELECTOR (S6) --- */
+  .score-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+  .score-item { display: flex; align-items: center; gap: 8px; }
+  .score-item label { margin: 0; flex: 1; font-weight: 500; }
+  .score-item select { width: 70px; }
+
+  /* --- FOOTER --- */
+  .footer { padding: 12px 24px; background: #fff; border-top: 1px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center; }
+  .btn { padding: 8px 20px; border-radius: 6px; border: none; font-size: 13px; cursor: pointer; font-weight: 500; transition: background .15s; }
+  .btn-secondary { background: #e0e0e0; color: #333; }
+  .btn-secondary:hover { background: #d0d0d0; }
+  .btn-primary { background: #667eea; color: #fff; }
+  .btn-primary:hover { background: #5568d3; }
+  .btn-success { background: #43a047; color: #fff; }
+  .btn-success:hover { background: #388e3c; }
+  .btn-add { background: none; border: 1px dashed #667eea; color: #667eea; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 12px; margin-top: 8px; display: inline-block; }
+  .btn-add:hover { background: #f0f2ff; }
+  .saving { font-size: 12px; color: #667eea; }
+  .save-ok { font-size: 12px; color: #43a047; }
+  .save-err { font-size: 12px; color: #e53935; }
+
+/* --- LOADING OVERLAY --- */
+  #appLoadingOverlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(248, 249, 250, 0.9); z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .spinner { width: 40px; height: 40px; border: 4px solid #c5cae9; border-top: 4px solid #3949ab; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 16px; }
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  #appLoadingText { font-size: 14px; font-weight: 500; color: #3949ab; }
+</style>
+</head>
+<body>
+<div id="appLoadingOverlay">
+  <div class="spinner"></div>
+  <div id="appLoadingText">Chargement des données...</div>
+</div>
+
+<div class="sidebar">
+  <h2>Sections</h2>
+  <div class="nav-item active" data-idx="0"><span class="dot"></span><span class="nav-label">S1 — Périmètre</span></div>
+  <div class="nav-item" data-idx="1"><span class="dot"></span><span class="nav-label">S2 — Projets AI</span></div>
+  <div class="nav-item" data-idx="2"><span class="dot"></span><span class="nav-label">S3 — Marché</span></div>
+  <div class="nav-item" data-idx="3"><span class="dot"></span><span class="nav-label">S4 — Processus</span></div>
+  <div class="nav-item" data-idx="4"><span class="dot"></span><span class="nav-label">S5 — Opportunités</span></div>
+  <div class="nav-item" data-idx="5"><span class="dot"></span><span class="nav-label">S6 — Exécution</span></div>
+  <div class="nav-item" data-idx="6"><span class="dot"></span><span class="nav-label">S7 — Wrap-up</span></div>
+  <div class="sidebar-footer"><div class="interview-id" id="sidebarId"></div></div>
+</div>
+
+<div class="main">
+  <div class="header">
+    <h1 id="sectionTitle">S1 — Périmètre actuel</h1>
+    <span class="status-badge" id="statusBadge">—</span>
+  </div>
+
+  <div class="content">
+    <div class="section active" id="sec0">
+      <h2>Périmètre actuel</h2>
+      <p class="subtitle">Identité de l'interviewé et périmètre de responsabilité</p>
+      <div class="row3">
+        <div><label>Interviewer</label><input type="text" id="s1_interviewer"></div>
+        <div><label>Nom de l'interviewé</label><input type="text" id="s1_name"></div>
+        <div><label>Rôle / Fonction</label><input type="text" id="s1_role"></div>
+      </div>
+      <label>Activités</label><textarea id="s1_activities" rows="3"></textarea>
+      <label>Équipes / Effectifs</label><textarea id="s1_teams" rows="2"></textarea>
+      <label>Outils principaux</label><textarea id="s1_tools" rows="2"></textarea>
+      <label>Objectifs et KPI</label><textarea id="s1_objectives" rows="3"></textarea>
+      <div class="notes-box"><label>📝 Notes / Commentaires</label><textarea id="s1_notes" rows="2"></textarea></div>
+    </div>
+
+    <div class="section" id="sec1">
+      <h2>Projets AI en cours / planifiés</h2>
+      <p class="subtitle">Pour chaque projet AI dans le périmètre</p>
+      <div id="projectsList"></div>
+      <button class="btn-add" id="addProjectBtn">+ Ajouter un projet</button>
+      <div class="notes-box"><label>📝 Notes / Commentaires</label><textarea id="s2_notes" rows="2"></textarea></div>
+    </div>
+
+    <div class="section" id="sec2">
+      <h2>Impact AI sur le marché</h2>
+      <p class="subtitle">Grille Porter — Opportunités et menaces + évaluation 1-5</p>
+      <div class="porter-card"><h3>🏢 Concurrence</h3><div class="row2"><div><label>Opportunités</label><textarea id="s3_comp_opp" rows="3"></textarea><label>Score</label><select id="s3_comp_opp_sc"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><div><label>Menaces</label><textarea id="s3_comp_thr" rows="3"></textarea><label>Score</label><select id="s3_comp_thr_sc"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div></div>
+      <div class="porter-card"><h3>👥 Clients</h3><div class="row2"><div><label>Opportunités</label><textarea id="s3_cli_opp" rows="3"></textarea><label>Score</label><select id="s3_cli_opp_sc"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><div><label>Menaces</label><textarea id="s3_cli_thr" rows="3"></textarea><label>Score</label><select id="s3_cli_thr_sc"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div></div>
+      <div class="porter-card"><h3>🔗 Fournisseurs & Écosystème</h3><div class="row2"><div><label>Opportunités</label><textarea id="s3_sup_opp" rows="3"></textarea><label>Score</label><select id="s3_sup_opp_sc"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><div><label>Menaces</label><textarea id="s3_sup_thr" rows="3"></textarea><label>Score</label><select id="s3_sup_thr_sc"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div></div>
+      <div class="porter-card"><h3>⚖️ Régulation</h3><div class="row2"><div><label>Opportunités</label><textarea id="s3_reg_opp" rows="3"></textarea><label>Score</label><select id="s3_reg_opp_sc"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><div><label>Menaces</label><textarea id="s3_reg_thr" rows="3"></textarea><label>Score</label><select id="s3_reg_thr_sc"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div></div>
+      <div class="notes-box"><label>📝 Notes</label><textarea id="s3_notes" rows="2"></textarea></div>
+    </div>
+
+    <div class="section" id="sec3">
+      <h2>Impact AI sur les processus</h2>
+      <p class="subtitle">5 processus les plus importants — Scores d'impact, compatibilité AI et commentaire</p>
+      <table class="proc-table">
+        <thead>
+          <tr><th style="width:120px">Processus</th><th colspan="3" style="background:#c5cae9">Impact AI (1-5)</th><th colspan="4" style="background:#dcedc8">Compatibilité AI (1-5)</th><th style="width:140px">Commentaire</th></tr>
+          <tr><th></th><th style="width:52px">Accél.</th><th style="width:52px">Coûts</th><th style="width:52px">Qualité</th><th style="width:70px">Détermin.</th><th style="width:52px">Data</th><th style="width:52px">Skills</th><th style="width:60px">Outils AI</th><th></th></tr>
+        </thead>
+        <tbody id="procTableBody"></tbody>
+      </table>
+      <button class="btn-add" id="addProcessBtn">+ Ajouter un processus</button>
+      <label style="margin-top:16px">Processus liés hors périmètre impactés par l'AI</label><textarea id="s4_linked" rows="3"></textarea>
+      <div class="notes-box"><label>📝 Notes</label><textarea id="s4_notes" rows="2"></textarea></div>
+    </div>
+
+    <div class="section" id="sec4">
+      <h2>Nouvelles opportunités business AI</h2>
+      <label>🎯 Core Business</label><textarea id="s5_core" rows="4"></textarea>
+      <label>🚀 Innovation Produits</label><textarea id="s5_products" rows="4"></textarea>
+      <label>🌍 Innovation Marchés</label><textarea id="s5_personas" rows="4"></textarea>
+      <div class="notes-box"><label>📝 Notes</label><textarea id="s5_notes" rows="2"></textarea></div>
+    </div>
+
+    <div class="section" id="sec5">
+      <h2>Exécution — Organisation, Culture, IT</h2>
+      <label>Plan d'action formalisé</label><textarea id="s6_plan" rows="3"></textarea>
+      <label>Principaux blocages</label><textarea id="s6_roadblocks" rows="3"></textarea>
+      <label style="margin-top:16px; margin-bottom:2px">Axes de maturité (1-5)</label>
+      <div class="score-grid">
+        <div class="score-item"><label>⚡ Vélocité</label><select id="s6_velocity"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <div class="score-item"><label>🏛 Gouvernance</label><select id="s6_governance"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <div class="score-item"><label>🧠 Culture</label><select id="s6_culture"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <div class="score-item"><label>🏗 Organisation</label><select id="s6_org"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <div class="score-item"><label>🎓 Compétences</label><select id="s6_skills"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <div class="score-item"><label>💻 IT / Outils</label><select id="s6_it"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+      </div>
+      <div class="notes-box"><label>📝 Notes</label><textarea id="s6_notes" rows="2"></textarea></div>
+    </div>
+
+    <div class="section" id="sec6">
+      <h2>Wrap-up</h2>
+      <label>🥇 Priorité 1</label><textarea id="s7_p1" rows="2"></textarea>
+      <label>🥈 Priorité 2</label><textarea id="s7_p2" rows="2"></textarea>
+      <label>🥉 Priorité 3</label><textarea id="s7_p3" rows="2"></textarea>
+      <label>🔮 Vision à 3 ans</label><textarea id="s7_dream" rows="3"></textarea>
+      <div class="notes-box"><label>📝 Notes</label><textarea id="s7_notes" rows="2"></textarea></div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <button class="btn btn-secondary" id="btnPrev">← Précédent</button>
+    <span id="saveStatus"></span>
+    <button class="btn btn-primary" id="btnNext">Enregistrer & Suivant →</button>
+  </div>
+</div>
+
+<script>
+  var WIZARD_CONFIG = <?!= JSON.stringify(wizardConfig) ?>;
+  var SECTION_TITLES = WIZARD_CONFIG.sectionTitles;
+  var FIELD_MAP = WIZARD_CONFIG.fieldMap;
+  var S6_MAP = WIZARD_CONFIG.s6Map;
+  var S6_SCORES = WIZARD_CONFIG.s6Scores;
+  var PORTER_MAP = WIZARD_CONFIG.porterMap;
+  var COMPLETION_RULES = WIZARD_CONFIG.completionRules;
+
+  var interviewId = '<?= interviewId ?>';
+  var current = 0;
+  var savedSections = {};
+  var projectCounter = 0;
+
+    // Auto-save & Lazy Load states
+  var isDirty = false;
+  var isSecondaryLoaded = false; // Prevents navigating away until background data is fetched
+  var autoSaveInterval = null;
+  var isSaving = false;          // true while one background save is in flight
+  var queuedSaveSecIdx = null;   // latest section to save after current request finishes
+  var pendingFinalize = false;   // finalize requested while a background save is still running
+
+  // Loaded server state used to compute true "done" sections
+  var loadedInitialInterview = {};
+  var loadedSecondaryData = {
+    projects: [],
+    market: [],
+    processes: [],
+    execution: null
+  };
+
+  var SAVE_BUILDERS = {
+    1: function() { return { interviewer:v('s1_interviewer'), name:v('s1_name'), role:v('s1_role'), activities:v('s1_activities'), teams:v('s1_teams'), tools:v('s1_tools'), objectives:v('s1_objectives'), notes:v('s1_notes') }; },
+    2: function() { var cs=document.querySelectorAll('.project-card'), ps=[]; for(var i=0; i<cs.length; i++) { var n=cs[i].querySelector('.p-name').value.trim(); if(n) ps.push({name:n,phase:cs[i].querySelector('.p-phase').value,results:cs[i].querySelector('.p-results').value,lessons:cs[i].querySelector('.p-lessons').value}); } return {projects:ps,notes:v('s2_notes')}; },
+    3: function() { return {forces:[{opportunities:v('s3_comp_opp'),scoreOpp:v('s3_comp_opp_sc'),threats:v('s3_comp_thr'),scoreThr:v('s3_comp_thr_sc')},{opportunities:v('s3_cli_opp'),scoreOpp:v('s3_cli_opp_sc'),threats:v('s3_cli_thr'),scoreThr:v('s3_cli_thr_sc')},{opportunities:v('s3_sup_opp'),scoreOpp:v('s3_sup_opp_sc'),threats:v('s3_sup_thr'),scoreThr:v('s3_sup_thr_sc')},{opportunities:v('s3_reg_opp'),scoreOpp:v('s3_reg_opp_sc'),threats:v('s3_reg_thr'),scoreThr:v('s3_reg_thr_sc')}],notes:v('s3_notes')}; },
+    4: function() { var rs=document.querySelectorAll('#procTableBody tr'), ps=[]; for(var i=0; i<rs.length; i++){ var n=rs[i].querySelector('.proc-name').value.trim(); if(n) ps.push({name:n,accelerate:rs[i].querySelector('.proc-acc').value,costs:rs[i].querySelector('.proc-cost').value,quality:rs[i].querySelector('.proc-qual').value,determinism:rs[i].querySelector('.proc-det').value,dataQuality:rs[i].querySelector('.proc-data').value,skillsBuyin:rs[i].querySelector('.proc-skills').value,existingTools:rs[i].querySelector('.proc-tools').value,comment:rs[i].querySelector('.proc-comment').value}); } return {processes:ps,linkedProcesses:v('s4_linked'),notes:v('s4_notes')}; },
+    5: function() { return {coreBusiness:v('s5_core'),newProducts:v('s5_products'),newPersonas:v('s5_personas'),notes:v('s5_notes')}; },
+    6: function() { return {actionPlan:v('s6_plan'),roadblocks:v('s6_roadblocks'),velocity:v('s6_velocity'),governance:v('s6_governance'),culture:v('s6_culture'),organization:v('s6_org'),skills:v('s6_skills'),it:v('s6_it'),notes:v('s6_notes')}; },
+    7: function() { return {priority1:v('s7_p1'),priority2:v('s7_p2'),priority3:v('s7_p3'),dream:v('s7_dream'),notes:v('s7_notes')}; }
+  };
+
+  // Listeners
+  document.getElementById('btnPrev').addEventListener('click', prev);
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('addProjectBtn').addEventListener('click', function(){addProject();});
+  document.getElementById('addProcessBtn').addEventListener('click', function(){ addProcess(); isDirty = true; });
+
+  // Track inputs to trigger background auto-save
+  document.querySelector('.content').addEventListener('input', function() { isDirty = true; showStatus('', ''); });
+
+  document.querySelector('.sidebar').addEventListener('click', function(e){
+    var item=e.target.closest('.nav-item'); 
+    if(item && item.dataset.idx !== undefined) {
+      if (!isSecondaryLoaded && parseInt(item.dataset.idx) !== 0) {
+        showStatus('save-err', 'Données en cours de chargement...');
+        return;
+      }
+      if(isDirty) saveInBackground(current);
+      goTo(parseInt(item.dataset.idx));
+    }
+  });
+
+  document.getElementById('projectsList').addEventListener('click', function(e){if(e.target.classList.contains('remove-btn')) {var card=e.target.closest('.project-card'); if(card)card.remove(); isDirty = true; } });
+  document.getElementById('procTableBody').addEventListener('click', function(e){if(e.target.classList.contains('remove-btn')) {var row=e.target.closest('tr'); if(row)row.remove(); isDirty = true; } });
+
+  // Init
+  addProject();
+  addProcess();
+  startAutoSave();
+
+  // Lazy Load Initialization
+  if (!interviewId) {
+    document.getElementById('appLoadingText').textContent = '✗ Erreur: Aucun ID d\'entretien.';
+    document.querySelector('.spinner').style.display = 'none';
+  } else {
+    google.script.run
+      .withSuccessHandler(function(data) {
+        if (!data || !data.id) { 
+          document.getElementById('appLoadingText').textContent = '✗ Erreur: Base vide ou introuvable.'; 
+          document.querySelector('.spinner').style.display = 'none';
+          return; 
+        }
+        populateInitial(data);
+        document.getElementById('appLoadingOverlay').style.display = 'none';
+        showStatus('saving', 'Chargement de l\'historique...');
+
+        google.script.run
+          .withSuccessHandler(populateSecondary)
+          .withFailureHandler(function(err) {
+             showStatus('save-err', '✗ Erreur: Rechargez la page.');
+          })
+          .loadSecondaryData(data.id);
+      })
+      .withFailureHandler(function(err){ 
+        document.getElementById('appLoadingText').textContent = '✗ Erreur: ' + (err.message||err);
+        document.querySelector('.spinner').style.display = 'none';
+      })
+      .loadInitialData(interviewId);
+  }
+
+function hasText(value) {
+  return !!String(value || '').trim();
+}
+
+function rowHasAnyContent(row, fields) {
+  if (!row) return false;
+  for (var i = 0; i < fields.length; i++) {
+    if (hasText(row[fields[i]])) return true;
+  }
+  return false;
+}
+
+function arrayHasAnyContent(rows, fields) {
+  if (!rows || !rows.length) return false;
+  for (var i = 0; i < rows.length; i++) {
+    if (rowHasAnyContent(rows[i], fields)) return true;
+  }
+  return false;
+}
+
+function recomputeSavedSectionsFromLoadedData() {
+  var interview = loadedInitialInterview || {};
+  var secondary = loadedSecondaryData || {};
+
+  for (var i = 0; i <= 6; i++) {
+    var rule = COMPLETION_RULES[i];
+    var done = false;
+
+    if (rule && rule.interviewFields && rowHasAnyContent(interview, rule.interviewFields)) {
+      done = true;
+    }
+
+    if (!done && rule && rule.secondaryTable && rule.secondaryFields) {
+      done = arrayHasAnyContent(secondary[rule.secondaryTable], rule.secondaryFields);
+    }
+
+    if (!done && rule && rule.secondaryRow && rule.secondaryFields) {
+      done = rowHasAnyContent(secondary[rule.secondaryRow], rule.secondaryFields);
+    }
+
+    savedSections[i] = done;
+  }
+
+  updateNav();
+}
+
+    function populateInitial(data) {
+  interviewId = data.id;
+  document.getElementById('sidebarId').textContent = data.id;
+
+  loadedInitialInterview = data.interview || {};
+
+  if (data.interview) {
+    populateFromMap(data.interview, FIELD_MAP.s1);
+    populateFromMap(data.interview, FIELD_MAP.cross);
+    populateFromMap(data.interview, FIELD_MAP.s5);
+    populateFromMap(data.interview, FIELD_MAP.s7);
+  }
+
+  syncStatusBadge();
+
+  isDirty = false;
+  recomputeSavedSectionsFromLoadedData();
+}
+
+    function populateSecondary(data) {
+    if (!data) return;
+
+    loadedSecondaryData = {
+      projects: data.projects || [],
+      market: data.market || [],
+      processes: data.processes || [],
+      execution: data.execution || null
+    };
+
+    if (data.projects && data.projects.length) { populateS2(data.projects); }
+    if (data.market && data.market.length) { populateS3(data.market); }
+    if (data.processes && data.processes.length) { populateS4(data.processes); }
+    if (data.execution) { populateS6(data.execution); }
+
+    isSecondaryLoaded = true;
+    recomputeSavedSectionsFromLoadedData();
+    showStatus('save-ok', '✓ Prêt');
+    setTimeout(function(){ if (!isDirty) showStatus('',''); }, 2500);
+  }
+
+  function goTo(idx) {
+    current = idx; var sections = document.querySelectorAll('.section'), navItems = document.querySelectorAll('.nav-item');
+    for (var i=0; i<sections.length; i++) sections[i].classList.toggle('active', i===idx);
+    for (var i=0; i<navItems.length; i++) navItems[i].classList.toggle('active', i===idx);
+    document.getElementById('sectionTitle').textContent = SECTION_TITLES[idx];
+    document.getElementById('btnPrev').style.visibility = idx===0 ? 'hidden' : 'visible';
+    
+    var btnNext = document.getElementById('btnNext');
+    if (idx===6) { btnNext.textContent = "✓ Enregistrer et fermer"; btnNext.className = 'btn btn-success'; }
+    else { btnNext.textContent = 'Enregistrer & Suivant →'; btnNext.className = 'btn btn-primary'; btnNext.disabled = false; }
+  }
+
+  function prev() { 
+    if (!isSecondaryLoaded) return;
+    if (isDirty) saveInBackground(current);
+    if (current > 0) goTo(current - 1); 
+  }
+
+    // OPTIMISTIC UI: Switch screen instantly, save in background
+  function next() {
+    if(!interviewId) return;
+    if (!isSecondaryLoaded) { 
+      showStatus('save-err', 'Données en cours de chargement...'); 
+      return; 
+    }
+
+    if (current < 6) {
+      var prevSec = current;
+
+      // Move immediately, but do NOT mark as saved yet.
+      goTo(current + 1);
+
+      // Save in background. "done" will be updated only on success.
+      saveInBackground(prevSec);
+    } else {
+      // If Finalizing, we must block the UI to ensure everything writes safely
+      finalizeInterview();
+    }
+  }
+
+  function flushQueuedSave() {
+    if (!interviewId || isSaving) return;
+
+    // If user changed something during the in-flight request,
+    // ensure one more save is queued even if no explicit trigger fired again.
+    if (queuedSaveSecIdx === null && isDirty) {
+      queuedSaveSecIdx = current;
+    }
+
+    if (queuedSaveSecIdx === null) {
+      if (pendingFinalize) {
+        pendingFinalize = false;
+        finalizeInterview();
+      }
+      return;
+    }
+
+    var nextSecIdx = queuedSaveSecIdx;
+    queuedSaveSecIdx = null;
+    saveInBackground(nextSecIdx);
+  }
+
+    // BACKGROUND SYNC ENGINE
+    function saveInBackground(secIdx) {
+    if (!interviewId) return;
+
+    // One request at a time.
+    // Keep only the latest requested section; the dirty flag ensures we retry.
+    if (isSaving) {
+      queuedSaveSecIdx = secIdx;
+      isDirty = true;
+      return;
+    }
+
+    var payload = SAVE_BUILDERS[secIdx + 1]();
+
+    isSaving = true;
+    isDirty = false;
+    showStatus('saving', 'Synchronisation en arrière-plan...');
+
+    google.script.run
+      .withSuccessHandler(function() {
+        isSaving = false;
+        savedSections[secIdx] = true;
+        updateNav();
+        showStatus('save-ok', '✓ Données synchronisées');
+        flushQueuedSave();
+      })
+      .withFailureHandler(function() {
+        isSaving = false;
+        isDirty = true;
+        savedSections[secIdx] = false;
+        updateNav();
+        showStatus('save-err', '✗ En attente de réseau...');
+        flushQueuedSave();
+      })
+      .saveSection(secIdx + 1, interviewId, payload);
+  }
+
+  // Check for unsaved changes every 8 seconds
+  function startAutoSave() {
+    autoSaveInterval = setInterval(function() {
+      if (isDirty && interviewId) {
+        saveInBackground(current);
+      }
+    }, 8000);
+  }
+
+    function finalizeInterview() {
+    // Do not overlap final save with an in-flight background save.
+    if (isSaving) {
+      pendingFinalize = true;
+      isDirty = true; // force one more flush if current request becomes stale
+      showStatus('saving', 'Synchronisation en cours avant enregistrement final...');
+      return;
+    }
+
+    pendingFinalize = false;
+
+    if (autoSaveInterval) {
+      clearInterval(autoSaveInterval);
+      autoSaveInterval = null;
+    }
+
+    document.getElementById('btnNext').disabled = true;
+    document.getElementById('btnNext').textContent = "Enregistrement en cours...";
+    showStatus('saving', 'Enregistrement final...');
+
+    var payloadBySection = {
+      1: SAVE_BUILDERS[1](),
+      2: SAVE_BUILDERS[2](),
+      3: SAVE_BUILDERS[3](),
+      4: SAVE_BUILDERS[4](),
+      5: SAVE_BUILDERS[5](),
+      6: SAVE_BUILDERS[6](),
+      7: SAVE_BUILDERS[7]()
+    };
+
+    google.script.run
+      .withSuccessHandler(function() {
+        isDirty = false;
+        for (var i = 0; i <= 6; i++) {
+          savedSections[i] = true;
+        }
+        updateNav();
+        showStatus('save-ok', '✓ Données enregistrées');
+        setTimeout(function(){ google.script.host.close(); }, 1200);
+      })
+      .withFailureHandler(function(err) {
+        isDirty = true;
+        showStatus('save-err', '✗ Erreur: ' + (err.message || err));
+        document.getElementById('btnNext').disabled = false;
+        document.getElementById('btnNext').textContent = "✓ Enregistrer et fermer";
+      })
+      .saveAllSections(interviewId, payloadBySection);
+  }
+
+  function updateNav() { var ni = document.querySelectorAll('.nav-item'); for (var i=0; i<ni.length; i++) ni[i].classList.toggle('done', !!savedSections[i]); }
+
+  function showStatus(cls, msg) { var el = document.getElementById('saveStatus'); el.className = cls; el.textContent = msg; }
+  function syncStatusBadge() {
+  var badge = document.getElementById('statusBadge');
+  if (!badge) return;
+
+  var status = String((loadedInitialInterview && loadedInitialInterview.status) || '').trim();
+
+  if (!status) {
+    badge.textContent = 'En cours';
+    return;
+  }
+
+  badge.textContent = status;
+}
+  
+  function populateFromMap(data, map) { for (var elId in map) sv(elId, data[map[elId]]); }
+
+  function addProject(data) {
+    projectCounter++; var card = document.createElement('div'); card.className = 'project-card'; card.setAttribute('data-pid', projectCounter);
+    var phases = ['','Ideation','Planned 12m','Scoping','PoC','Deployed'], labels = ['—','Ideation','Planned 12m','Scoping','PoC','Deployed'], phaseOpts = '';
+    for (var i=0; i<phases.length; i++) { var sel = (data&&data.phase===phases[i])?' selected':''; phaseOpts+='<option value="'+phases[i]+'"'+sel+'>'+labels[i]+'</option>'; }
+    card.innerHTML = '<button class="remove-btn" tabindex="-1" title="Supprimer">✕</button><div class="row2"><div><label>Nom du projet</label><input type="text" class="p-name" value="'+esc(data?data.project_name:'')+'"></div><div><label>Phase</label><select class="p-phase">'+phaseOpts+'</select></div></div><label>Résultats</label><textarea class="p-results" rows="2">'+esc(data?data.results:'')+'</textarea><label>Enseignements</label><textarea class="p-lessons" rows="2">'+esc(data?data.lessons_learnt:'')+'</textarea>';
+    document.getElementById('projectsList').appendChild(card);
+  }
+  function populateS2(projects) { document.getElementById('projectsList').innerHTML = ''; projectCounter = 0; for (var i=0; i<projects.length; i++) addProject(projects[i]); }
+  function populateS3(market) { for (var i=0; i<market.length; i++) { var m = market[i], k = PORTER_MAP[m.force]; if (k) { sv('s3_'+k+'_opp', m.opportunities); svSel('s3_'+k+'_opp_sc', String(m.score_opportunity||'')); sv('s3_'+k+'_thr', m.threats); svSel('s3_'+k+'_thr_sc', String(m.score_threat||'')); } } }
+
+  // P2: Dynamic Processes
+  function addProcess(data) {
+    var tbody = document.getElementById('procTableBody');
+    var tr = document.createElement('tr');
+    var sOpts = '<option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>';
+    var dOpts = '<option value="">—</option><option>Deterministic</option><option>Case-by-case</option><option>Human-specific</option>';
+    
+    tr.innerHTML = '<td><button class="remove-btn" tabindex="-1" style="color:#e53935;background:none;border:none;cursor:pointer;margin-right:6px;font-size:14px">✕</button><input type="text" class="proc-name" placeholder="Nom" style="width:calc(100% - 24px);display:inline-block"></td>' +
+                   '<td><select class="proc-acc">'+sOpts+'</select></td><td><select class="proc-cost">'+sOpts+'</select></td><td><select class="proc-qual">'+sOpts+'</select></td><td><select class="proc-det">'+dOpts+'</select></td><td><select class="proc-data">'+sOpts+'</select></td><td><select class="proc-skills">'+sOpts+'</select></td><td><select class="proc-tools">'+sOpts+'</select></td><td><textarea class="proc-comment" rows="1"></textarea></td>';
+    tbody.appendChild(tr);
+
+    if(data) {
+      tr.querySelector('.proc-name').value = data.process_name || '';
+      tr.querySelector('.proc-acc').value = String(data.score_accelerate || '');
+      tr.querySelector('.proc-cost').value = String(data.score_costs || '');
+      tr.querySelector('.proc-qual').value = String(data.score_quality || '');
+      tr.querySelector('.proc-det').value = data.determinism || '';
+      tr.querySelector('.proc-data').value = String(data.data_quality || '');
+      tr.querySelector('.proc-skills').value = String(data.skills_buyin || '');
+      tr.querySelector('.proc-tools').value = String(data.existing_tools_ai || '');
+      tr.querySelector('.proc-comment').value = data.comment || '';
+    }
+  }
+  function populateS4(procs) { document.getElementById('procTableBody').innerHTML = ''; for(var i=0; i<procs.length; i++) addProcess(procs[i]); }
+  function populateS6(d) { for (var elId in S6_MAP) sv(elId, d[S6_MAP[elId]]); for (var elId in S6_SCORES) svSel(elId, String(d[S6_SCORES[elId]]||'')); }
+
+  function v(id) { var el = document.getElementById(id); return el ? el.value : ''; }
+  function sv(id, val) { var el = document.getElementById(id); if (el && val != null) el.value = val; }
+  function svSel(id, val) { var el = (typeof id==='string') ? document.getElementById(id) : id; if (el && val) el.value = val; }
+  function esc(s) { return s ? String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : ''; }
+</script>
+
+</body>
+</html>

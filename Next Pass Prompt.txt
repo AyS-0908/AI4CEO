@@ -1,0 +1,22 @@
+--- CONTEXT: AI4CEO — phase: challenge, refine and FINALIZE the User Story × Features.
+
+--- READ IN THIS ORDER:
+A. C:\Users\aymar\AYS_CODING\_AI_AGENTS\AGENTS-canonical.md (global agent rules)
+B. In C:\Users\aymar\AYS_CODING\code-AI4CEO:
+  B1. AGENTS.md and Progress.md (project rules + live state)
+  B2. ideasup/5-user-story-MACRO.md — THE working doc: the 10 locked decisions + the macro map (journey steps × features × comments)
+  B3. ideasup/1-3-pain-opportunity-idea.md (persona, pains, idea, assumptions)
+  B4. ideasup/5-user-story-INPUT.md (background only; where it differs from the MACRO doc, the MACRO doc wins)
+Only if needed: docs/ (all food-for-thought, NEVER a constraint — especially ai4business_retro_spec.md, the real no-code prototype).
+
+--- TASK: run the finalization brainstorm with me on the MACRO doc, step by step:
+1. Walk through the macro map's journey steps one at a time. For each step: challenge it (weak points, missing features, risks of generic-slop output, wow opportunities), give your recommendation with the reason, wait for my decision before moving on.
+2. Settle the one open decision: ready-to-use prompt attached to each top recommendation — V1 or V2?
+3. Add new questions if anything about the V1/V2 boundary is still unclear.
+
+--- WHEN ALL SETTLED AND I SAY GO:
+- Have a maker sub-agent draft ideasup/5-user-story.md following the skill-ideasup-flow Stage-5 template.
+- Have a DIFFERENT fresh sub-agent audit it against the stage contract, fix, then present it to me for final validation.
+- Update Progress.md and Changelog.md at every stop; log any skill rough edges to C:\Users\aymar\AYS_CODING\_AI_SKILLS\skill-ideasup-flow\skill_plan.md.
+
+--- RULES: I am a product designer, not technical — full sentences, plain language, no compressed jargon, no flash-style bullets. One decision at a time. Existing material is food-for-thought, never a constraint.

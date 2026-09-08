@@ -1,0 +1,1476 @@
+﻿# SPECIFICATION — AI CONSULTANT
+
+
+## 1. PROJECT OVERVIEW
+
+
+**Product name**
+AI Consultant
+
+
+**Product objective**
+Create a Google Sheets-based consulting toolkit that enables consultants to generate, structure, analyze, and export assignment-specific working assets using AI.
+## 1.1 User Story
+**The Goal:** As a consultant, I want to use my familiar spreadsheet environment to automate repetitive document creation and complex analysis, allowing me to focus on high-value insights.
+
+
+**Concrete Workflow:**
+* **Access:** Open your Google Sheet and select a tool from the custom 'AI Consultant' menu.
+* **Input:** Provide assignment context (e.g., client name, project type) via a simple pop-up dialog.
+* **Execute:** The AI generates structured data or deep analysis directly into your spreadsheet tabs.
+* **Export:** Click to push refined insights and content into Google Docs, Slides, or Forms templates.
+
+
+**Key User Features:**
+* **Commercial Proposals:** Rapidly draft client-ready proposals and frameworks.
+* **Market Benchmarking:** Run automated web research on industry players and data points.
+* **Interview Management:** Structure interview guides and synthesize qualitative feedback.
+* **Automated Exports:** Seamlessly populate professional document and slide templates.
+* **Strategic Synthesis:** Analyze project data to surface insights and dashboards.
+
+
+
+
+**Core constraint**
+The product must operate inside the user’s existing Google Workspace workflow.
+
+
+Google Sheets is:
+- the main UI entry point
+- the workflow orchestrator
+- the source of truth for editable structured data
+
+
+**Primary users**
+Consultants working on client assignments in Google Workspace.
+
+
+**MVP delivery mode**
+MVP is a **Google Sheets bound script**.
+
+
+**Rule:**
+- Do not assume Google Marketplace add-on installation in MVP
+- Code structure must allow later packaging as a Google Sheets add-on with minimal refactoring
+
+
+**Architecture requirement**
+The MVP must be config-driven and extensible so that new tools, dialogs, templates, and AI providers can be added with limited code changes.
+
+
+---
+
+
+## 2. MVP SCOPE
+
+
+**In scope**
+- Custom menu in Google Sheets
+- HTML dialogs for user inputs
+- Tool generation into Google Sheets tabs
+- AI providers calls through user-provided API keys
+- Export from Sheets to Google Docs, Google Slides, or Google Forms when supported by a tool
+- Config-driven registries
+- Optional developer-side feature/license activation registry
+
+
+**Out of scope**
+- Bidirectional sync between Sheets and generated Docs / Slides / Forms
+- Auto-generated templates when no predefined template exists
+- Complex multi-user workflow orchestration
+- Marketplace publication constraints
+- Advanced billing system
+- End-user definition of arbitrary execution logic
+
+
+---
+
+
+## 3. CORE PRINCIPLES
+
+
+**CP-1. Sheets-first**
+Google Sheets is the only required operating surface in MVP.
+
+
+**CP-2. Config-driven behavior**
+Tools, actions, dialogs, schemas, and templates must be defined by registries, not hardcoded case-by-case.
+
+
+**CP-3. Reusable execution pipelines**
+When feasible and relevant, the same execution engine must support multiple tools through configuration.
+
+
+**CP-4. One-way export**
+Exports flow from Sheets to generated artifacts only.
+
+
+**CP-5. Controlled extensibility**
+Users may extend selected config areas only where validation exists.
+
+
+**CP-6. Minimal add-on rework**
+Core code must already separate UI, orchestration, providers, storage access, exports, and config validation.
+
+
+---
+
+
+## 4. CANONICAL ENTITY MODEL
+
+
+**Tool**
+A business capability exposed by the product.
+Examples:
+- Proposal
+- Interview
+- Benchmark
+- Market Research
+
+
+**Action**
+A user-triggered operation on a tool.
+Examples:
+- generate
+- analyze
+- export_doc
+- export_slide
+- export_form
+
+
+**Dialog**
+A schema-driven HTML input form used by an action when user input is required.
+
+
+**Pipeline**
+A reusable execution flow bound to an action.
+Examples:
+- sheet_generation_pipeline
+- document_export_pipeline
+- form_export_pipeline
+- aggregate_analysis_pipeline
+
+
+**Registry**
+A structured configuration source used by the engine.
+
+
+**Sheet schema**
+A declarative definition of a generated tab structure.
+
+
+**Template**
+A reusable export source for Docs, Slides, or Forms.
+
+
+---
+
+
+## 5. HIGH-LEVEL USER MODES
+
+
+**Mode A — Guided setup**
+1. Define methodology / context
+2. Select tools
+3. Select templates if needed
+4. Configure provider / API key
+5. Generate outputs
+
+
+**Mode B — Direct tool usage**
+1. Select one tool action
+2. Enter required inputs
+3. Use current provider configuration
+4. Generate or export output
+
+
+---
+
+
+## 6. PRIMARY WORKFLOW
+
+
+**W1. Workbook initialization**
+When the workbook opens, the script must execute via the `onOpen(e)` simple trigger to:
+1. bind to the active spreadsheet
+2. add the custom menu using `SpreadsheetApp.getUi().createMenu()`
+3. verify required bootstrap sheets exist
+4. create missing bootstrap sheets if allowed by config
+5. validate critical configuration needed for menu/action availability
+
+
+**W2. User action flow**
+1. User selects a menu action
+2. Script resolves `action_id`
+3. Script loads the corresponding action definition
+4. If a dialog is required, script renders the dialog from registry
+5. User submits input
+6. Script validates input
+7. Script executes the mapped pipeline
+8. Script writes results to target tabs and/or export artifacts
+9. Script returns explicit success or error status
+
+
+**UI Notification Rules:**
+During pipeline execution, the UI must strictly show:
+- A single start message (e.g., "✨ AI is working for you… It can take up to 2 mn").
+- A final success message referencing the target output (e.g., "✅ Success -> See in [tab_name]") or an explicit error message.
+- No real-time progress logs or granular status indicators are allowed.
+
+
+**W3. Manual edits**
+User may manually edit generated sheet content after generation.
+Rule:
+- Manual edits in Sheets are allowed
+- Generated external artifacts are not required to sync back to Sheets
+
+
+---
+
+
+## 7. ACTION TYPES
+
+
+**A1. `tool_generate`**
+Create or update assignment-specific tabs.
+
+
+**A2. `tool_analyze`**
+Analyze data already present in the workbook and write results to tabs.
+
+
+**A3. `tool_export_doc`**
+Duplicate and populate a Google Docs template.
+
+
+**A4. `tool_export_slide`**
+Duplicate and populate a Google Slides template.
+
+
+**A5. `tool_export_sheets`**
+Duplicate and populate a Google Sheets template.
+
+
+**A6. `tool_export_form`**
+Create a Google Form from a questionnaire schema stored in Sheets.
+
+
+**A7. `tool_reference`**
+Display prompt assets or reference content for a tool.
+
+
+**A8. `config`**
+Read or update product configuration.
+
+
+**A9. `system`**
+Run workbook-level setup or maintenance actions.
+
+
+---
+
+
+## 8. EXECUTION PIPELINES
+
+
+### P1. Sheet generation pipeline
+Used for tool creation or update (action: `tool_generate`).
+
+
+Steps:
+1. load tool config
+2. load action config
+3. collect dialog inputs if applicable
+4. load referenced sheet schemas / prompt templates / dependencies
+5. build AI request if applicable
+6. call selected provider if applicable
+7. create or update target tabs
+8. write structured outputs
+
+
+### P2. Aggregate analysis pipeline
+Used when existing tabs or response data must be analyzed (action: `tool_analyze`).
+
+
+Steps:
+1. load source tabs / ranges / schema references
+2. normalize source data
+3. build analysis request
+4. call provider
+5. write structured outputs to analysis tabs
+
+
+### P3. Document export pipeline
+Used for Google Docs/Slides/Sheets export (action: `tool_export_*`). -- NOT for Form export (action `tool_export_form`).
+
+
+Steps:
+1. load template definition
+2. collect export inputs
+3. duplicate template
+4. map placeholders from Sheets
+5. save to destination folder
+
+
+### P4. Form export pipeline
+Used for Google Forms export.
+
+
+Steps:
+1. load questionnaire sheet schema
+2. read current question definitions from Sheets
+3. create form structure
+4. link responses to workbook
+5. register output metadata
+
+
+### P5. Pipeline Execution Constraints
+
+
+**Output Write Modes**
+To support idempotence and iterative generation, pipelines writing to Sheets must dynamically support registry-defined write modes:
+- `overwrite`: clear target range/body before writing (e.g., `clearAndWrite()`).
+- `append`: insert output at the end of the existing content without altering manual notes.
+- `replace_after_marker`: locate a specific text separator (e.g., `---MERGED---`) and overwrite only the content following it, preserving raw manual inputs above it.
+
+
+**Batch Processing Limits**
+For actions requiring looped provider calls (e.g., matrix of Questions × Players):
+- The pipeline must calculate the total projected API calls before execution.
+- If total calls > configured threshold (e.g., 50), the UI must display a warning dialog requiring explicit user confirmation before proceeding.
+
+
+
+
+### P6. Context Injection Rules
+Used by pipelines during the "build AI request" or "map placeholders" steps to merge dynamic workbook data into templates.
+
+
+Rules for the AI Coder:
+- All dynamic placeholders in prompt templates or document templates must use the double curly brace syntax: `{{VARIABLE_NAME}}`.
+- The engine must parse the assigned schema or source tab and replace placeholders before executing the LLM call or document export.
+
+
+Examples of standardized injection points based on tool configuration:
+- `{{ASSIGNMENT_CONTEXT}}`: Concatenated string of the Client Context variables.
+- `{{NOTES_CONTENT}}`: Raw data or notes retrieved from a specified source tab.
+- `{{SYNTHESIS_TEMPLATE}}`: The structural body of a framework retrieved from the config.
+- `{{PLAYER}}` / `{{QUESTION}}`: Specific iterative variables used during Benchmark or Data Insights execution loops.
+
+
+---
+
+
+## 9. MENU MODEL
+
+
+**Menu title**
+`👔 AI Consultant`
+
+
+**Menu rule**
+Menu items must be generated from the action registry.
+
+
+Rule:
+- UI labels are display strings only
+- runtime logic must resolve by `action_id`
+- the menu table below is the MVP starter set, not a hardcoded limit
+
+
+***MVP starter menu**
+
+
+| action_id | Menu item | action_type | Functional action |
+|---|---|---|---|
+| proposal_generate | Proposal > Generate | tool_generate | Generate or update Proposal tabs |
+| proposal_export | Proposal > Export | tool_export_doc_or_slide_or_sheets | Export Proposal to Google Doc or Google Slide |
+| proposal_prompts | Proposal > Prompts | tool_reference | Show Proposal-related prompt assets |
+| interview_structure_one | Interview > Structure One | tool_generate | Structure one interview workflow |
+| interview_analyze_all | Interview > Analyze All | tool_analyze | Run synthesis across interview data |
+| benchmark_search | Data Insights > Benchmark Search | tool_generate | Run benchmark search workflow |
+| benchmark_structure | Data Insights > Benchmark Structure | tool_generate | Structure benchmark results |
+| market_research_generate | Data Insights > Market Research | tool_generate | Generate market research tabs |
+| final_deliverable_generate | Final Deliverable > Generate | tool_export_doc_or_slide_or_sheets | Generate final deliverable from selected inputs |
+| config_api_settings | Configuration > API Settings | config | Manage provider selection and API keys |
+| system_initialize_workbook | Configuration > Initialize Workbook | system | Create missing bootstrap sheets and validate config |
+
+
+Note:
+- `tool_export_doc_or_slide_or_sheets` is a UI shorthand only
+- in registry data, export actions must resolve to explicit action types
+
+
+---
+
+
+## 10. TOOL CATALOG
+
+
+Each tool definition must include:
+- `tool_id`
+- `label`
+- `category`
+- `supported_actions`
+- `default_sheet_schema_refs`
+- `dependency_refs`
+- `ai_capabilities`
+- `default_export_targets`
+
+
+### T1. Proposal
+Purpose:
+Generate a commercial proposal package for a client assignment.
+
+
+Default outputs:
+- Client
+- Framework
+- PMO
+
+
+Supported actions:
+- generate
+- export_doc
+- export_slide
+- reference
+
+
+### T2. Framework
+Purpose:
+Generate or refine assignment methodology and deliverables.
+
+
+Default outputs:
+- Framework
+
+
+Supported actions:
+- generate
+- analyze
+- export_doc
+- export_slide
+
+
+### T3. PMO
+Purpose:
+Generate project management structure for the assignment.
+
+
+Default outputs:
+- Project Plan
+- Tasks
+- Dashboard
+- Risks
+- Report
+
+
+Supported actions:
+- generate
+- analyze
+- export_doc
+- export_slide
+
+
+### T4. Interview
+Purpose:
+Structure interview guides, consolidate interview responses, and generate interview analysis.
+
+
+Default outputs:
+- Questionnaire
+- Answers
+- Dashboard
+
+
+Supported actions:
+- generate
+- export_form
+- analyze
+
+
+### T5. Strategy
+Purpose:
+Collect structured answers and generate strategy analysis.
+
+
+Default outputs:
+- Questionnaire
+- Dashboard
+
+
+Supported actions:
+- generate
+- analyze
+- export_form
+
+
+### T6. Benchmark
+Purpose:
+Support market/player benchmarking with AI search and analysis.
+
+
+Default outputs:
+- Players
+- Dashboard
+
+
+Supported actions:
+- generate
+- analyze
+- export_slide
+
+
+### T7. Market Research
+Purpose:
+Aggregate research inputs and generate synthesized analysis.
+
+
+Default outputs:
+- Research
+- Dashboard
+
+
+Supported actions:
+- generate
+- analyze
+- export_slide
+
+
+### T8. Portfolio
+Purpose:
+Support portfolio assessment and analysis.
+
+
+Default outputs:
+- Portfolio
+- Dashboard
+
+
+Supported actions:
+- generate
+- analyze
+- export_form
+
+
+### T9. Operating Model
+Purpose:
+Structure and analyze target operating model inputs.
+
+
+Default outputs:
+- Model
+- Dashboard
+
+
+Supported actions:
+- generate
+- analyze
+- export_form
+- export_doc
+- export_slide
+
+
+### T10. Organisation
+Purpose:
+Support organization design outputs.
+
+
+Default outputs:
+- Org Chart
+- RACI
+- Dashboard
+
+
+Supported actions:
+- generate
+- analyze
+- export_form
+
+
+### T11. Process Skill Tool
+Purpose:
+Analyze processes, skills, and tools.
+
+
+Default outputs:
+- Process
+- Dashboard
+
+
+Supported actions:
+- generate
+- analyze
+- export_form
+
+
+Optional feature:
+- Mermaid-compatible structured output
+
+
+### T12. Engagement
+Purpose:
+Run engagement-related questionnaire and analysis.
+
+
+Default outputs:
+- Questionnaire
+- Dashboard
+
+
+Supported actions:
+- generate
+- analyze
+- export_form
+
+
+### T13. Change Management
+Purpose:
+Support change management assessment and analysis.
+
+
+Default outputs:
+- Change
+- Dashboard
+- Impact Study
+
+
+Supported actions:
+- generate
+- analyze
+
+
+### T14. Product Design
+Purpose:
+Support product discovery and design framing.
+
+
+Default outputs:
+- User Story
+- Specification
+- Opportunity Study
+- Validation Questions
+
+
+Supported actions:
+- generate
+- analyze
+- export_doc
+- export_slide
+
+
+### T15. Criteria Analysis
+Purpose:
+Run criteria-based evaluation and analysis.
+
+
+Default outputs:
+- Config
+- Answers
+- Dashboard
+
+
+Supported actions:
+- generate
+- analyze
+- export_doc
+- export_slide
+
+
+### T16. Prompt Library
+Purpose:
+Store and expose reusable prompt assets by topic.
+
+
+Default outputs:
+- Prompt Library
+
+
+Supported actions:
+- reference
+
+
+### T17. Final Deliverable
+Purpose:
+Assemble final output artifacts from selected tool outputs and export templates.
+
+
+Default outputs:
+- none required in Sheets
+- export artifact metadata optional
+
+
+Supported actions:
+- export_doc
+- export_slide
+
+
+---
+
+
+## 11. TOOL DEPENDENCY RULES
+
+
+Dependencies must be declared in configuration, not inferred ad hoc.
+
+
+Examples:
+- Proposal may generate inputs reused by Framework and PMO
+- Framework may run independently or from Proposal context
+- PMO may run independently or from Proposal + Framework context
+- Final Deliverable may consume outputs from Proposal, PMO, Benchmark, Market Research, or Product Design
+
+
+---
+
+
+## 12. CONFIGURATION REGISTRIES
+
+
+### Registry source-of-truth rules
+
+
+| Registry | Source of truth | Notes |
+|---|---|---|
+| action_registry | `config.js` | Authoritative in MVP. Stored as a single JS object. |
+| dialog_registry | `config.js` | Authoritative in MVP. Stored as a single JS object. |
+| tool_registry | `config.js` | Authoritative in MVP. Stored as a single JS object. |
+| provider_registry | `config.js` | Authoritative in MVP. Stored as a single JS object. |
+| sheet_schema_registry | `config.js` | Authoritative in MVP. Stored as a single JS object. |
+| template_registry | `config.js` default + sheet | Users can override in `template_registry` sheet. |
+| datalists | sheet | User-editable. Used for dropdowns and validations. |
+| client_context | sheet | User-editable. Reusable assignment context. |
+| provider_settings | sheet metadata | Secure storage. Keys not visible in cells. |
+
+
+**The Config.js File Contract**
+
+
+Purpose:
+To completely decouple business configuration from execution logic, allowing AI-assisted generation without risking engine stability.
+
+
+Rules:
+- All authoritative registries (`action_registry`, `dialog_registry`, `tool_registry`, `provider_registry`, `sheet_schema_registry`) must be consolidated into a single, dedicated Apps Script file named `config.js`.
+- This file must contain **zero execution logic**, no functions, and no method calls.
+- It must consist entirely of standard JavaScript object literals (JSON-like structure) assigned to global `const` variables.
+- The W1 Initialization module and all Execution Pipelines must strictly read from these global constants.
+
+
+---
+
+
+### R1. Action registry
+Purpose:
+Map each menu action to one tool, one action type, and one pipeline.
+
+
+Each action definition must include:
+- `action_id`
+- `tool_id`
+- `action_type`
+- `dialog_id_optional`
+- `pipeline_id`
+- `target_entity_refs`
+- `export_type_optional`
+- `is_enabled`
+
+
+---
+
+
+### R2. Dialog registry
+Purpose:
+Define each dialog schema.
+
+
+Each dialog definition must include:
+- `dialog_id`
+- `title`
+- `field_defs[]`
+- `validation_rules[]`
+- `submit_label`
+- `pipeline_id`
+- `action_id`
+
+
+---
+
+
+### R3. Tool registry
+Purpose:
+Define each business tool.
+
+
+Each tool definition must include:
+- `tool_id`
+- `label`
+- `category`
+- `supported_actions`
+- `default_sheet_schema_refs`
+- `dependency_refs`
+- `ai_capabilities`
+- `default_export_targets`
+
+
+---
+
+
+### R4. Sheet schema registry
+Purpose:
+Define runtime tab structures.
+
+
+Each sheet schema definition must include:
+- `sheet_schema_id`
+- `tool_id`
+- `sheet_name`
+- `field_definitions[]`
+- `layout_type_optional`
+- `is_user_extendable`
+
+
+---
+
+
+### R5. Template registry
+Purpose:
+Map exportable tools to templates.
+
+
+Each template definition must include:
+- `template_id`
+- `tool_id`
+- `export_type`
+- `template_source_type`
+- `template_source_id`
+- `placeholder_mapping_ref`
+- `is_active`
+
+
+Allowed `template_source_type` values:
+- `gdoc`
+- `gslide`
+- `gform`
+- `internal`
+
+
+---
+
+
+### R6. Provider registry
+Purpose:
+Declare supported providers and model metadata.
+
+
+Each provider definition must include:
+- `provider_id`
+- `provider_name`
+- `supported_models`
+- `capabilities`
+- `key_storage_mode`
+
+
+Supported providers:
+- OpenAI
+- Google Gemini
+- Anthropic Claude
+- Perplexity
+- Manus
+- Mistral (optional extension)
+
+
+---
+
+
+### R7. Bootstrap sheet registry
+Purpose:
+Define required bootstrap sheets created or verified during workbook initialization.
+
+
+Required bootstrap sheets:
+- `user_profile`
+- `datalists`
+- `provider_settings`
+- `client_context`
+- `template_registry` optional visible mirror
+- `tool_registry` optional visible mirror
+
+
+### R8. Registry Interfaces (TypeScript Reference)
+Purpose:
+Provide strict data contracts for the AI to follow when structuring `config.js` and registry parsers.
+
+
+```typescript
+interface ActionDef {
+  action_id: string;
+  tool_id: string;
+  action_type: 'tool_generate' | 'tool_analyze' | 'tool_export_doc' | 'tool_export_slide' | 'tool_export_sheets' | 'tool_export_form' | 'tool_reference' | 'config' | 'system';
+  dialog_id_optional?: string;
+  pipeline_id: string;
+  target_entity_refs: string[];
+  export_type_optional?: string;
+  is_enabled: boolean;
+}
+
+
+interface DialogDef {
+  dialog_id: string;
+  title: string;
+  field_defs: {
+    field_id: string;
+    field_label: string;
+    field_type: 'text' | 'textarea' | 'number' | 'single_select' | 'multi_select' | 'boolean';
+    is_required: boolean;
+    options_source?: string;
+  }[];
+  validation_rules: string[];
+  submit_label: string;
+  pipeline_id: string;
+  action_id: string;
+}
+
+
+interface ToolDef {
+  tool_id: string;
+  label: string;
+  category: string;
+  supported_actions: string[];
+  default_sheet_schema_refs: string[];
+  dependency_refs: string[];
+  ai_capabilities: string[];
+  default_export_targets: string[];
+}
+
+
+
+
+---
+
+
+## 13. BOOTSTRAP SHEETS
+
+
+### `user_profile`
+Purpose:
+Store user-level preferences and reusable profile data.
+
+
+Minimum fields:
+- `first_name`
+- `last_name`
+- `country`
+- `city`
+- `birth_date`
+- `specialty_sector`
+- `specialty_consulting`
+
+
+### `datalists`
+Purpose:
+Store selector values used by dialogs and validations.
+
+
+Examples:
+- boolean values
+- ranking values
+- qualitative scales
+- country list
+- sectors
+- consulting specialties
+
+
+### `provider_settings`
+Purpose:
+Store selected API providers and model metadata only.
+
+
+Rule:
+- API keys must not be stored in visible cells
+
+
+### `client_context`
+Purpose:
+Store reusable assignment/client context.
+
+
+Example fields:
+- `client_name`
+- `sector`
+- `country`
+- `client_request`
+- `timeframe`
+- `notes_optional`
+
+
+### `template_registry`
+Purpose:
+Optional user-visible mirror of active export templates.
+
+
+### `tool_registry`
+Purpose:
+Optional user-visible mirror of enabled tools and actions.
+
+
+---
+
+
+## 14. PROVIDER RULES
+
+
+**Provider selection**
+Provider selection is:
+- global by default at workbook level
+- optionally overridable per action in later versions
+- not per-task configurable in MVP unless explicitly enabled by code config
+
+
+**API key storage**
+API keys must be stored in Script Properties (`PropertiesService.getScriptProperties()`) using standard naming conventions (e.g., `API_KEY_OPENAI`, `API_KEY_GEMINI`).
+Do not:
+- store API keys in visible sheet cells
+- duplicate API keys across tabs
+- expose full keys in dialogs after save (UI must display partially hidden pre-filled values, e.g., `sk-...xxx`)
+If a required key is missing when an action triggers, the script must throw an explicit error prompting the user to update their API Settings.
+
+
+**Provider Adapter Interface**
+To ensure reusable execution pipelines, all provider implementations (OpenAI, Google, Anthropic, Mistral, Perplexity) must implement a standardized adapter interface.
+
+
+**Required Normalization:**
+
+
+- **Input:** Pipelines must pass a unified `AIRequest` object to the provider adapter containing:
+  - `system_prompt` (string)
+  - `user_prompt` (string)
+  - `temperature_optional` (number)
+  - `response_format_optional` (enum: text, json_object)
+  - `use_grounding_optional` (boolean) // Required for web search/benchmarking capabilities
+
+
+- **Output:** The provider adapter must return a unified `AIResponse` object to the pipeline containing:
+  - `content` (string or parsed JSON object)
+  - `usage_metrics` (tokens used)
+  - `status` (success | error)
+
+
+---
+
+
+## 15. FORM WORKFLOW RULES
+
+
+Used by Interview and other questionnaire-type tools.
+
+
+Steps:
+1. generate questionnaire structure in Sheets
+2. allow optional user edits in Sheets
+3. export to Google Form
+4. collect responses into linked sheet structures
+5. trigger AI analysis
+6. write analysis outputs to result tabs
+
+
+Rule:
+- Sheets remain the editable design source before export
+- no reverse sync from Form structure back into schema config is required
+
+
+---
+
+
+## 16. EXAMPLE TOOL FLOWS
+
+
+### Example with multi tabs output — "Proposal"
+
+
+**Input fields**
+- `client_name`
+- `sector`
+- `country`
+- `client_request`
+- `timeframe`
+- `framework_selection`
+- `attachment_reference_optional`
+- `man_day_price`
+
+
+**Process**
+1. load Proposal-related configs
+2. load selected Framework config
+3. build AI request
+4. call selected provider
+5. create or update:
+   - Client
+   - Framework
+   - PMO
+
+
+**Output**
+Customized tabs for the assignment.
+
+
+---
+
+
+### Example with form generation — "Interview"
+
+
+**Process**
+1. user selects interview action
+2. dialog collects context inputs
+3. script generates questionnaire tabs
+4. user may edit questions in Sheets
+5. user exports questionnaire to Google Form
+6. respondents answer
+7. responses are stored in Sheets
+8. user triggers AI analysis
+9. script writes:
+   - response analysis
+   - summary dashboard
+   - optional note synthesis
+
+
+
+
+### Example with web search — "Benchmarking”
+
+
+**Input fields (from Source Tabs)**
+- `players_list`
+- `questions_list`
+
+
+**Process 1 — Search (action: `tool_generate` / `benchmark_search`)**
+1. user triggers search action
+2. pipeline calculates total calls (Players × Questions)
+3. if total > 50, script triggers UI confirmation warning
+4. for each combination, build AI request with `use_grounding: true`
+5. call selected provider (e.g., Google with Search enabled)
+6. append results sequentially into the target notes tab using `append` mode, inserting standard separators between entries
+
+
+**Process 2 — Structure (action: `tool_analyze` / `benchmark_structure`)**
+1. user triggers structure action
+2. pipeline reads the entire aggregated notes tab (including any manual user notes)
+3. build AI request with structuring prompt and loaded data
+4. call selected provider
+5. write to target dashboard tab using `overwrite` mode
+
+
+---
+
+
+## 17. SCALABILITY MODEL
+
+
+**Goal**
+- Allow developers to add new tools, dialogs, tabs, and templates with minimal code changes.
+- Allow users to extend selected configuration areas safely, without editing core code.
+
+
+**Design rule**
+Scalability must come from:
+- stable core engine
+- declarative registries
+- validated user extensions
+
+
+Not from:
+- spreadsheet formula tricks
+- free-form JSON inside cells
+- arbitrary user-entered formulas
+- named-range-first architecture
+
+
+---
+
+
+## 18. SCALABILITY RULES
+
+
+### SC-1. Stable core engine
+Core modules:
+- menu builder
+- dialog renderer
+- input validator
+- pipeline executor
+- provider adapter
+- sheet writer
+- export adapter
+- config validator
+
+
+
+
+### SC-2. Registry-driven extensibility
+New tools must be added primarily through registry entries, not through custom branching in core code. 
+
+
+**Adding new tool, action, or dialog :** 
+Append the JSON object to the respective constant in the `config.js` ->  Core engine (`pipeline executor`, `dialog renderer`, etc.) dynamically adapt without logic updates.
+
+
+
+
+### SC-3. Controlled user extensibility
+In MVP, users may extend only selected config areas:
+- `datalists`
+- template mappings where overrides are allowed
+- selected sheet/tab definitions only if explicitly enabled
+
+
+Users must not alter:
+- execution engine behavior
+- provider adapters
+- security logic
+- unrestricted formulas
+
+
+### SC-4. Validation timing
+Validation must occur:
+- on workbook initialization for critical registries
+- before execution of any action using user-editable config
+- when saving config changes through product UI, if such UI exists
+
+
+### SC-5. Validation rules
+Validation must check:
+- required columns present
+- unique IDs
+- allowed enums
+- valid references
+- valid template source types
+- valid formula preset references
+- no forbidden values in user-editable config
+
+
+If validation fails:
+- stop only the impacted action when possible
+- return explicit user-readable error
+
+
+### SC-6. Formula model
+Do not allow arbitrary formulas as core configuration.
+
+
+Supported modes:
+1. `formula_preset_id`
+2. `literal_formula` for developer-managed config only
+
+
+Preferred MVP mode:
+- `formula_preset_id`
+
+
+Example preset types:
+- `concat_name`
+- `completion_ratio`
+- `weighted_score`
+- `date_diff_days`
+
+
+### SC-7. Field addressing model
+Do not use one named range per field as the primary architecture.
+
+
+Preferred model:
+- registry-driven field IDs
+- script-managed column mapping
+- optional named ranges only for a limited number of stable anchors
+
+
+### SC-8. Separation of concerns
+Keep separate:
+1. bootstrap/config sheets
+2. runtime working tabs
+3. export templates
+4. provider settings
+5. user business data
+
+
+### SC-9. Standardized File Architecture 
+**Goal:** 
+Prevent the AI from combining separate concerns into a single file and ensure the "stable core engine" rule is physically represented in the codebase. 
+
+
+**Required File Tree:** 
+- `config.gs` (Contains ONLY the config.js constant objects) 
+- `main.gs` (Contains entry points, triggers, and menu builders) 
+- `core/orchestrator.gs` (Action resolution and routing) 
+- `core/pipelines.gs` (Execution pipelines P1 to P4) 
+- `core/validators.gs` (Config and input validation) 
+- `ui/dialogs.gs` (HTML rendering and dialog definitions) 
+- `ui/html/` (Folder for raw .html dialog templates) 
+- `providers/adapter.gs` (Normalized LLM interface) 
+- `providers/openai.gs` (OpenAI specific logic) 
+- `providers/google.gs` (Google specific logic) 
+- `utils/sheets.gs` (Sheet read/write wrappers) 
+
+
+---
+
+
+## 19. USER-EDITABLE SHEET SCHEMA EXTENSION
+
+
+**Status**
+Optional post-MVP extension unless explicitly enabled for MVP.
+
+
+**Recommended approach**
+If user-extensible tab definitions are enabled, use a structured config sheet named `_sheet_definitions`.
+
+
+Rule:
+- row-based structure only
+- no JSON-in-formula approach
+
+
+**`_sheet_definitions` columns**
+
+
+| Column | Required | Description |
+|---|---|---|
+| `sheet_schema_id` | yes | Unique schema ID |
+| `tool_id` | yes | Owning tool |
+| `sheet_name` | yes | Sheet/tab display name |
+| `field_id` | yes | Unique field ID within the sheet schema |
+| `field_label` | yes | Visible label |
+| `field_type` | yes | Allowed type enum |
+| `field_order` | yes | Integer display order |
+| `is_required` | yes | TRUE/FALSE |
+| `options_source` | no | Source for selector values |
+| `formula_preset_id` | no | Allowed preset formula ID |
+| `help_text` | no | Field help text |
+| `is_active` | yes | TRUE/FALSE |
+
+
+**Allowed `field_type` values**
+- `text`
+- `textarea`
+- `number`
+- `currency`
+- `date`
+- `boolean`
+- `single_select`
+- `multi_select`
+- `formula`
+- `rich_text_optional`
+
+
+Rule:
+- `field_type` must match an allowed enum
+- `options_source` must reference a valid datalist or registry entry
+- `formula_preset_id` must reference a valid preset registry entry
+
+
+—
+
+
+## 20. MARKDOWN TO DOCS CONVERSION
+
+
+**Context**
+Used primarily by the Document export pipeline during the `tool_export_doc` action to format LLM-generated content natively within a Google Doc template.
+
+
+**Mapping Rules**
+The conversion logic must strictly adhere to the following mapping using Apps Script `DocumentApp` methods:
+
+
+| Markdown | Google Docs |
+|---|---|
+| `# Title` | Paragraph with `TITLE` style |
+| `## Title` | Paragraph with `HEADING1` style |
+| `### Title` | Paragraph in `HEADING2` style |
+| `**text**` | `setBold(true)` on the text segment |
+| `*text*` or `_text_` | `setItalic(true)` on the text segment |
+| `1. element` | Native numbered list (`ListPreset.NUMBER`) |
+| `- item` or `* item` | Native bulleted list (`ListPreset.BULLET`) |
+| `  - sub-element` (2 spaces indentation) | Nested bulleted list (max 1 level depth) |
+| Markdown table | Native Google Docs table |
+| Plain text | `NORMAL` style paragraph |
+
+
+**Constraints (MVP Scope)**
+- **Out of scope:** Images, clickable links, code blocks, nested lists > 1 level, strikethrough, footnotes. 
+- **Fallback:** Unrecognized Markdown syntax must be inserted as literal plain text.
+- **Inline Combinations:** Bold and italics may appear within lists and table cells. The converter must treat them as inline formatting regardless of the block context.
+
+
+—
+
+
+## 22. DEFAULT LANGUAGE
+
+
+**Internal defaults**
+- tool configuration: English
+- prompt templates: English
+
+
+**Future extensibility**
+Language support must be configurable later without redesigning the core architecture.
+
+
+—
+
+
+## 23. MVP RISKS AND MITIGATIONS
+
+
+**Objective**
+Identify and mitigate technical and workflow risks specific to Google Apps Script and LLM orchestration to guide the coding implementation.
+
+
+| Risk | Probability | Impact | Mitigation |
+|---|---|---|---|
+| 60-second timeout on LLM (long synthesis, data insights) | Medium | Workflow fails | - Implement execution monitoring.<br>- Breakdown tasks into sub-calls for MVP where possible. |
+| `UrlFetchApp` quota (N×M data insights) | Low | Day-long blockage | - Implement a hard stop if > 50 calls.<br>- Ask user to reduce the number of questions or players before restarting. |
+| Missing template | Low | Crash | - Require template verification upfront before pipeline execution.<br>- Return clear error messages. |
+| Overwrites previous output | By design | Loss of previous version | - Include a clear confirmation message before execution.<br>- Rely on Google Sheets version history for recovery. |
+| Grounding not supported by the provider configured | Low | Search without web sources | - Throw explicit error on API call failure.<br>- Inform the user they must choose a compatible provider (e.g., Gemini, Perplexity) for web-dependent actions. |
+
+
+===
+
+
+## APPENDIX - FUTURE VERSIONS
+
+
+## V2 SCOPE — DO NOT CODE -> PLAN AHEAD:
+```
+| V2 Element | MVP Constraint | |
+|---|---| |
+| Bound script -> Add-on Marketplace | ● `getActiveDocument()` OK. ● No hard-coded IDs. ● `checkLicense()` stub. |
+| Licensing | ● Out of scope -> No licence code in MVP. |
+| Reusable `callLLM()` | ● Decoupled from orchestration. ● No business logic in `llmService.gs`. |
+| GSlides creation | |
+| Interview eMail | Anticipate creation of a customized template eMail to invite interviewees > send the eMail (from the tab of interviewees) |
+```
+
+
+### ABOUT GOOGLE SLIDES GENERATION
+**Objective** Enable users to select text in Google Slides and generate **editable business visuals** (flows, matrices, charts).
+**Approach**
+- Build a **Google Slides add-on (Apps Script)** reading selected text
+- User chooses a **template type** (e.g., flow, 2x2, timeline, org chart, chart)
+- LLM converts text → **strict JSON schema** matching the template
+- Validate schema (constraints: steps count, structure, labels)
+- Renderer maps schema → **native Slides objects** (shapes, connectors, tables, Sheets charts)
+- Insert and **group elements** on the current slide
+- Ensure **editability** (no images)
+- Support **regenerate / switch template** from same input
+- MVP scope: 4–6 templates, single text box, simple layouts
+- V2: style options, multi-block parsing, auto template suggestion
+
+
+—
+END OF SPECIFICATION
+---
